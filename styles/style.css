@@ -3,7 +3,7 @@
 :root{
     --greenLigth: #1fab89;
     --darkGray: #121212;
-    --ligthGray:rgb(85, 85, 85);
+    --ligthGray:#555555;
     --white: #ffffff;
     --fontPattern: 'Fira Sans', sans-serif;
 }
@@ -159,12 +159,12 @@ nav {
 
 #photo{
   border-radius: 50%;
-  width: 80%;
+  width: 60%;
 }
 
 #techs, #sobre, #projects, #contact{
   display: flex;
-  height: 50vh;
+  min-height: 50vh;
   width: 100%;
   flex-direction: column;
   padding: 5% 10%;
@@ -173,23 +173,27 @@ nav {
 #techs{
   background-color: var(--white);
   text-align: center;
+  gap: 40px;
+}
+
+.techs, .studing, .tools{
 }
 
 h1{
   font-size: 4rem;
   color: var(--darkGray);
+  text-transform: uppercase;
 }
 
 h4{
   font-size: 1.5rem;
-  padding-top: 10px;
   color: var(--darkGray);
   text-align: center;
   color: var(--ligthGray);
 }
 
-#icons{
-  justify-content: center;
+.icons{
+  padding-top: 20px;
   display: flex;
   width: 100%;
   justify-content: space-evenly;
@@ -201,10 +205,10 @@ h4{
   width: 90px;
 }
 
-.icon{
-  color: var(--darkGray);
-  height: 90px;
-  width: 90px;
+.icon:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: .5s;
 }
 
 /* Background Animated */
