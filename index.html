@@ -22,15 +22,11 @@
                 <a href="#contact">Contact</a>
             </ul>
         </nav>
-
-        
     </header>
 
     <main>
-
         <section id="sobre">
             <div class="background">
-
                     <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
                         <defs>
                             <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
@@ -42,32 +38,46 @@
                             <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
                         </g>
                     </svg>
-
             </div>
 
-            <div class="infos">
+            <div id="infos">
                 <div id="text">
                     <h2>OLÁ, EU SOU</h2>
-                    <div class="animation">
+                    <div class="animationArea">
                         <h1 class="textMain" ></h1><span id="line">|</span>
                     </div>
                     <h2>DESENVOLVEDOR FRONT-END</h2>
-                </div>
-
-                <div class="profileAndMedias" >
-
-                    <img id="photo" src="images/profile.png" alt="Ilustração representando um desenvolvedor sentada na cadeira mexendo no computador.">
-
                     <div id="buttons">
-                        <button id="github">Github</button>
-                        <button id="linkedin">Linkedin</button>
+                        <a href="https://github.com/gabrielwaltmann" target="_blank">
+                            <button id="github">
+                                <ion-icon name="logo-github"></ion-icon>
+                                Github                           
+                            </button>
+                        </a>
+                        <a href="https://www.linkedin.com/in/gabrielwaltmann/" target="_blank">
+                            <button id="linkedin">
+                                <ion-icon name="logo-linkedin"></ion-icon>
+                                Linkedin
+                            </button>
+                        </a>
+                        
                     </div>
+                </div>
+                <div id="profile" >
+                    <img id="photo" src="images/profile.png" alt="Ilustração representando um desenvolvedor sentada na cadeira mexendo no computador.">
                 </div>
             </div>
         </section>
 
         <section id="techs">
-
+            <h1>Techs</h1>
+            <h4>Algumas technologias que eu utilizo no meu dia a dia</h4>
+            <div id="icons">
+                <ion-icon class="icon" name="logo-github"></ion-icon>
+                <ion-icon class="icon" name="logo-html5"></ion-icon>
+                <ion-icon class="icon" name="logo-css3"></ion-icon>
+                <ion-icon class="icon" name="logo-javascript"></ion-icon>
+            </div>
         </section>
         
         <section id="projects">

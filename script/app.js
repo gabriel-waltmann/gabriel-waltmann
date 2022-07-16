@@ -2,31 +2,24 @@
 window.onload = () =>{
     const textMain = document.querySelector('.textMain')
 
-    const name = "GabrielﾠWaltmann"
+    const name = "Gabriel_Waltmann"
 
     const numberOfLetters = name.length
 
     let currentLetter = 0
 
     setInterval(() => {
-        if(currentLetter < numberOfLetters){
-            textMain.innerText += name[currentLetter]
-            currentLetter++
-        }
-
-        /* if(currentLetter < numberOfLetters){
-            if(textMain.innerText[textMain.length] == "|"){
-                console.log("textMain.innerText[currentLetter-1]")
-            }else{
-                console.log("textMain.innerText[currentLetter-1]")
-            }
-            console.log(textMain.innerText[currentLetter-1])
-            textMain.innerText += `${name[currentLetter]}` 
-            currentLetter++
-
-        }else{
-            clearInterval() 
-        } */
+        document.querySelector("#line").classList.toggle('notVisible');
     }, 300);
+    setTimeout(() => {
+        setInterval(() => {
+            if(currentLetter < numberOfLetters){
+                textMain.innerText += name[currentLetter]
+                currentLetter++
+            }
+    
+        }, 300);
+    }, 1500);
+    
 
 }
