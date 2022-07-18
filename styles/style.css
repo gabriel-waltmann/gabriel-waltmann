@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap');
 
 :root{
-    --greenLigth: #1fab89;
+    --greenLigth: rgb(31, 171, 137);
     --darkGray: #121212;
     --ligthGray:#555555;
     --white: #ffffff;
@@ -95,10 +95,9 @@ nav {
   width: 60%;
   height: 50%;
   gap: 20px;
-  display: grid;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10%;
 }
 
 #profile{
@@ -106,13 +105,13 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  display: flex;
   flex-direction: column;
 }
 
 .animationArea{
   display: flex;
   width: 100%;
+  align-items: center;
 }
 
 #line{
@@ -124,6 +123,10 @@ nav {
   color: var(--greenLigth);
 }
 
+.textMain{
+  font-size: 3rem;
+}
+
 #buttons{
   display: flex;
   gap: 10%;
@@ -133,7 +136,7 @@ nav {
 }
 
 #buttons a{
-  width: 40%;
+  width: 30%;
   height: 40px;
 }
 
@@ -159,29 +162,40 @@ nav {
 
 #photo{
   border-radius: 50%;
-  width: 60%;
+  width: 50%;
+  box-shadow: #6c6c6c85 0px 0px 8px 0px;
 }
 
-#techs, #sobre, #projects, #contact{
+#techs, #sobre, #projects, #contact, #projetos{
   display: flex;
   min-height: 50vh;
   width: 100%;
+  color: var(--white);
   flex-direction: column;
   padding: 5% 10%;
+  align-items: center;
 }
 
 #techs{
   background-color: var(--white);
   text-align: center;
-  gap: 40px;
+  gap: 2vh;
+}
+
+#techs h1{
+  color: var(--darkGray);
 }
 
 .techs, .studing, .tools{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-h1{
-  font-size: 4rem;
-  color: var(--darkGray);
+ h1{
+  font-size: 3rem;
+  color: var(--white);
   text-transform: uppercase;
 }
 
@@ -193,42 +207,125 @@ h4{
 }
 
 .icons{
-  padding-top: 20px;
   display: flex;
   width: 100%;
-  justify-content: space-evenly;
+  gap: 1%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.icons a{
+  width: 25%;
 }
 
 .icon{
   color: var(--darkGray);
   height: 90px;
   width: 90px;
+  transition: .4s;
+  animation-timing-function: ease;
 }
-
 .icon:hover{
   transform: scale(1.1);
   cursor: pointer;
-  transition: .5s;
 }
 
+#projects{
+  display: grid;
+  grid-template-columns: auto auto ;
+  grid-gap: 2vh;
+}
+
+#projects h1{
+  text-align: center;
+  grid-column: 1 / span 2;
+}
+
+.project{
+  padding: 10% 5%;
+  background-color: var(--white);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 15px;
+}
+
+.project h3{
+  font-size: 1.5rem;
+  color: var(--darkGray);
+}
+
+.project p{
+  color: var(--darkGray);
+  font-size: 1rem;
+  text-align: justify;
+  width: 80%;
+}
+
+.project img{
+  box-shadow: #0000003d 0px 3px 8px 4px;
+  height: 180px;
+  width: 80%;
+}
+.project .buttons{
+  height: 35px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.project a{
+  box-shadow: #00000030 0px 10px 20px, #0000003b 0px 6px 6px;
+  height: 100%;
+  width: 40%;
+}
+
+.project button{
+  background-color: #00000000;
+  border: 2px solid var(--greenLigth);
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--darkGray);
+  height: 100%;
+  transition: .4s;
+  animation-timing-function: ease;
+}
+
+.project button:hover{
+  transform: scale(1.05);
+  cursor: pointer;
+  background-color: #ffffff;
+  text-decoration: underline;
+}
+
+.project ion-icon{
+  color: var(--darkGray);
+  height: 100%;
+  width: 40%;
+}
+
+
 /* Background Animated */
+
+
 .background {
   position: absolute;
   text-align:center;
-  color:white;
   display: flex;
   width: 100%;
   height: 100%;
   flex-direction: column-reverse;
 }
 
-.logo {
-  width:50px;
-  fill:white;
-  padding-right:15px;
-  display:inline-block;
-  vertical-align: middle;
+#techs .background{
+  background-color: var(--white);
 }
+
+
 
 .inner-header {
   height:65vh;
