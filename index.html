@@ -127,6 +127,20 @@
         </section>
         
         <section id="projects">
+            <div class="background">
+                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                    <defs>
+                        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                    </defs>
+                    <g class="parallax">
+                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                    </g>
+                </svg>
+            </div>
+
             <h1>Projects</h1>
             <div class="project">
                 <img src="images/projects/to-do-list.png" alt="Site de lista de tarefas contendo botões de remover, adicionar e sair da conta">
@@ -212,11 +226,19 @@
                     </a>
                 </div>
             </div>
-
+            <a id="seeMore" target="_blank" href="https://github.com/GabrielWaltmann?tab=repositories">
+                <button >Veja mais</button>
+            </a>
         </section>
         
         <section id="contact">
-
+            <h1>Entre em contato</h1>
+            <form action="https://formsubmit.co/gabrielwaltmann@gmail.com" method="POST">
+                <input type="hidden" name="_next" value="http://127.0.0.1:5500/thanks.html">
+                <input type="text" name="name" required>
+                <input type="email" name="email" required>
+                <button type="submit" target="_blank">Send</button>
+           </form>
         </section>
 
     </main>
