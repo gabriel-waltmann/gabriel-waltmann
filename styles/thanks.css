@@ -38,6 +38,7 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 }
 
 a{
@@ -52,5 +53,12 @@ button{
     display: flex;
     height: 100%;
     align-items: center;
-    
+    border: 2px solid var(--greenLigth);
+    transition: .6s;
+    background-color: #00000000;
+}
+
+button:hover{
+  cursor: pointer;
+  transform: scale(1.05);
 }
