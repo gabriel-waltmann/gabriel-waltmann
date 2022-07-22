@@ -626,7 +626,7 @@ footer{
     position: absolute;
     top: 60px;
     background-color: var(--darkGray);
-    width: 30vw;
+    width: 50vw;
     transition: transform .4s ease-in;
     transform: translateX(100%);
   }
