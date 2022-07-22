@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap');
-
 :root{
     --greenLigth: rgb(31, 171, 137);
     --darkGray: #121212;
@@ -38,7 +37,6 @@ html{
 }
 
 /* Header */
-
 header{
   z-index: 2;
   background-color: var(--darkGray);
@@ -50,7 +48,6 @@ header{
   border-bottom: 2px solid #00000057;
   padding: 0 5vw;
   justify-content: space-between;
-
 }
 
 nav {
