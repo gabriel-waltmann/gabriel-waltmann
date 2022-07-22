@@ -10,11 +10,18 @@
 </head>
 <body>
     <header>
-        <nav>
-            <a target="_blank" href="#sobre">
-                <ion-icon name="code-slash-outline" class="logo"alt="logo"></ion-icon>
-            </a>
+        <a target="_blank" href="#sobre">
+            <ion-icon name="code-slash-outline" class="logo"alt="logo"></ion-icon>
+        </a>
 
+        <nav class="">
+            
+            <div id="mobileMenu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            
             <ul class="menu">
                 <a href="#sobre">Sobre</a>
                 <a href="#techs">Techs</a>
@@ -126,7 +133,7 @@
             </div>
         </section>
         
-        <section id="projects">
+        <section id="projects" data-anime>
             <div class="background">
                 <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
                     <defs>
@@ -234,7 +241,7 @@
         <section id="contact">
             <h1>contato</h1>
             <p>Envie-me um e-mail</p>
-            <form id="form" action="https://formsubmit.co/gabrielwaltmann@gmail.com" method="POST">
+            <form id="form" action="https://formsubmit.co/gabrielwaltmann@gmail.com" method="POST" data-anime class="">
                 <input type="hidden" name="_next" value="http://127.0.0.1:5500/thanks.html">
 
                 <input type="text" name="name" id="name" placeholder="Nome" required>
@@ -268,7 +275,9 @@
             
     </footer>
 </body>
+
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script src="script/app.js"></script>
+
 </html>
