@@ -1,56 +1,16 @@
+const button = document.querySelector("#mobileMenu")
+const menu = document.querySelector(".menu") 
 
 window.onload = () =>{
-    const button = document.querySelector("#mobileMenu")
 
-/*     typingAnimation()
- */
     button.addEventListener("click", activeMenu)
-
+    button.addEventListener("touchstart", activeMenu)
 }
 
-/* function typingAnimation(){
-    const textMain = document.querySelector('.textMain')
-
-    const firstName = "Gabriel"
-    const lastName = "Waltmann"
-
-    const lengthFirstName = firstName.length
-    const lengthLastName = lastName.length
-
-    let currentFirstName = 0
-    let currentLastName = 0
-
-    setInterval(() => {
-        document.querySelector("#line").classList.toggle('notVisible');
-    }, 300);
-
-    setTimeout(() => {
-        setInterval(() => {
-            if(currentFirstName < lengthFirstName){
-                const currentText = textMain.innerText
-                textMain.innerText = firstName[currentFirstName] + currentText
-                currentFirstName++
-            }else if (currentFirstName == lengthFirstName && currentLastName <= lengthFirstName){
-                if(lastName[currentLastName] == "W"){
-                    textMain.innerHTML += " "
-                    textMain.innerHTML += lastName[currentLastName]
-                    currentLastName++
-                    console.log(textMain.innerText)
-                }else{
-                    textMain.innerText += lastName[currentLastName]
-                    currentLastName++
-                }
-        
-            }
-    
-        }, 300);
-    }, 1500);
-} */
-
-function activeMenu(){
-    const menu = document.querySelector(".menu")
-
+function activeMenu(event){
+    if(event.type === "touchstart") event.preventDefault()
     menu.classList.toggle('active');
+    button.classList.toggle('active')
 }
 
 function animeScroll() {
