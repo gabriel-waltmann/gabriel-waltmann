@@ -2,20 +2,23 @@
 window.onload = () =>{
     const button = document.querySelector("#mobileMenu")
 
-    typingAnimation()
-
+/*     typingAnimation()
+ */
     button.addEventListener("click", activeMenu)
 
 }
 
-function typingAnimation(){
+/* function typingAnimation(){
     const textMain = document.querySelector('.textMain')
 
-    const name = "Gabriel_Waltmann"
+    const firstName = "Gabriel"
+    const lastName = "Waltmann"
 
-    const numberOfLetters = name.length
+    const lengthFirstName = firstName.length
+    const lengthLastName = lastName.length
 
-    let currentLetter = 0
+    let currentFirstName = 0
+    let currentLastName = 0
 
     setInterval(() => {
         document.querySelector("#line").classList.toggle('notVisible');
@@ -23,14 +26,26 @@ function typingAnimation(){
 
     setTimeout(() => {
         setInterval(() => {
-            if(currentLetter < numberOfLetters){
-                textMain.innerText += name[currentLetter]
-                currentLetter++
+            if(currentFirstName < lengthFirstName){
+                const currentText = textMain.innerText
+                textMain.innerText = firstName[currentFirstName] + currentText
+                currentFirstName++
+            }else if (currentFirstName == lengthFirstName && currentLastName <= lengthFirstName){
+                if(lastName[currentLastName] == "W"){
+                    textMain.innerHTML += " "
+                    textMain.innerHTML += lastName[currentLastName]
+                    currentLastName++
+                    console.log(textMain.innerText)
+                }else{
+                    textMain.innerText += lastName[currentLastName]
+                    currentLastName++
+                }
+        
             }
     
         }, 300);
     }, 1500);
-}
+} */
 
 function activeMenu(){
     const menu = document.querySelector(".menu")
@@ -49,6 +64,4 @@ function animeScroll() {
 	})
 
 }
-
-
 window.addEventListener('scroll', animeScroll);

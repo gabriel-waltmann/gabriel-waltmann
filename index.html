@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio Gabriel Waltmann">
     <title>Gabriel Waltmann</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="shortcut icon" href="images/icon.ico" type="image/x-icon">
@@ -23,16 +24,16 @@
             </div>
             
             <ul class="menu">
-                <a href="#sobre">Sobre</a>
-                <a href="#techs">Techs</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#techs">Techs</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="sobre">
+        <section id="about">
             <div class="background">
                     <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
                         <defs>
@@ -50,9 +51,9 @@
             <div id="infos">
                 <div id="text">
                     <h2>OLÁ, EU SOU</h2>
-                    <div class="animationArea">
-                        <h1 class="textMain" ></h1><span id="line">|</span>
-                    </div>
+                    
+                    <h1 class="line anim-typewriter">Gabriel Waltmann</h1>
+
                     <h2>DESENVOLVEDOR FRONT-END</h2>
                     <div id="buttons">
                         <a href="https://github.com/gabrielwaltmann" target="_blank">
@@ -71,7 +72,12 @@
                     </div>
                 </div>
                 <div id="profile" >
-                    <img id="photo" src="images/profile.png" alt="Ilustração representando um desenvolvedor sentada na cadeira mexendo no computador.">
+                    <img id="photo" src="images/profile.jpg" alt="Foto de perfil de Gabriel Waltmann.">
+                    <p>
+                        Campo Alegre, Santa Catarina
+                        <br>
+                        Olá! Sou estudante e atualmente tenho me dedicado nos estudos para futuramente ser uma desenvolvedora fullstack. No começo de 2022 tomei a decisão de estudar por conta própria vendo diversos conteúdos na internet. Em april realizei meu primeiro freelancer. E Atualmente continuo meus estudos e procurando por mais oportunidades como freelancer.
+                    </p>
                 </div>
             </div>
         </section>
@@ -80,7 +86,7 @@
             
             <h1>TECNOLOGIAS</h1>
 
-            <div class="techs">
+            <div class="techs" data-anime="top">
                 <h4>Technologias do meu dia a dia</h4>
                 <div class="icons">
                     <a target="_blank" href="https://github.com">
@@ -98,7 +104,7 @@
                 </div>
             </div>
 
-            <div class="studing">
+            <div class="studing" data-anime="top">
                 <h4>Technologias que estou estudando</h4>
                 <div class="icons">
                     <a target="_blank" href="https://pt-br.reactjs.org">
@@ -110,7 +116,7 @@
                 </div>
             </div>
 
-            <div class="tools">
+            <div class="tools" data-anime="top">
                 <h4>Ferramentas do meu dia a dia</h4>
                 <div class="icons">
                     <a target="_blank" href="https://www.npmjs.com">
@@ -133,7 +139,7 @@
             </div>
         </section>
         
-        <section id="projects" data-anime>
+        <section id="projects" data-anime="left">
             <div class="background">
                 <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
                     <defs>
@@ -149,20 +155,48 @@
             </div>
 
             <h1>Projects</h1>
+            
             <div class="project">
-                <img src="images/projects/to-do-list.png" alt="Site de lista de tarefas contendo botões de remover, adicionar e sair da conta">
+                <a target="_blank" href="https://crtcgamer.netlify.app" class="linkImage">
+                    <img src="images/projects/socialMedias.jpg" alt="Representação de um projeto freelancer contendo as Redes Sociais do cliente">
+                </a>
+
+                <h3>Pagina de Redes sociais </h3>
+
+                <p>Meu primeiro freelancer. Uma loading Page com as redes sociais do cliente. Foi minha primeira vez usando o netlify para fazer a hospedagem e achei bem simples de realizar o deploy</p>
+
+                <p>tecnologias usadas no projeto: HTML, CSS, JavaScript Vanilla e netlify</p>
+
+                <div class="buttons">
+                    <a target="_blank" href="https://crtcgamer.netlify.app">
+                        <button>
+                            <ion-icon name="link-outline"></ion-icon>
+                            Visualizar
+                        </button>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project">
+                <a target="_blank" href="https://to-do-list-gabriel.firebaseapp.com" class="linkImage">
+                    <img src="images/projects/to-do-list.jpg" alt="Site de lista de tarefas contendo botões de remover, adicionar e sair da conta">
+                </a>
+
                 <h3>Lista de Tarefas</h3>
+
                 <p>Um simples sistema de login onde o usuário pode adicionar e remover tarefas. Foi a primeira vez que utilizo o Firebase e achei super simples usá-lo.</p>
+
                 <p>tecnologias usadas no projeto: HTML, CSS, JavaScript Vanilla</p>
+
                 <div class="buttons">
-                    <a href="https://github.com/GabrielWaltmann/todolist">
+                    <a target="_blank" href="https://to-do-list-gabriel.firebaseapp.com">
                         <button>
                             <ion-icon name="link-outline"></ion-icon>
                             Visualizar
                         </button>
                     </a>
             
-                    <a href="">
+                    <a target="_blank" href="https://github.com/GabrielWaltmann/todolist">
                         <button>
                             <ion-icon name="logo-github"></ion-icon>
                             Repositório
@@ -170,20 +204,27 @@
                     </a>
                 </div>
             </div>
+
             <div class="project">
-                <img src="images/projects/dogclub.png" alt="">
-                <h3>Dogclub </h3>
+                <a target="_blank" href="https://gabrielwaltmann.github.io/dogclub/" class="linkImage">
+                    <img src="images/projects/dogclub.jpg" alt="Representação da Loading Page Dogclub. Um simples site para petshop contendo um cabeçalho e campos de entrada de email e nome do cãozinho.">
+                </a>
+
+                <h3>Dogclub</h3>
+
                 <p>Dogclub é uma Loading Page de petshop para divulgar os serviços aos clientes.</p>
+
                 <p>tecnologias usadas no projeto: HTML e CSS</p>
+
                 <div class="buttons">
-                    <a href="https://github.com/GabrielWaltmann/todolist">
+                    <a target="_blank" href="https://gabrielwaltmann.github.io/dogclub/">
                         <button>
                             <ion-icon name="link-outline"></ion-icon>
                             Visualizar
                         </button>
                     </a>
             
-                    <a href="">
+                    <a target="_blank" href="https://github.com/GabrielWaltmann/dogclub">
                         <button>
                             <ion-icon name="logo-github"></ion-icon>
                             Repositório
@@ -191,20 +232,27 @@
                     </a>
                 </div>
             </div>
+
             <div class="project">
-                <img src="images/projects/minecraft-memory-game.png" alt="">
+                <a target="_blank" href="https://gabrielwaltmann.github.io/memory-game/" class="linkImage">
+                    <img src="images/projects/minecraft-memory-game.jpg" alt="Representação do projeto Memory Game de minecraft contendo um titulo, um botão de verificação e 20 cartas">
+                </a>
+
                 <h3>Jogo da memória </h3>
-                <p>Dogclub é uma Loading Page de petshop para divulgar os serviços aos clientes.</p>
-                <p>tecnologias usadas no projeto: HTML e CSS</p>
+
+                <p>Jogo da memória com o tema de minecraft desenvolvido com o fim de praticar a lógica do JavaScript.</p>
+
+                <p>tecnologias usadas no projeto: HTML, CSS e JavaScript</p>
+
                 <div class="buttons">
-                    <a href="https://github.com/GabrielWaltmann/todolist">
+                    <a target="_blank" href="https://gabrielwaltmann.github.io/memory-game/">
                         <button>
                             <ion-icon name="link-outline"></ion-icon>
                             Visualizar
                         </button>
                     </a>
             
-                    <a href="">
+                    <a target="_blank" href="https://github.com/GabrielWaltmann/memory-game">
                         <button>
                             <ion-icon name="logo-github"></ion-icon>
                             Repositório
@@ -212,20 +260,27 @@
                     </a>
                 </div>
             </div>
+
             <div class="project">
-                <img src="images/projects/consult-zip-code.png" alt="">
+                <a target="_blank" href="https://gabrielwaltmann.github.io/consult-zipcode/" class="linkImage">
+                    <img src="images/projects/consult-zip-code.jpg" alt="">
+                </a>
+
                 <h3>Consultar CEP</h3>
-                <p>Dogclub é uma Loading Page de petshop para divulgar os serviços aos clientes.</p>
-                <p>tecnologias usadas no projeto: HTML e CSS</p>
+
+                <p>Site com autopreenchimento de dados por meio do CEP informado pelo usuário. Com esse projeto tive um melhor entendimento sobre async e await no JavaScript.</p>
+
+                <p>tecnologias usadas no projeto: HTML, CSS, JavaScript, API ViaCep</p>
+
                 <div class="buttons">
-                    <a href="https://github.com/GabrielWaltmann/todolist">
+                    <a target="_blank" href="https://gabrielwaltmann.github.io/consult-zipcode/">
                         <button>
                             <ion-icon name="link-outline"></ion-icon>
                             Visualizar
                         </button>
                     </a>
             
-                    <a href="">
+                    <a href="https://github.com/GabrielWaltmann/consult-zipcode" target="_blank">
                         <button>
                             <ion-icon name="logo-github"></ion-icon>
                             Repositório
@@ -233,7 +288,8 @@
                     </a>
                 </div>
             </div>
-            <a id="seeMore" target="_blank" href="https://github.com/GabrielWaltmann?tab=repositories">
+
+            <a id="seeMore" target="_blank" href="https://github.com/GabrielWaltmann">
                 <button >Veja mais</button>
             </a>
         </section>
@@ -241,7 +297,7 @@
         <section id="contact">
             <h1>contato</h1>
             <p>Envie-me um e-mail</p>
-            <form id="form" action="https://formsubmit.co/gabrielwaltmann@gmail.com" method="POST" data-anime class="">
+            <form id="form" action="https://formsubmit.co/gabrielwaltmann@gmail.com" method="POST" data-anime="left" >
                 <input type="hidden" name="_next" value="http://127.0.0.1:5500/thanks.html">
 
                 <input type="text" name="name" id="name" placeholder="Nome" required>
@@ -257,7 +313,7 @@
     </main>
 
     <footer>
-        <span>© 2022 Desenvolvido por Gabriel Waltmann</span>
+        <span id="Copyright">© 2022 Desenvolvido por Gabriel Waltmann</span>
 
         <div id="socialMedias">
             <a href="https://github.com/gabrielwaltmann" target="_blank">
