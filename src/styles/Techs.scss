@@ -1,0 +1,28 @@
+@import './mixins.scss';
+
+#techs{
+    @include global-padding;
+
+    h2{
+        font-size: 22px;
+    }
+
+    .toolsTitle{
+        margin-top: 2rem;
+    }
+
+    ul{
+        display: grid;
+        grid-template-columns: repeat(6, auto);
+        gap: 1rem;
+        justify-content: center;
+        li{
+            height: 100px;
+            width: 100px;
+            svg{
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+}
