@@ -10,24 +10,16 @@ import Slide from '@mui/material/Slide';
 import { Button, Divider, IconButton, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import Drawer from '@mui/material/Drawer';
-import { green} from '@mui/material/colors'
-import { primary } from '../variables';
 const drawerWidth = 240;
 const navItems = ['📃 Sobrem mim ', '🔧 Tecnologias ', '🏡 Projetos ', '📞 Contato '];
 interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window?: () => Window;
   children?: React.ReactElement;
 }
 
 function HideOnScroll(props: Props) {
   const { children, window } = props;
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
+
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
   });
@@ -69,10 +61,10 @@ export default function Header(props: Props) {
 
 
   return (
-    <Box sx={{ display: 'flex' }} >
+    <Box id='header' >
       <CssBaseline />
       <HideOnScroll {...props}>
-        <AppBar component="nav" sx={{backgroundColor: primary}}>
+        <AppBar component="nav" >
           <Toolbar>
             <IconButton
               color="inherit"
