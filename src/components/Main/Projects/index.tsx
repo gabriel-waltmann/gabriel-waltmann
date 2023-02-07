@@ -1,21 +1,7 @@
 import * as React from 'react';
-import request from 'graphql-request';
-import ImageListItem from '@mui/material/ImageListItem';
-import ImageListItemBar from '@mui/material/ImageListItemBar';
-import IconButton from '@mui/material/IconButton';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Button } from '@mui/material';
-import { GET_PROJECTS  } from '@/graphql/querys';
-import {gql} from 'graphql-request';
-
-export const getStaticProps = async () => {
-
-
-  console.log(GET_PROJECTS)
-  // return {props: {projects}}
-}
 
 const itemData = [
   {
@@ -79,20 +65,7 @@ const itemData = [
 function Gallery() {
 
   useEffect(()=>{
-    const GET_PROJECTS = gql`
-    query Projects {
-        projects {
-            createdAt
-            description
-            heading
-            id
-            publishedAt
-            slug
-            updatedAt
-        }
-    }
-` 
-console.log(GET_PROJECTS)
+  
     const images = Array.from(document.getElementsByClassName('imgList') as HTMLCollectionOf<HTMLElement>);
 
     images.forEach((item, index) =>{
