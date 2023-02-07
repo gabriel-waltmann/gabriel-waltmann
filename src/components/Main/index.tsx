@@ -1,4 +1,5 @@
 import About from "./About";
+import Projects from "./Projects";
 import Techs from "./Techs";
 
 export default function Main(){
@@ -7,6 +8,9 @@ export default function Main(){
             <About/>
 
             <Techs/>
+
+            <Projects/>
+
         </>
 
     )
