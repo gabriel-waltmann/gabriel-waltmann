@@ -2,6 +2,7 @@ import Header from '../components/Header'
 import Main from '../components/Main'
 import { client } from 'apolloClient'
 import { gql } from '@apollo/client/core'
+import Footer from '../components/Footer'
 
 export default function Home({data}:any) {
   return (
@@ -9,6 +10,8 @@ export default function Home({data}:any) {
       <Header />
 
       <Main data={data}/>
+
+      <Footer/>
     </>
   )
 }
