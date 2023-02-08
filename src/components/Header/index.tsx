@@ -10,6 +10,7 @@ import Slide from '@mui/material/Slide';
 import { Button, Divider, IconButton, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import Drawer from '@mui/material/Drawer';
+import Logo from '../Logo';
 const drawerWidth = 240;
 const navItems = ['📃 Sobrem mim ', '🔧 Tecnologias ', '🏡 Projetos ', '📞 Contato '];
 interface Props {
@@ -41,9 +42,7 @@ export default function Header(props: Props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        &lt;Gabriel	&frasl;&gt;
-      </Typography>
+      <Logo/>
       <Divider />
       <List>
         {navItems.map((item) => (
