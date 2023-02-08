@@ -2,6 +2,9 @@ import * as React from 'react';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Button } from '@mui/material';
+import { client } from 'apolloClient'
+import { useQuery, gql } from '@apollo/client';
+import { Project } from '../../../types/Projects';
 
 const itemData = [
   {
@@ -62,61 +65,39 @@ const itemData = [
   },
 ];
 
-function Gallery() {
+function Gallery({projects}: any) {
 
-  useEffect(()=>{
-  
-    const images = Array.from(document.getElementsByClassName('imgList') as HTMLCollectionOf<HTMLElement>);
-
-    images.forEach((item, index) =>{
-      if(item.style){
-        const style = item.style
-        const isPair = index % 2 === 0
-        const margin = {
-          left: '0 0 0 auto',
-          rigth: 'auto 0 0 0'
-        }
-        isPair ? style.margin = margin.rigth : style.margin = margin.left
-      }
-    })
-  })
   return (
     <>
       <h2>Projetos</h2>
-      {itemData.map((item) => {
-        return (
-          <div key={item.title}>
-            <Image
-              style={{ margin: '0 auto' }}
-              src={item.img}
-              alt={'image from ' + item.author}
-              className={'imgList'}
-              height={400}
-              width={700}
-            />
-            <article>
 
-              <h2>{item.title}</h2>
+      <ul>
+        {projects.map((project: Project) => {
+          const bg = {backgroundImage: `url(${project.image.url})`}
+          return (
+            <li key={project.heading} style={bg}>
+              <article>
 
-              <p>{item.author}</p>
-              <div className="buttons">
-                <Button variant="outlined">Github</Button>
-                <Button variant="outlined">Site</Button>
-              </div>
-            </article>
-          </div>
-        )
-        
-    })}
+                <h2>{project.heading}</h2>
+
+                <p>{project.description}</p>
+                <div className="buttons">
+                  <Button variant="contained" >Github</Button>
+                  <Button variant="contained" >Site</Button>
+                </div>
+              </article>
+            </li>
+          )
+      })}
+      </ul>
     </>
   )
 }
 
-
-export default function Projects() {
+export default function Projects({data}: {data: {projects: []}}) {
   return (
     <section id='projects'>
-      <Gallery />
+      <Gallery projects={data.projects}/>
     </section>
   )
 }

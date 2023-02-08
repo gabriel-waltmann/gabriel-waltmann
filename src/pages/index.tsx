@@ -4,12 +4,11 @@ import { client } from 'apolloClient'
 import { gql } from '@apollo/client/core'
 
 export default function Home({data}:any) {
-  console.log(data)
   return (
     <>
       <Header />
 
-      <Main />
+      <Main data={data}/>
     </>
   )
 }
@@ -20,6 +19,10 @@ export async function getStaticProps() {
       query Projects {
         projects {
           heading
+          description
+          image {
+            url
+          }
         }
       }
     `

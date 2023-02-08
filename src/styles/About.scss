@@ -1,15 +1,12 @@
-@import './mixins.scss';
-@import './variables.scss';
-
 #about{
     max-width: 900px;
     max-height: 400px;
-    @include center-flex;
+    @include center;
     @include global-padding;
 
     .col-1, .col-2{
         height: 100%;
-        @include center-flex;
+        @include center;
         flex-direction: column;
     }
 

@@ -1,9 +1,9 @@
-@mixin center-flex{
+@mixin center{
     display: flex;
     justify-content: center;
     align-items: center;
-}
+};
 
 @mixin global-padding{
     margin: 0 10%;
-}
+};
