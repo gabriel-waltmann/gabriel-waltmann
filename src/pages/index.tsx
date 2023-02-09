@@ -23,6 +23,8 @@ export async function getStaticProps() {
         projects {
           heading
           description
+          host
+          github
           image {
             url
           }

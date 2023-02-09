@@ -1,6 +1,8 @@
 export type Project = {
     heading: string,
     description: string,
+    github: string,
+    host: string
     image: {
         url: string
     }

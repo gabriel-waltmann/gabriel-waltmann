@@ -6,7 +6,12 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
 export default function Footer(){
-    const navItems = ['Sobrem mim ', 'Tecnologias ', 'Projetos ', 'Contato '];
+    const navItems = [
+  {name: 'Sobrem mim ', link: '#about'}, 
+  {name: 'Tecnologias ', link: '#techs'}, 
+  {name: 'Projetos ', link: '#projects'}, 
+  {name: 'Contato ', link: '#contact'},
+];
 
     return(
         <div id="footer">
@@ -14,10 +19,10 @@ export default function Footer(){
             <nav>
                 {navItems.map((item) => (
                 <Link 
-                key={item}
-                href="#about"
+                key={item.name}
+                href={item.link}
                 >
-                  {item}
+                  {item.name}
                 </Link>
               ))}
             </nav>

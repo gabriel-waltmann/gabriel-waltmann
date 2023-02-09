@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Axios from "public/assets/icons/Axios";
 import Bootstrap from "public/assets/icons/Bootstrap";
 import Css from "public/assets/icons/Css";
@@ -30,36 +31,227 @@ export default function Techs(){
             <h2 className="techsTitle">Tecnologias</h2>
 
             <ul>
-                <li><TS/></li>
-                <li><JS/></li>
-                <li><Css/></li>
-                <li><Sass/></li>
-                <li><StyledComponents/></li>
-                <li><HTML/></li>
-                <li><MaterialUI/></li>
-                <li><Node/></li>
-                <li><MongoDB/></li>
-                <li><NPM/></li>
-                <li><Bootstrap/></li>
-                <li><Next/></li>
-                <li><JWT/></li>
-                <li><Firebase/></li>
-                <li><Express/></li>
-                <li><Axios/></li>
-                <li><Git/></li>
-                <li><Tailwind/></li>
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://www.typescriptlang.org/'}
+                    >
+                        <TS/>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://developer.mozilla.org/en-US/docs/Web/JavaScript'}
+                    >
+                        <JS/>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://developer.mozilla.org/en-US/docs/Web/css'}
+                    >
+                        <Css/>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://sass-lang.com/#'}
+                    >
+                        <Sass/>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://styled-components.com/'}
+                    >
+                        <StyledComponents/>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://developer.mozilla.org/en-US/docs/Web/html'}
+                    >
+                        <HTML/>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://mui.com/'}
+                    >
+                        <MaterialUI/>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://nodejs.org/en/'}
+                    >
+                        <Node/>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://mongodb.com/'}
+                    >
+                        <MongoDB/>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://www.npmjs.com/#'}
+                    >
+                        <NPM/>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://getbootstrap.com/'}
+                    >
+                        <Bootstrap/>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://nextjs.org/'}
+                    >
+                        <Next/>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://jwt.io/'}
+                    >
+                        <JWT/>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://firebase.google.com/'}
+                    >
+                        <Firebase/>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://www.expressjs.com/'}
+                    >
+                        <Express/>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://axios-http.com/'}
+                    >
+                        <Axios/>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://git-scm.com/'}
+                    >
+                        <Git/>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://tailwindui.com/'}
+                    >
+                        <Tailwind/>
+                    </Link>
+                </li>
+
             </ul>
 
             <h2 className="toolsTitle">Ferramentas</h2>
 
             <ul >
-                <li><Notion/></li>
-                <li><VSCode/></li>
-                <li><Github/></li>
-                <li><Github/></li>
-                <li><Vercel/></li>
-                <li><Netlify/></li>
-                <li><Figma/></li>
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://www.notion.so/'}
+                    >
+                        <Notion/>
+                    </Link>
+
+                </li>
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://code.visualstudio.com/'}
+                    >
+                        <VSCode/>
+                    </Link>
+
+                </li>
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://github.com/GabrielWaltmann/'}
+                    >
+                        <Github/>
+                    </Link>
+
+                </li>
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://vercel.com/'}
+                    >
+                        <Vercel/>
+                    </Link>
+
+                </li>
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://netlify.com/'}
+                    >
+                        <Netlify/>
+                    </Link>
+
+                </li>
+                <li>
+                    <Link
+                    target='_blank'
+                    href={'https://figma.com/'}
+                    >
+                        <Figma/>
+                    </Link>
+
+                </li>
             </ul>
         </section>
     )

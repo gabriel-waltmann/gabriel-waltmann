@@ -12,7 +12,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Drawer from '@mui/material/Drawer';
 import Logo from '../Logo';
 const drawerWidth = 240;
-const navItems = ['📃 Sobrem mim ', '🔧 Tecnologias ', '🏡 Projetos ', '📞 Contato '];
+const navItems = [
+  {name: '📃 Sobrem mim ', link: '#about'}, 
+  {name: '🔧 Tecnologias ', link: '#techs'}, 
+  {name: '🏡 Projetos ', link: '#projects'}, 
+  {name: '📞 Contato ', link: '#contact'},
+];
 interface Props {
   window?: () => Window;
   children?: React.ReactElement;
@@ -46,9 +51,9 @@ export default function Header(props: Props) {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+          <ListItem key={item.name} disablePadding>
+            <ListItemButton sx={{ textAlign: 'center' }} href={item.link}>
+              <ListItemText primary={item.name} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -83,8 +88,8 @@ export default function Header(props: Props) {
             </Typography>
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               {navItems.map((item) => (
-                <Button key={item} sx={{ color: '#fff' }}>
-                  {item}
+                <Button key={item.name} href={item.link} sx={{ color: '#fff' }}>
+                  {item.name}
                 </Button>
               ))}
             </Box>

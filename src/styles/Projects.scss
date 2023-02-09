@@ -50,6 +50,14 @@
                 .buttons{
                     display: flex;
                     gap: 1rem;
+                    a{
+                        color: #fff;
+                        height: 30px;
+                        width: 30px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
                 }
             }
         }

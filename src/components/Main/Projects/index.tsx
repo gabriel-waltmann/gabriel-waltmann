@@ -1,10 +1,10 @@
 import * as React from 'react';
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import LanguageIcon from '@mui/icons-material/Language';
 import { Button } from '@mui/material';
 import { client } from 'apolloClient'
-import { useQuery, gql } from '@apollo/client';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import { Project } from '../../../types/Projects';
+import Link from 'next/link';
 
 function Gallery({projects}: any) {
   console.log(projects)
@@ -24,8 +24,16 @@ function Gallery({projects}: any) {
 
                 <p>{project.description}</p>
                 <div className="buttons">
-                  <Button variant="contained" >Github</Button>
-                  <Button variant="contained" >Site</Button>
+                  <Button variant="contained" >
+                    <Link href={project.github} target='_blank'>
+                      <GitHubIcon/>
+                    </Link>
+                  </Button>
+                  <Button variant="contained">
+                    <Link href={project.host} target="_blank">
+                      <LanguageIcon/>
+                    </Link>
+                  </Button>
                 </div>
               </article>
             </li>
