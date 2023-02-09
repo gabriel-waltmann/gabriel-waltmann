@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Link from "next/link";
 import Axios from "public/assets/icons/Axios";
 import Bootstrap from "public/assets/icons/Bootstrap";
@@ -27,7 +28,12 @@ import VSCode from "public/assets/icons/VSCode";
 export default function Techs(){
    
     return(
-        <section id="techs">
+        <motion.section
+        id="techs"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false }}
+>
             <h2 className="techsTitle">Tecnologias</h2>
 
             <ul>
@@ -253,6 +259,6 @@ export default function Techs(){
 
                 </li>
             </ul>
-        </section>
+        </motion.section>
     )
 }

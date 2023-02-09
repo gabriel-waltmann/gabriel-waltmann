@@ -27,6 +27,11 @@
             svg{
                 height: 36px;
                 width: 36px;
+                transition: all .3s ease-in-out;
+
+                &:hover{
+                    transform: scale(1.1);
+                }
             }
         }
     }

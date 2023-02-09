@@ -1,6 +1,6 @@
 import { send } from "@emailjs/browser";
-import { Button, Modal, TextareaAutosize, TextField, Typography, Box } from "@mui/material";
-import { ChangeEvent, ChangeEventHandler, useEffect, useState } from "react";
+import { Button, Modal, TextField, Typography, Box } from "@mui/material";
+import { ChangeEvent, useEffect, useState } from "react";
 
 export default function Form() {
     const [Email, setEmail] = useState('')
@@ -14,7 +14,7 @@ export default function Form() {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
+    
     type OnChangeEvent = ChangeEvent<HTMLInputElement>
 
     useEffect(() => {
@@ -24,38 +24,6 @@ export default function Form() {
         setErrorMessage(false)
 
     }, [Email, Name, Subject, Message])
-
-    // function validations() {
-    //     const values = [Email, Name, Subject, Message]
-
-    //     let isValid!: Boolean
-    //     values.forEach((value, index) => {
-    //         if (value !== '') { 
-    //             isValid = true 
-    //         }
-    //         else{
-    //             console.log(index)
-    //             if (index === 0){
-    //                 setErrorEmail(true)
-    //                 isValid = false
-    //             } 
-    //             if (index === 1){
-    //                 setErrorName(true)
-    //                 isValid = false
-    //             } 
-    //             if (index === 2){
-    //                 setErrorSubject(true)
-    //                 isValid = false
-
-    //             } 
-    //             if (index === 3){
-    //                 setErrorMessage(true)
-    //                 isValid = false
-    //             } 
-    //         }
-    //     })
-    //     return isValid
-    // }
 
     function clearInputs() {
         const doc: any = document
@@ -135,9 +103,13 @@ export default function Form() {
             </Modal>
         )
     }
+    
 
     return (
-        <form>
+        <form 
+        className="buttons"
+        
+        >
             <TextField id="name"
                 error={ErrorName}
                 label="Nome"
@@ -177,4 +149,3 @@ export default function Form() {
         </form>
     )
 }
-

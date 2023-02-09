@@ -1,7 +1,7 @@
-import { Button } from '@mui/material'
+
 import Image from 'next/image'
-import Link from 'next/link';
 import TypewriterComponent from 'typewriter-effect';
+import Buttons from './Buttons';
 
 export default function About() {
     return (
@@ -21,14 +21,7 @@ export default function About() {
                         height={200}
                     />
 
-                    <div className="buttons">
-                        <Button variant="outlined">
-                            <Link href="https://github.com/GabrielWaltmann" target="_blank" >Github</Link>
-                        </Button>
-                        <Button variant="outlined">
-                            <Link href='https://www.linkedin.com/in/gabrielwaltmann' target="_blank">Linkedin</Link>
-                        </Button>
-                    </div>
+                    <Buttons/>
                 </div>
             </section>
         </>
