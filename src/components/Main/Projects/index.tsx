@@ -15,7 +15,7 @@ function Gallery({ projects }: any) {
     <>
       <h2>Projetos</h2>
 
-      <ul 
+      <motion.ul 
         >
         {projects.map((project: Project) => {
           
@@ -23,9 +23,9 @@ function Gallery({ projects }: any) {
           const ref = useRef(null)
         const isInView = useInView(ref, { once: true })
         const showThenIsInView = {
-          transform: isInView ? "none" : "translateX(200px)",
+          transform: isInView ? "none" : "translateY(100px)",
           opacity: isInView ? 1 : 0,
-          transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+          transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.4s"
     }
           const bg = {
             backgroundImage: `url(${project.image.url})`,
@@ -58,7 +58,7 @@ function Gallery({ projects }: any) {
             </motion.li>
           )
         })}
-      </ul>
+      </motion.ul>
     </>
   )
 }
