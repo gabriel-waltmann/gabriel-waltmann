@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app'
-import '../styles/global.scss'
+import '../styles/_global.scss'
 import { ApolloProvider } from '@apollo/client'
 import { client } from 'apolloClient'
 import { DefaultSeo } from 'next-seo';
