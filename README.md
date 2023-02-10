@@ -1,38 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# life Hotel 
 
-## Getting Started
+[![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](./LICENSE)
+<br><br>
 
-First, run the development server:
+## 💻 Sobre o projeto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Este é um portfólio pessoal de Gabriel Waltmannn. Nele, é possivel encontrar informações de contato, projetos já realizados entre outras informações.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<br><hr>
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 🚀 Como rodar localmente
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. Clone o seguinte repositório (Necessita ter acesso a conta do Github): [https://github.com/GabrielWaltmann/Portfolio.git]
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+2. Instale as dependências rodando o seguinte código no terminal: `npm install`
+   
+3. Após instalar as dependências, execute o seguinte código no terminal para rodar o projeto: `npm run dev`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. O projeto ficará disponivel na porta [https://localhost:3000]
 
-## Learn More
+<br><hr>
 
-To learn more about Next.js, take a look at the following resources:
+## 📸 Demostração
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<img src="./public/README/demoDesktop.gif" alt="demostração desktop" height="425" align="center">
+<img align="center" src="./public/README/demoMobile.gif" alt="demostração mobile" height="425">
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<br><hr>
+## 🔧 Tecnologias
 
-## Deploy on Vercel
+### As seguintes ferramentas foram usadas na construção do projeto:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+✔️ SASS/CSS <br>
+✔️ Next.js<br>
+✔️ Nex-SEO<br>
+✔️ Vercel<br>
+✔️ Material UI<br>
+✔️ Material UI Icons<br>
+✔️ Typescript<br>
+✔️ apollo<br>
+✔️ emailjs<br>
+✔️ framer-motion<br>
+✔️ graphql<br>
+✔️ typewriter-effect<br>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<br><hr>
+## Licença do Projeto - [MIT](./LICENSE)
+## Copyright © 2023 Gabriel Waltmann. Todos os direitos reservados
+<br><hr>
+
+
+## ✏️ Desenvolvedor
+
+### Desenvolvido por Gabriel Waltmann
+[<img src="https://img.icons8.com/color/512/linkedin-2.png" alt="linkedin" height="50"></a>](https://www.linkedin.com/in/gabrielwaltmann/)
+[<img src="https://avatars.githubusercontent.com/u/9919?v=4" alt="github" height="50">](https://github.com/gabrielwaltmann)
