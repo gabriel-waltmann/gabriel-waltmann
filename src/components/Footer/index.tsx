@@ -32,9 +32,9 @@ export default function Footer() {
             </nav>
 
             <ul>
-                {socialMidias.map((media) => {
+                {socialMidias.map((media, index) => {
                     return (
-                        <li>
+                        <li key={index}>
                             <Link 
                             href={media.link}
                             target="_blank"

@@ -30,13 +30,23 @@ export default function Project({ heading, github, description, host, image }: P
 
                 <p>{description}</p>
                 <div className="buttons">
-                    <Button variant="contained" >
-                        <Link href={github} target='_blank'>
+                    <Button 
+                    variant="contained" 
+                    aria-label={heading} >
+                        <Link href={github} 
+                        target='_blank' 
+                        aria-label={host}>
                             <GitHubIcon />
                         </Link>
                     </Button>
-                    <Button variant="contained">
-                        <Link href={host} target="_blank">
+                    <Button 
+                    variant="contained"
+                    aria-label={heading}
+                    >
+                        <Link 
+                        href={host} 
+                        target="_blank"
+                        aria-label={host}>
                             <LanguageIcon />
                         </Link>
                     </Button>

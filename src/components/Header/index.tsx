@@ -62,8 +62,8 @@ export default function Header(props: Props) {
       <Logo/>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <MenuItem name={item.name} href={item.link}/>
+        {navItems.map((item, index) => (
+          <MenuItem name={item.name} href={item.link} key={index}/>
         ))}
       </List>
     </Box>

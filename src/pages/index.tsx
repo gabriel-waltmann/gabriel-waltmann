@@ -3,15 +3,26 @@ import Main from '../components/Main'
 import { client } from 'apolloClient'
 import { gql } from '@apollo/client/core'
 import Footer from '../components/Footer'
+import Head from 'next/head'
 
 export default function Home({ data }: any) {
   return (
+
     <>
-      <Header />
+      <Head>
+        <title>Portfólio Gabriel Waltmann</title>
+        <meta name="description" content="Desnvolvedor Front End " />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/assets/favicon.ico" />
+      </Head>
 
-      <Main data={data} />
+      <>
+        <Header />
 
-      <Footer />
+        <Main data={data} />
+
+        <Footer />
+      </>
     </>
   )
 }

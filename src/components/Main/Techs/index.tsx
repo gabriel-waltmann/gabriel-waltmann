@@ -76,12 +76,13 @@ export default function Techs() {
             <h2 className="techsTitle">Tecnologias</h2>
 
             <List >
-                {techButtons.map(tech => {
+                {techButtons.map((tech, index) => {
                     return (
-                        <ListItem >
+                        <ListItem key={index}>
                             <Link
                                 target='_blank'
                                 href={tech.href}
+                                aria-label={tech.href}
                             >
                                 {tech.Icon}
                             </Link>
@@ -93,12 +94,13 @@ export default function Techs() {
             <h2 className="toolsTitle">Ferramentas</h2>
 
             <List >
-                {toolButtons.map(tech => {
+                {toolButtons.map((tech, index)  => {
                     return (
-                        <ListItem >
+                        <ListItem key={index}>
                             <Link
                                 target='_blank'
                                 href={tech.href}
+                                aria-label={tech.href}
                             >
                                 {tech.Icon}
                             </Link>
