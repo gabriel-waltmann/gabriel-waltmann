@@ -1,8 +1,6 @@
 #about{
-    // max-width: 900px;
-    // max-height: 400px;
     @include center;
-
+    padding-top: 6rem;
 
     .col-1, .col-2{
         height: 100%;
@@ -11,7 +9,6 @@
     }
 
     .col-1{
-        // width: 70%;
         .Typewriter{
             min-width: 100%;
             min-height: 100px;
@@ -28,9 +25,8 @@
     }
 
     .col-2{
-        // width: 30%;
-
         gap: 2rem;
+
         .buttons{
             display: flex;
             justify-content: center;
@@ -40,7 +36,7 @@
                 color: $primary;
             }
         }
-
+        
         img{
             color: transparent;
             border: 3px solid $shadow;
