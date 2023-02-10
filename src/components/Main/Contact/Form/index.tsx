@@ -14,7 +14,7 @@ export default function Form() {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    
+
     type OnChangeEvent = ChangeEvent<HTMLInputElement>
 
     useEffect(() => {
@@ -22,15 +22,15 @@ export default function Form() {
         setErrorName(false)
         setErrorSubject(false)
         setErrorMessage(false)
-
     }, [Email, Name, Subject, Message])
 
     function clearInputs() {
         const doc: any = document
-        doc.querySelector('#name').value = ''
-        doc.querySelector('#email').value = ''
-        doc.querySelector('#subject').value = ''
-        doc.querySelector('#massage').value = ''
+        const sections = ['#name', '#email', '#subject', '#massage']
+
+        sections.map((section => {
+            doc.querySelector(section).value = ''
+        }))
 
         setEmail('')
         setName('')
@@ -47,10 +47,11 @@ export default function Form() {
 
         if (
             Name !== '' &&
-            Email !== '' && 
+            Email !== '' &&
             Subject !== '' &&
-            Message!== ''
+            Message !== ''
         ) {
+
             const serviceID = 'service_v5hig9d'
             const templateID = 'template_hioks5t'
             const templateParams = {
@@ -83,6 +84,7 @@ export default function Form() {
             boxShadow: 24,
             p: 4,
         };
+
         return (
             <Modal
                 open={open}
@@ -90,7 +92,7 @@ export default function Form() {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={style}>
+                <Box sx={style} className="sucessMessage">
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         E-mail enviado com sucesso!
                     </Typography>
@@ -103,12 +105,11 @@ export default function Form() {
             </Modal>
         )
     }
-    
+
 
     return (
-        <form 
-        className="buttons"
-        
+        <form
+            className="buttons"
         >
             <TextField id="name"
                 error={ErrorName}

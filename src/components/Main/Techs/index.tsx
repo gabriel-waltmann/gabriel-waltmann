@@ -26,239 +26,85 @@ import TS from "public/assets/icons/TS";
 import Vercel from "public/assets/icons/Vercel";
 import VSCode from "public/assets/icons/VSCode";
 
-export default function Techs(){
-   
-    return(
+
+const techButtons = [
+    { href: 'https://www.typescriptlang.org/', Icon: <TS /> },
+    { href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript', Icon: <JS /> },
+    { href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript', Icon: <TS /> },
+    { href: 'https://developer.mozilla.org/en-US/docs/Web/css', Icon: <Css /> },
+    { href: 'https://sass-lang.com/', Icon: <Sass /> },
+    { href: 'https://styled-components.com/', Icon: <StyledComponents /> },
+    { href: 'https://developer.mozilla.org/en-US/docs/Web/html', Icon: <HTML /> },
+    { href: 'https://mui.com/', Icon: <MaterialUI /> },
+    { href: 'https://nodejs.org/', Icon: <Node /> },
+    { href: 'https://mongodb.com/', Icon: <MongoDB /> },
+    { href: 'https://www.npmjs.com/#', Icon: <NPM /> },
+    { href: 'https://getbootstrap.com/', Icon: <Bootstrap /> },
+    { href: 'https://nextjs.org/', Icon: <Next /> },
+    { href: 'https://tailwindui.com/', Icon: <Tailwind /> },
+    { href: 'https://git-scm.com/', Icon: <Git /> },
+    { href: 'https://axios-http.com/', Icon: <Axios /> },
+    { href: 'https://www.expressjs.com/', Icon: <Express /> },
+    { href: 'https://firebase.google.com/', Icon: <Firebase /> },
+    { href: 'https://jwt.io/', Icon: <JWT /> },
+    { href: 'https://nextjs.org/', Icon: <Next /> },
+    { href: 'https://getbootstrap.com/', Icon: <Bootstrap /> },
+    { href: 'https://www.npmjs.com/#', Icon: <NPM /> },
+    { href: 'https://mongodb.com/', Icon: <MongoDB /> },
+    { href: 'https://nodejs.org/', Icon: <Node /> },
+
+]
+
+const toolButtons = [
+    { href: 'https://figma.com/', Icon: <Figma /> },
+    { href: 'https://netlify.com/', Icon: <Netlify /> },
+    { href: 'https://vercel.com/', Icon: <Vercel /> },
+    { href: 'https://github.com/GabrielWaltmann/', Icon: <Github /> },
+    { href: 'https://code.visualstudio.com/', Icon: <VSCode /> },
+    { href: 'https://www.notion.so/', Icon: <Notion /> },
+]
+
+export default function Techs() {
+
+    return (
         <motion.section
-        id="techs"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false }}
->
+            id="techs"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+        >
             <h2 className="techsTitle">Tecnologias</h2>
 
             <List >
-                <ListItem >
-                    <Link
-                    target='_blank'
-                    href={'https://www.typescriptlang.org/'}
-                    >
-                        <TS/>
-                    </Link>
-                </ListItem>
-
-                <ListItem >
-                    <Link
-                    target='_blank'
-                    href={'https://developer.mozilla.org/en-US/docs/Web/JavaScript'}
-                    >
-                        <JS/>
-                    </Link>
-                </ListItem>
-
-                <ListItem >
-                    <Link
-                    target='_blank'
-                    href={'https://developer.mozilla.org/en-US/docs/Web/css'}
-                    >
-                        <Css/>
-                    </Link>
-                </ListItem>
-
-                <ListItem >
-                    <Link
-                    target='_blank'
-                    href={'https://sass-lang.com/#'}
-                    >
-                        <Sass/>
-                    </Link>
-                </ListItem>
-
-                <ListItem >
-                    <Link
-                    target='_blank'
-                    href={'https://styled-components.com/'}
-                    >
-                        <StyledComponents/>
-                    </Link>
-                </ListItem>
-
-                <ListItem >
-                    <Link
-                    target='_blank'
-                    href={'https://developer.mozilla.org/en-US/docs/Web/html'}
-                    >
-                        <HTML/>
-                    </Link>
-                </ListItem>
-
-                <ListItem >
-                    <Link
-                    target='_blank'
-                    href={'https://mui.com/'}
-                    >
-                        <MaterialUI/>
-                    </Link>
-                </ListItem>
-
-                <ListItem >
-                    <Link
-                    target='_blank'
-                    href={'https://nodejs.org/en/'}
-                    >
-                        <Node/>
-                    </Link>
-                </ListItem>
-
-                <ListItem >
-                    <Link
-                    target='_blank'
-                    href={'https://mongodb.com/'}
-                    >
-                        <MongoDB/>
-                    </Link>
-                </ListItem>
-
-                <ListItem >
-                    <Link
-                    target='_blank'
-                    href={'https://www.npmjs.com/#'}
-                    >
-                        <NPM/>
-                    </Link>
-                </ListItem>
-
-                <ListItem >
-                    <Link
-                    target='_blank'
-                    href={'https://getbootstrap.com/'}
-                    >
-                        <Bootstrap/>
-                    </Link>
-                </ListItem>
-
-                <ListItem >
-                    <Link
-                    target='_blank'
-                    href={'https://nextjs.org/'}
-                    >
-                        <Next/>
-                    </Link>
-                </ListItem>
-
-                <ListItem >
-                    <Link
-                    target='_blank'
-                    href={'https://jwt.io/'}
-                    >
-                        <JWT/>
-                    </Link>
-                </ListItem>
-
-                <ListItem >
-                    <Link
-                    target='_blank'
-                    href={'https://firebase.google.com/'}
-                    >
-                        <Firebase/>
-                    </Link>
-                </ListItem>
-
-                <ListItem >
-                    <Link
-                    target='_blank'
-                    href={'https://www.expressjs.com/'}
-                    >
-                        <Express/>
-                    </Link>
-                </ListItem>
-
-                <ListItem >
-                    <Link
-                    target='_blank'
-                    href={'https://axios-http.com/'}
-                    >
-                        <Axios/>
-                    </Link>
-                </ListItem>
-
-                <ListItem >
-                    <Link
-                    target='_blank'
-                    href={'https://git-scm.com/'}
-                    >
-                        <Git/>
-                    </Link>
-                </ListItem>
-
-                <ListItem >
-                    <Link
-                    target='_blank'
-                    href={'https://tailwindui.com/'}
-                    >
-                        <Tailwind/>
-                    </Link>
-                </ListItem>
-
+                {techButtons.map(tech => {
+                    return (
+                        <ListItem >
+                            <Link
+                                target='_blank'
+                                href={tech.href}
+                            >
+                                {tech.Icon}
+                            </Link>
+                        </ListItem>
+                    )
+                })}
             </List>
 
             <h2 className="toolsTitle">Ferramentas</h2>
 
             <List >
-                <ListItem>
-                    <Link
-                    target='_blank'
-                    href={'https://www.notion.so/'}
-                    >
-                        <Notion/>
-                    </Link>
-
-                </ListItem>
-                <ListItem>
-                    <Link
-                    target='_blank'
-                    href={'https://code.visualstudio.com/'}
-                    >
-                        <VSCode/>
-                    </Link>
-
-                </ListItem>
-                <ListItem>
-                    <Link
-                    target='_blank'
-                    href={'https://github.com/GabrielWaltmann/'}
-                    >
-                        <Github/>
-                    </Link>
-
-                </ListItem>
-                <ListItem>
-                    <Link
-                    target='_blank'
-                    href={'https://vercel.com/'}
-                    >
-                        <Vercel/>
-                    </Link>
-
-                </ListItem>
-                <ListItem>
-                    <Link
-                    target='_blank'
-                    href={'https://netlify.com/'}
-                    >
-                        <Netlify/>
-                    </Link>
-
-                </ListItem>
-                <ListItem>
-                    <Link
-                    target='_blank'
-                    href={'https://figma.com/'}
-                    >
-                        <Figma/>
-                    </Link>
-
-                </ListItem>
+                {toolButtons.map(tech => {
+                    return (
+                        <ListItem >
+                            <Link
+                                target='_blank'
+                                href={tech.href}
+                            >
+                                {tech.Icon}
+                            </Link>
+                        </ListItem>
+                    )
+                })}
             </List>
         </motion.section>
     )

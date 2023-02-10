@@ -4,14 +4,14 @@ import { client } from 'apolloClient'
 import { gql } from '@apollo/client/core'
 import Footer from '../components/Footer'
 
-export default function Home({data}:any) {
+export default function Home({ data }: any) {
   return (
     <>
       <Header />
 
-      <Main data={data}/>
+      <Main data={data} />
 
-      <Footer/>
+      <Footer />
     </>
   )
 }
@@ -33,5 +33,5 @@ export async function getStaticProps() {
     `
   })
 
-  return {props:{data}}
+  return { props: { data } }
 }

@@ -1,4 +1,4 @@
-export type Project = {
+export type ProjectProps = {
     heading: string,
     description: string,
     github: string,

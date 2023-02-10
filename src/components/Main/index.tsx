@@ -4,18 +4,18 @@ import Techs from "./Techs";
 import Contact from "./Contact";
 import WhatsappBTN from "./WhatsappBTN";
 
-export default function Main({data}: any){
+export default function Main({ data }: any) {
     return (
         <>
-            <About/>
+            <About />
 
-            <Techs/>
+            <Techs />
 
-            <Projects data={data}/>
+            <Projects data={data} />
 
             <Contact />
 
-             <WhatsappBTN/>
+            <WhatsappBTN />
         </>
 
     )

@@ -1,23 +1,23 @@
-import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import Slide from '@mui/material/Slide';
 import { Button, Divider, IconButton, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import Drawer from '@mui/material/Drawer';
 import Logo from '../Logo';
-const drawerWidth = 240;
+import { useState } from 'react';
+
 const navItems = [
   {name: 'Sobrem mim ', link: '#about'}, 
   {name: 'Tecnologias ', link: '#techs'}, 
   {name: 'Projetos ', link: '#projects'}, 
   {name: 'Contato ', link: '#contact'},
 ];
+
 interface Props {
   window?: () => Window;
   children?: React.ReactElement;
@@ -31,7 +31,11 @@ function HideOnScroll(props: Props) {
   });
 
   return (
-    <Slide appear={false} direction="down" in={!trigger}>
+    <Slide 
+    appear={false} 
+    direction="down" 
+    in={!trigger}
+    >
       {children ? children : <span></span>}
     </Slide>
   );
@@ -39,30 +43,33 @@ function HideOnScroll(props: Props) {
 
 export default function Header(props: Props) {
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
+  const MenuToggle = () =>  setMobileOpen((prevState) => !prevState)
 
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+  function MenuItem({name, href}: {name: string, href: string}) {
+    return(
+      <ListItem key={name} disablePadding>
+            <ListItemButton sx={{ textAlign: 'center' }} href={href}>
+              <ListItemText primary={name} />
+            </ListItemButton>
+      </ListItem>
+    )
+  }
+
+  const Menu = (
+    <Box onClick={MenuToggle} sx={{ textAlign: 'center' }}>
       <Logo/>
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item.name} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }} href={item.link}>
-              <ListItemText primary={item.name} />
-            </ListItemButton>
-          </ListItem>
+          <MenuItem name={item.name} href={item.link}/>
         ))}
       </List>
     </Box>
   );
 
-  const container = window !== undefined ? () => window().document.body : undefined;
-
+  const container = window ? () => window().document.body : undefined;
 
   return (
     <Box id='header' >
@@ -74,7 +81,7 @@ export default function Header(props: Props) {
               color="inherit"
               aria-label="open drawer"
               edge="start"
-              onClick={handleDrawerToggle}
+              onClick={MenuToggle}
               sx={{ mr: 2, display: { sm: 'none' } }}
             >
               <MenuIcon />
@@ -104,16 +111,16 @@ export default function Header(props: Props) {
           container={container}
           variant="temporary"
           open={mobileOpen}
-          onClose={handleDrawerToggle}
+          onClose={MenuToggle}
           ModalProps={{
             keepMounted: true,
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 },
           }}
         >
-          {drawer}
+          {Menu}
         </Drawer>
       </Box>
       <Box component="main" sx={{ p: 3 }}>
