@@ -5,7 +5,7 @@ const nextConfig = {
     domains: ['media.graphassets.com'],
   },
   sassOptions: {
-        includePaths: [path.join(__dirname, 'styles')],
+        includePaths: [path.join(__dirname, './src/styles')],
         prependData: `@import "./src/styles/global.scss";`,
     },
 
