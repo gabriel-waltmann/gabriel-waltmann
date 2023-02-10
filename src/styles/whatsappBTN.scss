@@ -1,0 +1,12 @@
+.whatsappBTN{
+    position: fixed;
+    right: 3rem;
+    bottom: 3rem;
+    height: 6rem;
+    width: 6rem;
+    color: $whatsappBTNColor;
+
+    &:hover{
+        cursor: pointer;
+    }
+}

@@ -32,11 +32,10 @@
         }
     }
 
-    #techs{
-        ul{
-            grid-template-columns: repeat(6, 16.66%);
-        }
+    #techs ul{
+        grid-template-columns: repeat(6, 16.66%);
     }
+    
 
     #contact form .MuiFormControl-root,  .buttons{    
         width: 94%;
