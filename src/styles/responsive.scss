@@ -1,10 +1,6 @@
 @media (max-width: 599px) {
     body{width: 100vw;}
 
-    .MuiBox-root{
-        height: 0;
-    }
-
     .toolbar h6{
         color: #ffff;
         display: block;
@@ -18,7 +14,7 @@
     #about{
         flex-direction: column-reverse;
         height: auto;
-        margin-top: 90px;
+        padding-top: 6rem !important;
 
         .col-1, .col-2{
             width: 100%;
@@ -49,6 +45,7 @@
 }
 
 @media (max-width: 900px) {
+
     section{
         margin: 0 5% !important;
     }
@@ -59,3 +56,7 @@ section{
     margin-left: auto;
     margin-right: auto;
 }
+
+.MuiBox-root{
+        height: 0;
+    }
