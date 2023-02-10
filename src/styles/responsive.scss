@@ -1,7 +1,12 @@
-@media (max-width: 600px) {
+@media (max-width: 599px) {
     body{width: 100vw;}
     .MuiBox-root{
         height: 0;
+    }
+
+    .toolbar h6{
+        color: #ffff;
+        display: block;
     }
 
     #techs, #about, #projects, #contact{
@@ -12,7 +17,7 @@
     #about{
         flex-direction: column-reverse;
         height: auto;
-        margin-top: 64px;
+        margin-top: 90px;
         .col-1, .col-2{
             width: 100%;
         }
@@ -33,20 +38,25 @@
         }
     }
 
-    #contact{
-        form{
-            .MuiFormControl-root,  .buttons{
-            width: 94%;
-        }
-        }
+    #contact form .MuiFormControl-root,  .buttons{    
+        width: 94%;
     }
 
-    #footer{
-        h6{
-            font-size: 1.5rem;
-        }
-
-        
+    #footer h6{
+        font-size: 1.5rem;
     }
 
+}
+
+@media (max-width: 900px) {
+    section{
+        margin: 0 5% !important;
+
+    }
+}
+
+section{
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }

@@ -13,10 +13,10 @@ import Drawer from '@mui/material/Drawer';
 import Logo from '../Logo';
 const drawerWidth = 240;
 const navItems = [
-  {name: '📃 Sobrem mim ', link: '#about'}, 
-  {name: '🔧 Tecnologias ', link: '#techs'}, 
-  {name: '🏡 Projetos ', link: '#projects'}, 
-  {name: '📞 Contato ', link: '#contact'},
+  {name: 'Sobrem mim ', link: '#about'}, 
+  {name: 'Tecnologias ', link: '#techs'}, 
+  {name: 'Projetos ', link: '#projects'}, 
+  {name: 'Contato ', link: '#contact'},
 ];
 interface Props {
   window?: () => Window;
@@ -69,7 +69,7 @@ export default function Header(props: Props) {
       <CssBaseline />
       <HideOnScroll {...props}>
         <AppBar component="nav" >
-          <Toolbar>
+          <Toolbar className='toolbar'>
             <IconButton
               color="inherit"
               aria-label="open drawer"
@@ -93,6 +93,7 @@ export default function Header(props: Props) {
                 </Button>
               ))}
             </Box>
+            <Logo/>
           </Toolbar>
         </AppBar>
 

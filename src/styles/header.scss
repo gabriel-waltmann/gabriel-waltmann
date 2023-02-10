@@ -1,4 +1,5 @@
 #header{
+    
     #logo{
         h6{
             width: 120px !important;
@@ -8,4 +9,14 @@
             padding: 0;
         }
     }
+}
+
+.MuiBox-root{
+    h6{
+        color: #121212 ;
+    }
+}
+
+.toolbar h6{
+    display: none;
 }

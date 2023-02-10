@@ -1,6 +1,6 @@
 #techs{
-    @include global-padding;
-    margin-top: 2rem;
+
+    padding-top: 2rem;
     h2{
         font-size: $fontSizeSubtitles;
     }
@@ -11,7 +11,7 @@
 
     ul{
         display: grid;
-        grid-template-columns: repeat(10, 10%);
+        grid-template-columns: repeat(8, 12.5%);
         
         li{
             height: 100%;
