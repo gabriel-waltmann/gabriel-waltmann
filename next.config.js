@@ -4,6 +4,11 @@ const nextConfig = {
   images: {
     domains: ['media.graphassets.com'],
   },
+  sassOptions: {
+        includePaths: [path.join(__dirname, 'styles')],
+        prependData: `@import "./src/styles/global.scss";`,
+    },
+
 }
 
 module.exports = nextConfig
