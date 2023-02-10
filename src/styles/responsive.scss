@@ -1,0 +1,52 @@
+@media (max-width: 600px) {
+    body{width: 100vw;}
+    .MuiBox-root{
+        height: 0;
+    }
+
+    #techs, #about, #projects, #contact{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    #about{
+        flex-direction: column-reverse;
+        height: auto;
+        margin-top: 64px;
+        .col-1, .col-2{
+            width: 100%;
+        }
+
+        .col-2{
+            flex-direction: row;
+
+            .buttons{
+                flex-direction: column;
+                margin: 1rem;
+            }
+        }
+    }
+
+    #techs{
+        ul{
+            grid-template-columns: repeat(6, 16.66%);
+        }
+    }
+
+    #contact{
+        form{
+            .MuiFormControl-root,  .buttons{
+            width: 94%;
+        }
+        }
+    }
+
+    #footer{
+        h6{
+            font-size: 1.5rem;
+        }
+
+        
+    }
+
+}

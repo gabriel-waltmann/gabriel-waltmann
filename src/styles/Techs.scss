@@ -11,12 +11,12 @@
 
     ul{
         display: grid;
-        grid-template-columns: repeat(12, auto);
-        gap: 1rem;
-        justify-content: center;
+        grid-template-columns: repeat(10, 10%);
+        
         li{
-            height: 100px;
-            width: 100px;
+            height: 100%;
+            width: 100%;
+
             svg{
                 height: 100%;
                 width: 100%;

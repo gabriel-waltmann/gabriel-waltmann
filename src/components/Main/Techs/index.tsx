@@ -1,3 +1,4 @@
+import { List, ListItem } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Axios from "public/assets/icons/Axios";
@@ -36,175 +37,175 @@ export default function Techs(){
 >
             <h2 className="techsTitle">Tecnologias</h2>
 
-            <ul>
-                <li>
+            <List >
+                <ListItem >
                     <Link
                     target='_blank'
                     href={'https://www.typescriptlang.org/'}
                     >
                         <TS/>
                     </Link>
-                </li>
+                </ListItem>
 
-                <li>
+                <ListItem >
                     <Link
                     target='_blank'
                     href={'https://developer.mozilla.org/en-US/docs/Web/JavaScript'}
                     >
                         <JS/>
                     </Link>
-                </li>
+                </ListItem>
 
-                <li>
+                <ListItem >
                     <Link
                     target='_blank'
                     href={'https://developer.mozilla.org/en-US/docs/Web/css'}
                     >
                         <Css/>
                     </Link>
-                </li>
+                </ListItem>
 
-                <li>
+                <ListItem >
                     <Link
                     target='_blank'
                     href={'https://sass-lang.com/#'}
                     >
                         <Sass/>
                     </Link>
-                </li>
+                </ListItem>
 
-                <li>
+                <ListItem >
                     <Link
                     target='_blank'
                     href={'https://styled-components.com/'}
                     >
                         <StyledComponents/>
                     </Link>
-                </li>
+                </ListItem>
 
-                <li>
+                <ListItem >
                     <Link
                     target='_blank'
                     href={'https://developer.mozilla.org/en-US/docs/Web/html'}
                     >
                         <HTML/>
                     </Link>
-                </li>
+                </ListItem>
 
-                <li>
+                <ListItem >
                     <Link
                     target='_blank'
                     href={'https://mui.com/'}
                     >
                         <MaterialUI/>
                     </Link>
-                </li>
+                </ListItem>
 
-                <li>
+                <ListItem >
                     <Link
                     target='_blank'
                     href={'https://nodejs.org/en/'}
                     >
                         <Node/>
                     </Link>
-                </li>
+                </ListItem>
 
-                <li>
+                <ListItem >
                     <Link
                     target='_blank'
                     href={'https://mongodb.com/'}
                     >
                         <MongoDB/>
                     </Link>
-                </li>
+                </ListItem>
 
-                <li>
+                <ListItem >
                     <Link
                     target='_blank'
                     href={'https://www.npmjs.com/#'}
                     >
                         <NPM/>
                     </Link>
-                </li>
+                </ListItem>
 
-                <li>
+                <ListItem >
                     <Link
                     target='_blank'
                     href={'https://getbootstrap.com/'}
                     >
                         <Bootstrap/>
                     </Link>
-                </li>
+                </ListItem>
 
-                <li>
+                <ListItem >
                     <Link
                     target='_blank'
                     href={'https://nextjs.org/'}
                     >
                         <Next/>
                     </Link>
-                </li>
+                </ListItem>
 
-                <li>
+                <ListItem >
                     <Link
                     target='_blank'
                     href={'https://jwt.io/'}
                     >
                         <JWT/>
                     </Link>
-                </li>
+                </ListItem>
 
-                <li>
+                <ListItem >
                     <Link
                     target='_blank'
                     href={'https://firebase.google.com/'}
                     >
                         <Firebase/>
                     </Link>
-                </li>
+                </ListItem>
 
-                <li>
+                <ListItem >
                     <Link
                     target='_blank'
                     href={'https://www.expressjs.com/'}
                     >
                         <Express/>
                     </Link>
-                </li>
+                </ListItem>
 
-                <li>
+                <ListItem >
                     <Link
                     target='_blank'
                     href={'https://axios-http.com/'}
                     >
                         <Axios/>
                     </Link>
-                </li>
+                </ListItem>
 
-                <li>
+                <ListItem >
                     <Link
                     target='_blank'
                     href={'https://git-scm.com/'}
                     >
                         <Git/>
                     </Link>
-                </li>
+                </ListItem>
 
-                <li>
+                <ListItem >
                     <Link
                     target='_blank'
                     href={'https://tailwindui.com/'}
                     >
                         <Tailwind/>
                     </Link>
-                </li>
+                </ListItem>
 
-            </ul>
+            </List>
 
             <h2 className="toolsTitle">Ferramentas</h2>
 
-            <ul >
-                <li>
+            <List >
+                <ListItem>
                     <Link
                     target='_blank'
                     href={'https://www.notion.so/'}
@@ -212,8 +213,8 @@ export default function Techs(){
                         <Notion/>
                     </Link>
 
-                </li>
-                <li>
+                </ListItem>
+                <ListItem>
                     <Link
                     target='_blank'
                     href={'https://code.visualstudio.com/'}
@@ -221,8 +222,8 @@ export default function Techs(){
                         <VSCode/>
                     </Link>
 
-                </li>
-                <li>
+                </ListItem>
+                <ListItem>
                     <Link
                     target='_blank'
                     href={'https://github.com/GabrielWaltmann/'}
@@ -230,8 +231,8 @@ export default function Techs(){
                         <Github/>
                     </Link>
 
-                </li>
-                <li>
+                </ListItem>
+                <ListItem>
                     <Link
                     target='_blank'
                     href={'https://vercel.com/'}
@@ -239,8 +240,8 @@ export default function Techs(){
                         <Vercel/>
                     </Link>
 
-                </li>
-                <li>
+                </ListItem>
+                <ListItem>
                     <Link
                     target='_blank'
                     href={'https://netlify.com/'}
@@ -248,8 +249,8 @@ export default function Techs(){
                         <Netlify/>
                     </Link>
 
-                </li>
-                <li>
+                </ListItem>
+                <ListItem>
                     <Link
                     target='_blank'
                     href={'https://figma.com/'}
@@ -257,8 +258,8 @@ export default function Techs(){
                         <Figma/>
                     </Link>
 
-                </li>
-            </ul>
+                </ListItem>
+            </List>
         </motion.section>
     )
 }

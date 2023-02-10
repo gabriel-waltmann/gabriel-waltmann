@@ -15,7 +15,8 @@
         overflow: hidden;
         li{
             height: 475px;
-            width: 775px;
+            max-width: 775px;
+            width: 100%;
             text-align: center;
             align-items: center;
             background-size: cover;
