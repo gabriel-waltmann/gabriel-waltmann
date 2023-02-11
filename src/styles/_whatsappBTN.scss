@@ -5,6 +5,8 @@
     height: 6rem;
     width: 6rem;
     color: $whatsappBTNColor;
+    min-height: 64px;
+    min-width: 64px;
 
     &:hover{
         cursor: pointer;

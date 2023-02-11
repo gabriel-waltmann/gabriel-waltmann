@@ -31,7 +31,14 @@
     }
 
     #techs ul{
-        grid-template-columns: repeat(6, 16.66%);
+        grid-template-columns: repeat(4, auto) !important;
+        li{
+            padding: 0;
+            a{
+                height: 100%;
+                width: 100%;
+            }
+        }
     }
     
 
