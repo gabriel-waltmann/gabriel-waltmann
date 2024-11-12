@@ -1,5 +1,4 @@
 import LayoutHead from '@/components/layout/head'
-import LayoutHeader from '@/components/layout/header';
 import theme from "@/mui/theme";
 import { Container, ThemeProvider } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
@@ -16,7 +15,7 @@ export default function RootLayout({children}: { readonly children: React.ReactN
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
               <Container maxWidth="md" sx={{ marginTop: '2rem', marginBottom: '2rem' }}>
-                <LayoutHeader />  
+                <header>header</header>
 
                 <nav>nav</nav>
 
