@@ -10,9 +10,9 @@ const jost = Jost({ subsets: ['latin'] })
  
 export default function RootLayout(props: { readonly children: React.ReactNode}) {
   const tabs: TabPanelProps[] = [
-    { label: 'About', href: '/' },
-    { label: 'Certifications', href: '/certifications' },
-    { label: 'Jobs', href: '/jobs' },
+    { label: 'About', href: '/',  value: 0 },
+    { label: 'Certifications', href: '/certifications', value: 1 },
+    { label: 'Jobs', href: '/jobs', value: 2 },
   ]
 
   return (
