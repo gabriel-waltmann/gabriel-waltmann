@@ -1,15 +1,16 @@
+import TabContainer from "@/components/tab-container/tab-container";
 import { Box, Typography } from "@mui/material";
 
 export default async function Home() {
   return (
-   <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
-       <Box>
+   <TabContainer>
+      <Box>
         <Typography variant="body2">
           Eu me chamo Gabriel Waltmann e moro em Campo Alegre - SC. Desenvolvo projetos com foco principal no Front End, desde 2020 venho desenvolvendo minhas habilidades no desenvolvimento Web.
         </Typography>
-       </Box>
+      </Box>
 
-       <Box>
+      <Box>
         <Typography variant="body2">Frontend skills:</Typography>
 
         <Typography variant="body2">Javascript</Typography>
@@ -36,6 +37,6 @@ export default async function Home() {
         <Typography variant="body2">Prisma</Typography>
         <Typography variant="body2">Firebase</Typography>
       </Box>
-   </Box>
+   </TabContainer>
   )
 }

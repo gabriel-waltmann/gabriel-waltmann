@@ -31,16 +31,12 @@ export default function SocialLinks({ socialLinks }: Readonly<TProps>) {
   ]
   
   return (
-    <List disablePadding sx={{ display: 'flex', gap: '1rem' }}>
+    <ul style={{ display: 'flex', gap: '1rem' }}>
       {links.map((link, index) => (
-        <ListItem key={index+'link'} disablePadding>
-          <Link>
-            <ListItemIcon>     
-              {link.link ? link.icon : null}
-            </ListItemIcon>
-          </Link>
-        </ListItem>
+        <li key={index+'link'}>
+          <Link color='inherit'> {link.link ? link.icon : null}</Link>
+        </li>
       ))}
-    </List>
+    </ul>
   )
 }

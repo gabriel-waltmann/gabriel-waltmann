@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import type { Metadata } from 'next'
+import './global.css'
 
 export const metadata: Metadata = {
   title: 'Gabriel Watmann',

@@ -1,7 +1,7 @@
 import LayoutHead from '@/components/layout/head'
 import LayoutHeader from '@/components/layout/header';
 import TabPanels, { TabPanelProps } from '@/components/tab-panels';
-import theme from "@/mui/theme";
+import theme from "../../mui/theme";
 import { Container, ThemeProvider } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { Jost } from 'next/font/google'
