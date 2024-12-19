@@ -11,49 +11,42 @@ export default function Project(props: TProps) {
     const { heading, github, description, host, image } = props.project;
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true })
-    const showThenIsInView = {
-        transform: isInView ? "none" : "translateY(100px)",
-        opacity: isInView ? 1 : 0,
-        transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.4s"
-    }
     const bg = {
         backgroundImage: `url(${image.url})`,
-        ...showThenIsInView
+        transform: isInView ? "none" : "translateY(100px)",
+        opacity: isInView ? 1 : 0,
+        backgroundSize: "contain",
+        backgroundRepeat: "no-repeat",
+        transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.4s"
     }
-    return (
-        <motion.li
+    return <motion.li
             key={heading}
             style={bg}
             ref={ref}
         >
             <article>
-
                 <h2>{heading}</h2>
 
                 <p>{description}</p>
                 <div className="buttons">
-                    <Button 
-                    variant="contained" 
-                    aria-label={heading} >
-                        <Link href={github} 
-                        target='_blank' 
-                        aria-label={host}>
+                    {github && <Button
+                        variant="contained" 
+                        aria-label={heading} 
+                    >
+                        <Link href={github} target='_blank'>
                             <GitHubIcon />
                         </Link>
-                    </Button>
-                    <Button 
+                    </Button>}
+
+                    {host && <Button 
                     variant="contained"
                     aria-label={heading}
                     >
-                        <Link 
-                        href={host} 
-                        target="_blank"
-                        aria-label={host}>
+                        <Link href={host} target="_blank" >
                             <LanguageIcon />
                         </Link>
-                    </Button>
+                    </Button>}
                 </div>
             </article>
-        </motion.li>
-    )
+    </motion.li>
 }

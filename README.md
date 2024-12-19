@@ -6,7 +6,7 @@
 <div align="center">
   <h2> 👨🏻‍💻 Sobre mim </h2>
   <ul align="left">
-    <li>🔭 Foco principalmente no Front End, entratando tenho conhecimentos também em back-end</li>
+    <li>🔭 Foco principalmente no Front End, entratando tenho conhecimentos também em backend</li>
     <li>💼  Atualmente desenvolvo projetos em React com Next.js</li>
     <li>😴  Como hobby, assisto animes e jogo Minecraft</li>
   </ul>

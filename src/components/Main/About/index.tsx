@@ -48,7 +48,7 @@ function Typewriter() {
                 .callFunction(() => { })
                 .start();
 
-                typewriter.typeString('Eu sou um desenvolvedor Back-End!')
+                typewriter.typeString('Eu sou um desenvolvedor Backend!')
                 .pauseFor(1000)
                 .pauseFor(1000)
                 .callFunction(() => { })
