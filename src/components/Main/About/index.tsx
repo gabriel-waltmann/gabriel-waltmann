@@ -5,27 +5,24 @@ import Buttons from './Buttons';
 
 export default function About() {
     return (
-        <>
+        <section id='about'>
+            <div className='col-1'>
+                {Typewriter()}
+                
+                <p>Sou desenvolvedor fullstack há 3 anos. Tenho experiência no desenvolvimento de soluções robustas e escaláveis, com foco principal na experiência do usuário. Nesse tempo, tenho adquirido habilidade em criar APIs eficientes, integrar sistemas complexos e otimizar fluxos de trabalho para atender às necessidades do cliente. Domino tecnologias como nodejs, sql e java.</p>
+            </div>
+            <div className='col-2'>
+                <Image
+                    src={'/assets/images/profile.png'}
+                    alt={'Image de perfil de Gabriel Waltmann'}
+                    width={200}
+                    height={200}
+                />
 
-            <section id='about'>
-                <div className='col-1'>
-                    {Typewriter()}
-                    
-                    <p>Sou um desenvolvedor backend apaixonado por tecnologia e resolução de problemas. Minha experiência inclui o desenvolvimento de soluções robustas e escaláveis, com foco principal na experiencia do usuário. Tenho habilidade em criar APIs eficientes, integrar sistemas complexos e otimizar fluxos de trabalho para atender às necessidades do cliente.</p>
-                </div>
-                <div className='col-2'>
-                    <Image
-                        src={'/assets/images/profile.png'}
-                        alt={'Image de perfil de Gabriel Waltmann'}
-                        width={200}
-                        height={200}
-                    />
-
-                    <Buttons/>
-                </div>
-            </section>
-        </>
-    )
+                <Buttons/>
+            </div>
+        </section>
+    );
 }
 
 function Typewriter() {

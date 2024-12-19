@@ -42,7 +42,7 @@ export default function Techs() {
             <List >
                 {techButtons.map((tech, index) => {
                     return (
-                        <ListItem key={index}>
+                        <ListItem key={index+"tech"}>
                             <Link
                                 target='_blank'
                                 href={tech.href}
@@ -60,7 +60,7 @@ export default function Techs() {
             <List >
                 {toolButtons.map((tech, index)  => {
                     return (
-                        <ListItem key={index}>
+                        <ListItem key={index+"tool"}>
                             <Link
                                 target='_blank'
                                 href={tech.href}
