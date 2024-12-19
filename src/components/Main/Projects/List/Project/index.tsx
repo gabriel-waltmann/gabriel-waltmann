@@ -4,9 +4,11 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import Link from 'next/link';
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ProjectProps } from '@/types/Projects';
+import { IProject } from '@/types/Projects';
 
-export default function Project({ heading, github, description, host, image }: ProjectProps) {
+type TProps = Readonly<{ project: IProject }>
+export default function Project(props: TProps) {
+    const { heading, github, description, host, image } = props.project;
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true })
     const showThenIsInView = {

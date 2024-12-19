@@ -1,11 +1,7 @@
-export type ProjectProps = {
+export interface IProject {
     heading: string,
     description: string,
     github: string,
     host: string
-    image: {
-        url: string
-    }
+    image: { url: string }
 }
-
-export type Projects = any[] | any
