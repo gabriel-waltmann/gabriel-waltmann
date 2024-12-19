@@ -59,7 +59,7 @@ const toolButtons = [
     { href: 'https://figma.com/', Icon: <Figma /> },
     { href: 'https://netlify.com/', Icon: <Netlify /> },
     { href: 'https://vercel.com/', Icon: <Vercel /> },
-    { href: 'https://github.com/GabrielWaltmann/', Icon: <Github /> },
+    { href: 'https://github.com/gabriel-waltmann/', Icon: <Github /> },
     { href: 'https://code.visualstudio.com/', Icon: <VSCode /> },
     { href: 'https://www.notion.so/', Icon: <Notion /> },
 ]

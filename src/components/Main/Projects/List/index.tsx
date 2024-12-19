@@ -2,7 +2,9 @@ import { ProjectProps } from '../../../../types/Projects';
 import { motion } from 'framer-motion';
 import Project from './Project';
 
-export default function List({ projects }: any) {
+export default function List() {
+    const projects: any[] = [];
+
     return (
         <>
             <h2>Projetos</h2>

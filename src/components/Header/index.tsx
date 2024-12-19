@@ -15,7 +15,6 @@ const navItems = [
   {name: 'Sobrem mim ', link: '#about'}, 
   {name: 'Tecnologias ', link: '#techs'}, 
   {name: 'Projetos ', link: '#projects'}, 
-  {name: 'Contato ', link: '#contact'},
 ];
 
 interface Props {

@@ -10,7 +10,7 @@ export default function Buttons(){
         transition={{ type: "spring", stiffness: 100 }}
         >
             <Button variant="outlined">
-                <Link href="https://github.com/GabrielWaltmann" target="_blank" >Github</Link>
+                <Link href="https://github.com/gabriel-waltmann" target="_blank" >Github</Link>
             </Button>
             <Button variant="outlined">
                 <Link href='https://www.linkedin.com/in/gabrielwaltmann' target="_blank">Linkedin</Link>

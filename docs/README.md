@@ -11,7 +11,7 @@ Este é um portfólio pessoal de Gabriel Waltmannn. Nele, é possivel encontrar 
 
 ## 🚀 Como rodar localmente
 
-1. Clone o seguinte repositório (Necessita ter acesso a conta do Github): [https://github.com/GabrielWaltmann/Portfolio.git]
+1. Clone o seguinte repositório (Necessita ter acesso a conta do Github): [https://github.com/gabriel-waltmann/Portfolio.git]
 
 2. Instale as dependências rodando o seguinte código no terminal: `npm install`
    
@@ -54,4 +54,4 @@ Este é um portfólio pessoal de Gabriel Waltmannn. Nele, é possivel encontrar 
 
 ### Desenvolvido por Gabriel Waltmann
 [<img src="https://img.icons8.com/color/512/linkedin-2.png" alt="linkedin" height="50"></a>](https://www.linkedin.com/in/gabrielwaltmann/)
-[<img src="https://avatars.githubusercontent.com/u/9919?v=4" alt="github" height="50">](https://github.com/gabrielwaltmann)
+[<img src="https://avatars.githubusercontent.com/u/9919?v=4" alt="github" height="50">](https://github.com/gabriel-waltmann)

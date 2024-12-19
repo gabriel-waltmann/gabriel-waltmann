@@ -10,11 +10,10 @@ export default function Footer() {
         { name: 'Sobrem mim ', link: '#about' },
         { name: 'Tecnologias ', link: '#techs' },
         { name: 'Projetos ', link: '#projects' },
-        { name: 'Contato ', link: '#contact' },
     ];
 
     const socialMidias = [
-        { icon: <GitHubIcon />, link: "https://github.com/GabrielWaltmann" },
+        { icon: <GitHubIcon />, link: "https://github.com/gabriel-waltmann" },
         { icon: <LinkedInIcon />, link: "https://www.linkedin.com/in/gabrielwaltmann" },
         { icon: <WhatsAppIcon />, link: "https://wa.me/+5547996153009/" },
         { icon: <InstagramIcon />, link: "https://www.instagram.com/waltmanngabriel/" },

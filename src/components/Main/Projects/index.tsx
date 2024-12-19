@@ -1,9 +1,9 @@
 import List from './List';
 
-export default function Projects({ data }: { data: { projects: [] } }) {
+export default function Projects() {
   return (
     <section id='projects'>
-      <List projects={data.projects} />
+      <List />
     </section>
   )
 }
