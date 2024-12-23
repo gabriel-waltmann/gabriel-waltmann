@@ -1,23 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-@import './mixins.scss';
+button {
+  border: none;
+  cursor: pointer;
+  background: none;
+}
 
-@import './variables.scss';
+ul {
+  list-style: none;
+}
 
-@import './reset.scss';
-
-@import './header.scss';
-
-@import './footer.scss';
-
-@import './responsive.scss';
-
-@import './_about.scss';
-
-@import './_techs.scss';
-
-@import './_projects.scss';
-
-@import './_contact.scss';
-
-@import './_whatsappBTN.scss';
+body {
+  background-color: #fff !important;
+}
