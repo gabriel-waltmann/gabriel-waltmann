@@ -35,6 +35,9 @@ importers:
       react-dom:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
+      react@next:
+        specifier: '@phosphor-icons/react@next'
+        version: link:@phosphor-icons/react@next
       typescript:
         specifier: 4.9.5
         version: 4.9.5
