@@ -1,9 +1,10 @@
+import TypographyTitle from "@/components/typography/title"
 import DashboardLayout from "@/layouts/dashboard"
 
 export default function Home() {
   return (
     <DashboardLayout>
-      <h1>home</h1>
+      <TypographyTitle value="HOME" />
    </DashboardLayout>
   )
 }
