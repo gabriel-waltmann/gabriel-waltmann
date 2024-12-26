@@ -1,11 +1,13 @@
 import PrimaryButton from "@/components/buttons/primary-button"
 import TypographyTitle from "@/components/typography/title"
 import DashboardLayout from "@/layouts/dashboard"
-import { Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from "@mui/material"
+import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, ImageList, List, TextField } from "@mui/material"
 import { Controller, useForm } from "react-hook-form"
 import { CSSProperties, useEffect, useState } from "react"
 import { DevTool } from "@hookform/devtools"
 import { Trash } from "@phosphor-icons/react"
+import { TechEntity } from "@/entities/TechEntity"
+import DashboardTechCard from "@/components/dashboard/dashboard-tech/dashboard-tech-card"
 
 const style: CSSProperties = {
   display: "flex",
@@ -14,29 +16,103 @@ const style: CSSProperties = {
   justifyContent: "space-between",
 }
 type TFormFields = {
+  id: string | null;
   name: string,
   link: string,
   linkName: string,
-  file: File | null
+  fileUrl: string | null,
 }
 export default function Techs() {
   const [activeForm, setActiveForm] = useState<boolean>(false);
 
   const form = useForm<TFormFields>({
     defaultValues: {
+      id: null,
       name: "",
       link: "",
       linkName: "",
-      file: null
+      fileUrl: null
     }
   });
 
   const { register, handleSubmit, control } = form;
   const { errors, } = form.formState;
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [saveLoading, setSaveLoading] = useState<boolean>(false);
+  const [deleteLoading, setDeleteLoading] = useState<boolean>(false);
+  const [techs, setTechs] = useState<TechEntity[]>([]);
 
-  const onSubmit = (data: TFormFields) => {
-    console.log(data);
+  const handleTechs = async () => {
+    const response = await fetch('/api/tech');
+    const result = await response.json();
+
+    setTechs(result);
+  }
+
+  useEffect(() => {
+    handleTechs();
+  }, [])
+
+  const onSubmit = async (data: TFormFields): Promise<void> => {
+    if (!data.fileUrl) return;
+
+    setSaveLoading(true);
+
+    const formData = new FormData();
+
+    formData.append("name", data.name);
+    formData.append("linkName", data.linkName);
+    formData.append("linkKey", data.link);
+
+    const file = await fetch(data.fileUrl).then(res => res.blob());
+
+    console.log({ file });
+
+    formData.append("file", file);
+    
+
+    if (data.id) {
+      const response = await fetch(`/api/tech/${data.id}`, {
+        method: "PUT",
+        body: formData,
+      });
+
+      if (response.status !== 200) {
+        setSaveLoading(false);
+        return alert("Erro ao cadastrar tech");
+      }
+
+      const result: TechEntity = await response.json();
+
+      const newTechs = [...techs].filter(({ id }) => id !== data.id);
+
+      newTechs.unshift(result)
+
+      setTechs(newTechs);
+
+      setSaveLoading(false);
+      setActiveForm(false);
+
+      return;
+    }
+
+    const response = await fetch('/api/tech', {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response.status !== 200) {
+      setSaveLoading(false);
+      return alert("Erro ao cadastrar tech");
+    }
+
+    const result: TechEntity = await response.json();
+
+    const newTechs = techs;
+    newTechs.unshift(result);
+
+    setTechs(newTechs);
+
+    setSaveLoading(false);
     setActiveForm(false);
   }
 
@@ -50,21 +126,55 @@ export default function Techs() {
     form.setValue("linkName", linkName);
   }, [form.watch("link")])
 
-  useEffect(() => {
-    const file = form.watch("file");
-
-    // convert file to blob url
-    const imageUrl = file ? window.URL.createObjectURL(file) : null;
-
-    setImageUrl(imageUrl);
-  }, [form.watch("file")])
-
-  const handleFormData = () => {
-    form.reset();
+  const onCreateTech = () => {
+    form.reset({
+      id: null,
+      name: "",
+      link: "",
+      linkName: "", 
+      fileUrl: null,
+    });
 
     setActiveForm(true);
 
     form.setFocus("name");
+  }
+
+  const onEditTech = async (tech: TechEntity) => {
+    form.reset({
+      id: tech.id,
+      name: tech.name,
+      link: tech.link.key,
+      linkName: tech.link.name,
+      fileUrl: tech.file ? tech.file.key : null
+    });
+
+    setActiveForm(true);
+  }
+
+  const onDelete = async () => {
+    const id = form.watch("id");
+
+    if (!id?.length) return;
+
+    setDeleteLoading(true);
+
+    const response = await fetch(`/api/tech/${id}`, {
+      method: "DELETE",
+    });
+
+    console.log(response)
+
+    if (response.status !== 200) {
+      setDeleteLoading(false);
+      return alert("Erro ao cadastrar tech");
+    }  
+
+    const newTechs = techs.filter((tech) => tech.id !== id);
+    setTechs(newTechs);
+
+    setDeleteLoading(false);
+    setActiveForm(false)
   }
 
   return (
@@ -72,8 +182,18 @@ export default function Techs() {
       <div style={style}>
         <TypographyTitle value="TECHS" />
 
-        <PrimaryButton value="+ TECH" onClick={() => handleFormData()}  />
+        <PrimaryButton value="+ TECH" onClick={() => onCreateTech()}  />
       </div>
+
+      <List dense sx={{ marginTop: "1rem" }}>
+        {techs.map(tech =>
+          <DashboardTechCard 
+            tech={tech} 
+            key={tech.id}
+            onClick={onEditTech}
+          />
+        )}
+      </List>
 
       <Dialog
         open={activeForm}
@@ -174,7 +294,7 @@ export default function Techs() {
             )}
           />
 
-          {!imageUrl ? 
+          {!form.watch("fileUrl") ? 
             (<Button
               variant="contained"
               component="label"
@@ -187,7 +307,9 @@ export default function Techs() {
                 onChange={(e) => {
                   const file = e.target.files?.length ? e.target.files[0] : null;
 
-                  form.setValue("file", file);
+                  const fileUrl = file ? URL.createObjectURL(file) : null;
+
+                  form.setValue("fileUrl", fileUrl);
                 }}
                 type="file"
                 accept="image/*"
@@ -197,19 +319,23 @@ export default function Techs() {
             : (
               <Box 
                 sx={{ 
-                  height: "300px", 
+                  height: "160px", 
+                  width: "160px", 
                   position: "relative",
                   backgroundColor: "#f1f1f1",
                   marginTop: ".6rem",
                   borderRadius: ".6rem",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center"
                 }} 
               >
                 <img 
-                  src={imageUrl} 
+                  src={form.watch("fileUrl") ?? ""} 
                   alt="preview" 
                   style={{ 
-                    width: "100%", 
-                    height: "100%", 
+                    width: 120, 
+                    height: 120, 
                     objectFit: "contain" 
                   }}  
                 />
@@ -217,10 +343,10 @@ export default function Techs() {
                 <Button 
                   sx={{ 
                     position: "absolute", 
-                    top: "1rem", 
-                    right: "1rem" 
+                    top: 0, 
+                    right: 0,
                   }} 
-                  onClick={() => form.setValue("file", null)}
+                  onClick={() => form.setValue("fileUrl", null)}
                 > 
                   <Trash size={24} /> 
                 </Button>
@@ -231,7 +357,13 @@ export default function Techs() {
         <DialogActions style={{ gap: ".6rem" }}>
           <Button variant="outlined" onClick={() => setActiveForm(false)}>CANCELAR</Button>
 
-          <Button variant="contained" type="submit">CADASTRAR</Button>
+          <Button onClick={() => onDelete()} variant="contained">
+            {deleteLoading ? "DELETANDO..."  : "DELETAR"}
+          </Button>
+
+          <Button variant="contained" type="submit">
+            {saveLoading ? "CARREGANDO..." : form.watch("id")?.length ? "ALTERAR" : "CADASTRAR"}
+          </Button>
         </DialogActions>
         
         <DevTool control={control} />
