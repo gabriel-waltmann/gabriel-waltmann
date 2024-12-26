@@ -7,15 +7,9 @@ type TProps = Readonly<{
 }>
 
 export default function TypographySubtitle(props: TProps) {
-  if (props.value) {
-    return (
-      <h4>{props.value}</h4>
-    )
-  }
-
   return (
-    <h1>
-      {props.children}
-    </h1>
+    <h2 style={props.styles}>
+      {props.value ?? props.children}
+    </h2>
   )
 }
