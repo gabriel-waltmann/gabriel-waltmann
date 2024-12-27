@@ -1,15 +1,10 @@
 import { FileEntity } from "./FileEntity";
+import { LinkEntity } from "./LinkEntity";
 
 export interface TechEntity {
   id: string;
   name: string;
-  link: {
-    id: string;
-    name: string;
-    key: string;
-    updated_at: string;
-    created_at: string;
-  };
+  link: LinkEntity;
   file: FileEntity | null;
   updated_at: string;
   created_at: string
