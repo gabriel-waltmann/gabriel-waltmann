@@ -9,7 +9,7 @@ import { Trash } from "@phosphor-icons/react"
 import { TechEntity } from "@/entities/TechEntity"
 import DashboardTechCard from "@/components/dashboard/dashboard-tech/dashboard-tech-card"
 
-const style: CSSProperties = {
+const headerStyle: CSSProperties = {
   display: "flex",
   flexDirection: "row",
   flexWrap: "nowrap",
@@ -64,8 +64,6 @@ export default function Techs() {
     formData.append("linkKey", data.link);
 
     const file = await fetch(data.fileUrl).then(res => res.blob());
-
-    console.log({ file });
 
     formData.append("file", file);
     
@@ -136,8 +134,6 @@ export default function Techs() {
     });
 
     setActiveForm(true);
-
-    form.setFocus("name");
   }
 
   const onEditTech = async (tech: TechEntity) => {
@@ -179,7 +175,7 @@ export default function Techs() {
 
   return (
     <DashboardLayout>
-      <div style={style}>
+      <div style={headerStyle}>
         <TypographyTitle value="TECHS" />
 
         <PrimaryButton value="+ TECH" onClick={() => onCreateTech()}  />
@@ -201,7 +197,7 @@ export default function Techs() {
         onSubmit={handleSubmit((data) => onSubmit(data))}
         PaperProps={{ component: 'form' }}
       >
-        <DialogTitle>Cadastrar tech</DialogTitle>
+        <DialogTitle>Tech</DialogTitle>
         <DialogContent>
           <Controller
             control={control}

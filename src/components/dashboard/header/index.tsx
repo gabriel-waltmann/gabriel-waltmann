@@ -22,7 +22,7 @@ enum Pages {
 
 export default function DashboardHeader() {
   const [page, setPage] = useState(Pages.home)
-
+  
   useEffect(() => {
     if (typeof window === "undefined") return;
 
