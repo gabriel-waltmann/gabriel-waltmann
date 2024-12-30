@@ -1,5 +1,6 @@
 import IndexHeader from "@/components/header";
 import PrimaryTabs, { TPrimaryTab } from "@/components/tabs/primary-tabs";
+import { useRouter } from "next/router";
 import { CSSProperties, useEffect, useState } from "react";
 
 const containerStyle: CSSProperties = {
@@ -23,9 +24,9 @@ enum Tabs {
 
 export default function IndexLayout(props: Readonly<{ children: React.ReactNode}>) {
   const tabs: TPrimaryTab[] = [
-    { label: "Home", value: Tabs.Home, component: <h1>Home</h1> },
-    { label: "Projects", value: Tabs.Projects, component: <h1>Projects</h1> },
-    { label: "Techs", value: Tabs.Techs, component: <h1>Techs</h1> },
+    { label: "Home", value: Tabs.Home },
+    { label: "Projects", value: Tabs.Projects },
+    { label: "Techs", value: Tabs.Techs },
   ]
 
   const [tab, setTab] = useState<Tabs>(Tabs.Home);
@@ -46,6 +47,27 @@ export default function IndexLayout(props: Readonly<{ children: React.ReactNode}
     return setTab(Tabs.Home)
   }
 
+  const router = useRouter();
+
+  const toggleTab = async (tab: Tabs): Promise<void> => {
+    const changedTab = await goToTab(tab);
+
+    if (!changedTab) return;
+
+    setTab(tab);
+  }
+
+  const goToTab = (tab: Tabs): Promise<boolean> => {
+    switch (tab) {
+      case Tabs.Home:
+        return router.push("/")
+      case Tabs.Projects:
+        return router.push("/projects")
+      case Tabs.Techs:
+        return router.push("/techs")
+    }
+  }
+
   useEffect(() => {
     handleTab()
   }, [])
@@ -57,6 +79,7 @@ export default function IndexLayout(props: Readonly<{ children: React.ReactNode}
       <PrimaryTabs 
         tab={tab}
         tabs={tabs}
+        onChange={toggleTab}
       />
     
       <main style={mainStyles}>{props.children}</main>
