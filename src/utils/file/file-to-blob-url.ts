@@ -1,1 +1,0 @@
-export const fileToBlobUrl = (file: File): string => URL.createObjectURL(file);
