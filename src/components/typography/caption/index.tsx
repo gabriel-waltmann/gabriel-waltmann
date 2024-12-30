@@ -7,15 +7,9 @@ type TProps = Readonly<{
 }>
 
 export default function TypographyCaption(props: TProps) {
-  if (props.value) {
-    return (
-      <span>{props.value}</span>
-    )
-  }
+  const style: CSSProperties = { ...props.styles, fontSize: "16px" };
 
   return (
-    <h1>
-      {props.children}
-    </h1>
+    <span style={style}>{props.value ?? props.children}</span>
   )
 }

@@ -7,6 +7,7 @@ import { DevTool } from "@hookform/devtools"
 import { Trash } from "@phosphor-icons/react"
 import { TechEntity } from "@/entities/TechEntity"
 import DashboardTechCard from "@/components/dashboard/dashboard-tech/dashboard-tech-card"
+import * as techsMiddleware from "@/middlewheres/techs"
 
 const headerStyle: CSSProperties = {
   display: "flex",
@@ -41,10 +42,9 @@ export default function Techs() {
   const [techs, setTechs] = useState<TechEntity[]>([]);
 
   const handleTechs = async () => {
-    const response = await fetch('/api/tech');
-    const result = await response.json();
+    const techs = await techsMiddleware.retrieves();
 
-    setTechs(result);
+    setTechs(techs);
   }
 
   useEffect(() => {

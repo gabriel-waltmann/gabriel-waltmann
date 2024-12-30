@@ -5,7 +5,7 @@ export interface TechEntity {
   id: string;
   name: string;
   link: LinkEntity;
-  file: FileEntity | null;
+  file: FileEntity;
   updated_at: string;
   created_at: string
 }
