@@ -1,8 +1,6 @@
 import TypographyCaption from "@/components/typography/caption";
 import { TechEntity } from "@/entities/TechEntity";
 import * as techsMiddleware from "@/middlewheres/techs"
-import { ImageList, ImageListItem } from "@mui/material";
-import Link from "next/link";
 import { CSSProperties, useEffect, useState } from "react";
 
 const ulStyle: CSSProperties = {

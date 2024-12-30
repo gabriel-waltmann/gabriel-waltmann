@@ -10,6 +10,8 @@ import { Box, Button, Chip, Dialog, DialogActions, DialogContent, IconButton, Im
 import { Plus, Trash, X } from "@phosphor-icons/react"
 import { CSSProperties, useEffect, useState } from "react"
 import { Controller, useForm } from "react-hook-form"
+import * as techsMiddleware from "@/middlewheres/techs"
+import * as projectsMiddleware from "@/middlewheres/projects"
 
 const headerStyle: CSSProperties = {
   display: "flex",
@@ -56,15 +58,13 @@ export default function Projects() {
   const [tab, setTab] = useState<TabsEnum>(TabsEnum.General);
   
   const handleProjects = async () => {
-    const response = await fetch('/api/project');
-    const result: ProjectEntity[] = await response.json();
+    const result = await projectsMiddleware.retrieves();
 
     setProjects(result);
   }
 
   const handleTechs = async () => {
-    const response = await fetch('/api/tech');
-    const result: TechEntity[] = await response.json();
+    const result = await techsMiddleware.retrieves();
 
     setTechs(result);
   }
