@@ -6,16 +6,16 @@ type TProps = Readonly<{
   styles?: CSSProperties 
 }>
 
+const typographyTitleStyle: CSSProperties = {
+  fontSize: "2rem"
+}
+
 export default function TypographyTitle(props: TProps) {
-  if (props.value) {
-    return (
-      <h1>{props.value}</h1>
-    )
-  }
+  const style: CSSProperties = { ...typographyTitleStyle, ...props.styles };
 
   return (
-    <h1>
-      {props.children}
+    <h1 style={style}>
+      {props.children ?? props.value}
     </h1>
   )
 }

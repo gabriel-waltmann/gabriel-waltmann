@@ -5,7 +5,6 @@ import { ProjectEntity } from "@/entities/project/ProjectEntity"
 import { ProjectFileEntity } from "@/entities/project/ProjectFiles"
 import { ProjectTechEntity } from "@/entities/project/ProjectTechEntity"
 import { TechEntity } from "@/entities/TechEntity"
-import DashboardLayout from "@/layouts/dashboard"
 import { DevTool } from "@hookform/devtools"
 import { Box, Button, Chip, Dialog, DialogActions, DialogContent, IconButton, ImageList, ImageListItem, ImageListItemBar, Tab, Tabs, TextField, Typography } from "@mui/material"
 import { Plus, Trash, X } from "@phosphor-icons/react"
@@ -277,7 +276,7 @@ export default function Projects() {
   }
 
   return (
-    <DashboardLayout>
+    <>
       <div style={headerStyle}>
         <TypographyTitle value="PROJECTS" />
 
@@ -521,6 +520,6 @@ export default function Projects() {
         </DialogContent>
         <DevTool control={control} />
       </Dialog>
-    </DashboardLayout>
+    </>
   )
 }

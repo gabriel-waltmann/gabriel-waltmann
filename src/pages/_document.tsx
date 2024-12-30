@@ -13,10 +13,11 @@ export default function Document() {
                 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
                 <meta name="keywords" content="Typescript, Fullstack, JavaScript, Front-End, Gabriel Waltmann, Portfólio, Portfólio Gabriel Waltmann"></meta>
             </Head>
+            
             <body>
-
-                    <Main />
-                    <NextScript />
+                <Main />
+                
+                <NextScript />
             </body>
         </Html>
     )

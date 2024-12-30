@@ -1,6 +1,5 @@
 import PrimaryButton from "@/components/buttons/primary-button"
 import TypographyTitle from "@/components/typography/title"
-import DashboardLayout from "@/layouts/dashboard"
 import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, ImageList, List, TextField } from "@mui/material"
 import { Controller, useForm } from "react-hook-form"
 import { CSSProperties, useEffect, useState } from "react"
@@ -174,7 +173,7 @@ export default function Techs() {
   }
 
   return (
-    <DashboardLayout>
+    <>
       <div style={headerStyle}>
         <TypographyTitle value="TECHS" />
 
@@ -364,6 +363,6 @@ export default function Techs() {
         
         <DevTool control={control} />
       </Dialog>
-    </DashboardLayout>
+    </>
   )
 }

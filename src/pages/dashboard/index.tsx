@@ -1,6 +1,5 @@
 import DashboardCard from "@/components/dashboard/card"
 import TypographyTitle from "@/components/typography/title"
-import DashboardLayout from "@/layouts/dashboard"
 import { CSSProperties } from "react"
 
 const ulStyles: CSSProperties = {
@@ -11,9 +10,9 @@ const ulStyles: CSSProperties = {
   marginTop: "1rem"
 }
 
-export default function Home() {
+export default function DashboardPage() {
   return (
-    <DashboardLayout>
+    <>
       <TypographyTitle value="HOME" />
 
       <nav style={ulStyles}>
@@ -21,6 +20,6 @@ export default function Home() {
 
         <DashboardCard name="Techs" href="/dashboard/techs" />
       </nav>
-   </DashboardLayout>
+   </>
   )
 }

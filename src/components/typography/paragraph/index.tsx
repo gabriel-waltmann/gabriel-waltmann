@@ -14,8 +14,8 @@ export default function TypographyParagraph(props: TProps) {
   }
 
   return (
-    <h1>
+    <p>
       {props.children}
-    </h1>
+    </p>
   )
 }
