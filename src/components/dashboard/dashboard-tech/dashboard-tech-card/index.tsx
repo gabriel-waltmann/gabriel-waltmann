@@ -1,7 +1,14 @@
-import * as React from 'react';
-import { Link, ListItem, IconButton, ListItemAvatar, Avatar, ListItemText } from '@mui/material';
-import { TechEntity } from '@/entities/TechEntity';
-import { Pencil } from '@phosphor-icons/react';
+import * as React from "react";
+import {
+  Link,
+  ListItem,
+  IconButton,
+  ListItemAvatar,
+  Avatar,
+  ListItemText,
+} from "@mui/material";
+import { TechEntity } from "@/entities/TechEntity";
+import { Pencil } from "@phosphor-icons/react";
 
 type TProps = Readonly<{
   tech: TechEntity;
@@ -17,19 +24,22 @@ export default function DashboardTechCard(props: TProps) {
       }
       disablePadding
     >
-      {props.tech.file && 
-       <ListItemAvatar>
-          <Avatar
-            alt={props.tech.name}
-            src={props.tech.file.key}
-          />
+      {props.tech.file && (
+        <ListItemAvatar>
+          <Avatar alt={props.tech.name} src={props.tech.file.key} />
         </ListItemAvatar>
-      }
-      
-      <ListItemText style={{ flex: 1 }} id={props.tech.id} primary={props.tech.name} />
-    
+      )}
+
+      <ListItemText
+        style={{ flex: 1 }}
+        id={props.tech.id}
+        primary={props.tech.name}
+      />
+
       <ListItemText style={{ flex: 1 }}>
-        <Link target="_blank" href={props.tech.link.key}>{props.tech.link.name}</Link>
+        <Link target="_blank" href={props.tech.link.key}>
+          {props.tech.link.name}
+        </Link>
       </ListItemText>
     </ListItem>
   );

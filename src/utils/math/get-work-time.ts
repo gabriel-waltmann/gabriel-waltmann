@@ -5,4 +5,4 @@ export const getTotalWorkTime = (startYear: number): number => {
   start.setFullYear(startYear);
 
   return end.getFullYear() - start.getFullYear();
-}
+};

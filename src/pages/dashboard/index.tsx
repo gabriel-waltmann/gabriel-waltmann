@@ -1,14 +1,14 @@
-import DashboardCard from "@/components/dashboard/card"
-import TypographyTitle from "@/components/typography/title"
-import { CSSProperties } from "react"
+import DashboardCard from "@/components/dashboard/card";
+import TypographyTitle from "@/components/typography/title";
+import { CSSProperties } from "react";
 
 const ulStyles: CSSProperties = {
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
   gap: "1rem",
-  marginTop: "1rem"
-}
+  marginTop: "1rem",
+};
 
 export default function DashboardPage() {
   return (
@@ -20,6 +20,6 @@ export default function DashboardPage() {
 
         <DashboardCard name="Techs" href="/dashboard/techs" />
       </nav>
-   </>
-  )
+    </>
+  );
 }

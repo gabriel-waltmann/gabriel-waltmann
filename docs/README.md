@@ -1,4 +1,4 @@
-# Portfólio 
+# Portfólio
 
 [![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](./LICENSE)
 <br><br>
@@ -14,7 +14,6 @@ Este é um portfólio pessoal de Gabriel Waltmannn. Nele, é possivel encontrar 
 1. Clone o seguinte repositório (Necessita ter acesso a conta do Github): [https://github.com/gabriel-waltmann/Portfolio.git]
 
 2. Instale as dependências rodando o seguinte código no terminal: `npm install`
-   
 3. Após instalar as dependências, execute o seguinte código no terminal para rodar o projeto: `npm run dev`
 
 4. O projeto ficará disponivel na porta [https://localhost:3000]
@@ -27,6 +26,7 @@ Este é um portfólio pessoal de Gabriel Waltmannn. Nele, é possivel encontrar 
 <img align="center" src="./public/README/demoMobile.gif" alt="demostração mobile" height="425">
 
 <br><hr>
+
 ## 🔧 Tecnologias
 
 ### As seguintes ferramentas foram usadas na construção do projeto:
@@ -45,13 +45,16 @@ Este é um portfólio pessoal de Gabriel Waltmannn. Nele, é possivel encontrar 
 ✔️ typewriter-effect<br>
 
 <br><hr>
-## Licença do Projeto - [MIT](./LICENSE)
-## Copyright © 2023 Gabriel Waltmann. Todos os direitos reservados
-<br><hr>
 
+## Licença do Projeto - [MIT](./LICENSE)
+
+## Copyright © 2023 Gabriel Waltmann. Todos os direitos reservados
+
+<br><hr>
 
 ## ✏️ Desenvolvedor
 
 ### Desenvolvido por Gabriel Waltmann
+
 [<img src="https://img.icons8.com/color/512/linkedin-2.png" alt="linkedin" height="50"></a>](https://www.linkedin.com/in/gabrielwaltmann/)
 [<img src="https://avatars.githubusercontent.com/u/9919?v=4" alt="github" height="50">](https://github.com/gabriel-waltmann)

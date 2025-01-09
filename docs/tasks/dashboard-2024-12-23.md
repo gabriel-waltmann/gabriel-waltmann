@@ -1,6 +1,6 @@
 ### Dashboard page
 
-- [X] config next;
-- [X] config mui;
-- [X] create layout;
-- [X] create pages;
+- [x] config next;
+- [x] config mui;
+- [x] create layout;
+- [x] create pages;

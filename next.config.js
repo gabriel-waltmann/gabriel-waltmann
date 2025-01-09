@@ -5,11 +5,13 @@ const nextConfig = {
     domains: [],
   },
   async rewrites() {
-    return [{
-      source: '/api/:path*',
-      destination: `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/:path*`
-    }]
-  }
-}
+    return [
+      {
+        source: "/api/:path*",
+        destination: `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/:path*`,
+      },
+    ];
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

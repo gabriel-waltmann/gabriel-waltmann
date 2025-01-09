@@ -1,7 +1,7 @@
 import TypographyParagraph from "@/components/typography/paragraph";
 import { CaretRight } from "@phosphor-icons/react";
 import Link from "next/link";
-import { CSSProperties } from "react"
+import { CSSProperties } from "react";
 
 const cardStyle: CSSProperties = {
   backgroundColor: "#fff",
@@ -13,19 +13,19 @@ const cardStyle: CSSProperties = {
   flexDirection: "row",
   justifyContent: "space-between",
   alignItems: "center",
-}
+};
 
 type TProps = Readonly<{
-  name: string,
-  href: string
+  name: string;
+  href: string;
 }>;
 
 export default function DashboardCard(props: TProps) {
   return (
-    <Link href={props.href} style={cardStyle}> 
+    <Link href={props.href} style={cardStyle}>
       <TypographyParagraph>{props.name}</TypographyParagraph>
 
       <CaretRight size={32} />
     </Link>
-  )
+  );
 }

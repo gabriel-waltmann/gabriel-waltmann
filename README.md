@@ -44,7 +44,6 @@
   <img src="https://img.shields.io/badge/-figma-F24E1E?logo=figma&logoColor=white&style=for-the-badge" />
 </div>
 
-
  <br>
 <div align="center">
   <h2> 📩 Midias </h2>
@@ -53,4 +52,3 @@
   <a href="https://www.linkedin.com/in/gabrielwaltmann" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
  
 </div>
-  

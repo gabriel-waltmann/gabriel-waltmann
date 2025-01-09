@@ -1,27 +1,37 @@
-import PrimaryButton from "@/components/buttons/primary-button"
-import TypographyTitle from "@/components/typography/title"
-import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, ImageList, List, TextField } from "@mui/material"
-import { Controller, useForm } from "react-hook-form"
-import { CSSProperties, useEffect, useState } from "react"
-import { DevTool } from "@hookform/devtools"
-import { Trash } from "@phosphor-icons/react"
-import { TechEntity } from "@/entities/TechEntity"
-import DashboardTechCard from "@/components/dashboard/dashboard-tech/dashboard-tech-card"
-import * as techsMiddleware from "@/middlewheres/techs"
+import PrimaryButton from "@/components/buttons/primary-button";
+import TypographyTitle from "@/components/typography/title";
+import {
+  Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  ImageList,
+  List,
+  TextField,
+} from "@mui/material";
+import { Controller, useForm } from "react-hook-form";
+import { CSSProperties, useEffect, useState } from "react";
+import { DevTool } from "@hookform/devtools";
+import { Trash } from "@phosphor-icons/react";
+import { TechEntity } from "@/entities/TechEntity";
+import DashboardTechCard from "@/components/dashboard/dashboard-tech/dashboard-tech-card";
+import * as techsMiddleware from "@/middlewheres/techs";
 
 const headerStyle: CSSProperties = {
   display: "flex",
   flexDirection: "row",
   flexWrap: "nowrap",
   justifyContent: "space-between",
-}
+};
 type TFormFields = {
   id: string | null;
-  name: string,
-  link: string,
-  linkName: string,
-  fileUrl: string | null,
-}
+  name: string;
+  link: string;
+  linkName: string;
+  fileUrl: string | null;
+};
 export default function Techs() {
   const [activeForm, setActiveForm] = useState<boolean>(false);
 
@@ -31,12 +41,12 @@ export default function Techs() {
       name: "",
       link: "",
       linkName: "",
-      fileUrl: null
-    }
+      fileUrl: null,
+    },
   });
 
   const { register, handleSubmit, control } = form;
-  const { errors, } = form.formState;
+  const { errors } = form.formState;
   const [saveLoading, setSaveLoading] = useState<boolean>(false);
   const [deleteLoading, setDeleteLoading] = useState<boolean>(false);
   const [techs, setTechs] = useState<TechEntity[]>([]);
@@ -45,11 +55,11 @@ export default function Techs() {
     const techs = await techsMiddleware.retrieves();
 
     setTechs(techs);
-  }
+  };
 
   useEffect(() => {
     handleTechs();
-  }, [])
+  }, []);
 
   const onSubmit = async (data: TFormFields): Promise<void> => {
     if (!data.fileUrl) return;
@@ -62,10 +72,9 @@ export default function Techs() {
     formData.append("linkName", data.linkName);
     formData.append("linkKey", data.link);
 
-    const file = await fetch(data.fileUrl).then(res => res.blob());
+    const file = await fetch(data.fileUrl).then((res) => res.blob());
 
     formData.append("file", file);
-    
 
     if (data.id) {
       const response = await fetch(`/api/tech/${data.id}`, {
@@ -82,7 +91,7 @@ export default function Techs() {
 
       const newTechs = [...techs].filter(({ id }) => id !== data.id);
 
-      newTechs.unshift(result)
+      newTechs.unshift(result);
 
       setTechs(newTechs);
 
@@ -92,7 +101,7 @@ export default function Techs() {
       return;
     }
 
-    const response = await fetch('/api/tech', {
+    const response = await fetch("/api/tech", {
       method: "POST",
       body: formData,
     });
@@ -111,29 +120,29 @@ export default function Techs() {
 
     setSaveLoading(false);
     setActiveForm(false);
-  }
+  };
 
   useEffect(() => {
-    const linkName = form.watch("link")
+    const linkName = form
+      .watch("link")
       .replaceAll("http://", "")
       .replaceAll("https://", "")
       .replaceAll("www.", "")
-      .split("/")[0]
-    ;
+      .split("/")[0];
     form.setValue("linkName", linkName);
-  }, [form.watch("link")])
+  }, [form.watch("link")]);
 
   const onCreateTech = () => {
     form.reset({
       id: null,
       name: "",
       link: "",
-      linkName: "", 
+      linkName: "",
       fileUrl: null,
     });
 
     setActiveForm(true);
-  }
+  };
 
   const onEditTech = async (tech: TechEntity) => {
     form.reset({
@@ -141,11 +150,11 @@ export default function Techs() {
       name: tech.name,
       link: tech.link.key,
       linkName: tech.link.name,
-      fileUrl: tech.file ? tech.file.key : null
+      fileUrl: tech.file ? tech.file.key : null,
     });
 
     setActiveForm(true);
-  }
+  };
 
   const onDelete = async () => {
     const id = form.watch("id");
@@ -158,43 +167,39 @@ export default function Techs() {
       method: "DELETE",
     });
 
-    console.log(response)
+    console.log(response);
 
     if (response.status !== 200) {
       setDeleteLoading(false);
       return alert("Erro ao cadastrar tech");
-    }  
+    }
 
     const newTechs = techs.filter((tech) => tech.id !== id);
     setTechs(newTechs);
 
     setDeleteLoading(false);
-    setActiveForm(false)
-  }
+    setActiveForm(false);
+  };
 
   return (
     <>
       <div style={headerStyle}>
         <TypographyTitle value="TECHS" />
 
-        <PrimaryButton value="+ TECH" onClick={() => onCreateTech()}  />
+        <PrimaryButton value="+ TECH" onClick={() => onCreateTech()} />
       </div>
 
       <List dense sx={{ marginTop: "1rem" }}>
-        {techs.map(tech =>
-          <DashboardTechCard 
-            tech={tech} 
-            key={tech.id}
-            onClick={onEditTech}
-          />
-        )}
+        {techs.map((tech) => (
+          <DashboardTechCard tech={tech} key={tech.id} onClick={onEditTech} />
+        ))}
       </List>
 
       <Dialog
         open={activeForm}
         onClose={() => setActiveForm(false)}
         onSubmit={handleSubmit((data) => onSubmit(data))}
-        PaperProps={{ component: 'form' }}
+        PaperProps={{ component: "form" }}
       >
         <DialogTitle>Tech</DialogTitle>
         <DialogContent>
@@ -216,8 +221,8 @@ export default function Techs() {
                 fullWidth
                 variant="outlined"
                 {...register("name", {
-                  validate: value => value.length >= 3 || "Campo obrigatório",
-                  onChange: () => form.trigger("name")
+                  validate: (value) => value.length >= 3 || "Campo obrigatório",
+                  onChange: () => form.trigger("name"),
                 })}
                 value={value}
                 onChange={onChange}
@@ -245,12 +250,16 @@ export default function Techs() {
                 fullWidth
                 variant="outlined"
                 {...register("link", {
-                  validate: value => {
+                  validate: (value) => {
                     if (!value.length) return "Campo obrigatório";
-                    if (!value.includes("http://") && !value.includes("https://")) return "Link inválido";
+                    if (
+                      !value.includes("http://") &&
+                      !value.includes("https://")
+                    )
+                      return "Link inválido";
                     return true;
                   },
-                  onChange: () => form.trigger("link")
+                  onChange: () => form.trigger("link"),
                 })}
                 value={value}
                 onChange={onChange}
@@ -279,8 +288,8 @@ export default function Techs() {
                 fullWidth
                 variant="outlined"
                 {...register("linkName", {
-                  validate: value => value.length >= 3 || "Campo obrigatório",
-                  onChange: () => form.trigger("linkName")
+                  validate: (value) => value.length >= 3 || "Campo obrigatório",
+                  onChange: () => form.trigger("linkName"),
                 })}
                 onChange={onChange}
                 error={!!errors.linkName}
@@ -289,8 +298,8 @@ export default function Techs() {
             )}
           />
 
-          {!form.watch("fileUrl") ? 
-            (<Button
+          {!form.watch("fileUrl") ? (
+            <Button
               variant="contained"
               component="label"
               fullWidth
@@ -300,7 +309,9 @@ export default function Techs() {
 
               <input
                 onChange={(e) => {
-                  const file = e.target.files?.length ? e.target.files[0] : null;
+                  const file = e.target.files?.length
+                    ? e.target.files[0]
+                    : null;
 
                   const fileUrl = file ? URL.createObjectURL(file) : null;
 
@@ -310,59 +321,65 @@ export default function Techs() {
                 accept="image/*"
                 hidden
               />
-            </Button>)
-            : (
-              <Box 
-                sx={{ 
-                  height: "160px", 
-                  width: "160px", 
-                  position: "relative",
-                  backgroundColor: "#f1f1f1",
-                  marginTop: ".6rem",
-                  borderRadius: ".6rem",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center"
-                }} 
-              >
-                <img 
-                  src={form.watch("fileUrl") ?? ""} 
-                  alt="preview" 
-                  style={{ 
-                    width: 120, 
-                    height: 120, 
-                    objectFit: "contain" 
-                  }}  
-                />
+            </Button>
+          ) : (
+            <Box
+              sx={{
+                height: "160px",
+                width: "160px",
+                position: "relative",
+                backgroundColor: "#f1f1f1",
+                marginTop: ".6rem",
+                borderRadius: ".6rem",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <img
+                src={form.watch("fileUrl") ?? ""}
+                alt="preview"
+                style={{
+                  width: 120,
+                  height: 120,
+                  objectFit: "contain",
+                }}
+              />
 
-                <Button 
-                  sx={{ 
-                    position: "absolute", 
-                    top: 0, 
-                    right: 0,
-                  }} 
-                  onClick={() => form.setValue("fileUrl", null)}
-                > 
-                  <Trash size={24} /> 
-                </Button>
-              </Box>
-            )}
+              <Button
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  right: 0,
+                }}
+                onClick={() => form.setValue("fileUrl", null)}
+              >
+                <Trash size={24} />
+              </Button>
+            </Box>
+          )}
         </DialogContent>
 
         <DialogActions style={{ gap: ".6rem" }}>
-          <Button variant="outlined" onClick={() => setActiveForm(false)}>CANCELAR</Button>
+          <Button variant="outlined" onClick={() => setActiveForm(false)}>
+            CANCELAR
+          </Button>
 
           <Button onClick={() => onDelete()} variant="contained">
-            {deleteLoading ? "DELETANDO..."  : "DELETAR"}
+            {deleteLoading ? "DELETANDO..." : "DELETAR"}
           </Button>
 
           <Button variant="contained" type="submit">
-            {saveLoading ? "CARREGANDO..." : form.watch("id")?.length ? "ALTERAR" : "CADASTRAR"}
+            {saveLoading
+              ? "CARREGANDO..."
+              : form.watch("id")?.length
+              ? "ALTERAR"
+              : "CADASTRAR"}
           </Button>
         </DialogActions>
-        
+
         <DevTool control={control} />
       </Dialog>
     </>
-  )
+  );
 }

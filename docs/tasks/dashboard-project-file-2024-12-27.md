@@ -1,5 +1,5 @@
 ### Dashboard project files
 
-- [X] add project files tab at dialog
-- [X] add project file upload button 
-- [X] add project file delete button 
+- [x] add project files tab at dialog
+- [x] add project file upload button
+- [x] add project file delete button

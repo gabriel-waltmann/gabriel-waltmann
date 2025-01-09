@@ -32,7 +32,7 @@ jobs:
         run: sudo docker pull gabrielwaltmann/waltmann_client:latest
 
       - name: Remove old container if exists
-        run: sudo docker rm -f waltmann_client 
+        run: sudo docker rm -f waltmann_client
 
       - name: Run docker container
         run: docker run -d -p 3000:3000 -e PORT='${{ secrets.PORT }}' -e NEXT_PUBLIC_BACKEND_BASE_URL='${{ secrets.NEXT_PUBLIC_BACKEND_BASE_URL }}' --name waltmann_client gabrielwaltmann/waltmann_client:latest
