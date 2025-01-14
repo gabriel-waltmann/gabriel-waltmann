@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <title>Gabriel Waltmann</title>
         <meta name="description" content="Gabriel Waltmann Portifolio" />
-        {/* <link rel="icon" href="/favicon.ico" /> */}
+        <link rel="icon" href="icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
