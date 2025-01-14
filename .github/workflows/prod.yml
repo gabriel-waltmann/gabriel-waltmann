@@ -28,6 +28,9 @@ jobs:
     needs: build
     runs-on: self-hosted
     steps:
+      - name: Delete old docker images
+        run: git 
+
       - name: Pull docker image
         run: sudo docker pull gabrielwaltmann/waltmann_client:latest
 
