@@ -1,4 +1,4 @@
-import { usePageProject } from "./usePageProject";
+import { usePageProject } from "@/hooks/pages/usePageProject";
 import SlideDefault from "@/components/slides/default";
 
 export default function ProjectsPage() {

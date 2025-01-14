@@ -1,4 +1,4 @@
-import { usePageTech } from "./usePageTech";
+import { usePageTech } from "@/hooks/pages/usePageTech";
 import LinkTech from "@/components/links/link-tech";
 
 export default function TechsPage() {
