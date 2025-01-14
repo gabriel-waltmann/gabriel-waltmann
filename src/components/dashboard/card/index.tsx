@@ -24,8 +24,6 @@ export default function DashboardCard(props: TProps) {
   return (
     <Link href={props.href} style={cardStyle}>
       <TypographyParagraph>{props.name}</TypographyParagraph>
-
-      <CaretRight size={32} />
     </Link>
   );
 }

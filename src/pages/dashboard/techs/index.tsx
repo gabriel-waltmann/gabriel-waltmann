@@ -1,4 +1,4 @@
-import PrimaryButton from "@/components/buttons/primary-button";
+import PrimaryButton from "@/components/button/primary";
 import TypographyTitle from "@/components/typography/title";
 import {
   Box,
@@ -6,8 +6,6 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  DialogTitle,
-  ImageList,
   List,
   TextField,
 } from "@mui/material";
@@ -18,6 +16,7 @@ import { Trash } from "@phosphor-icons/react";
 import { TechEntity } from "@/entities/TechEntity";
 import DashboardTechCard from "@/components/dashboard/dashboard-tech/dashboard-tech-card";
 import * as techsMiddleware from "@/middlewheres/techs";
+import { useScreen } from "@/hooks/useScreen";
 
 const headerStyle: CSSProperties = {
   display: "flex",
@@ -33,6 +32,8 @@ type TFormFields = {
   fileUrl: string | null;
 };
 export default function Techs() {
+  const { isMobile } = useScreen();
+
   const [activeForm, setActiveForm] = useState<boolean>(false);
 
   const form = useForm<TFormFields>({
@@ -184,9 +185,9 @@ export default function Techs() {
   return (
     <>
       <div style={headerStyle}>
-        <TypographyTitle value="TECHS" />
+        <TypographyTitle value="Techs" />
 
-        <PrimaryButton value="+ TECH" onClick={() => onCreateTech()} />
+        <PrimaryButton value="+ Tech" onClick={() => onCreateTech()} />
       </div>
 
       <List dense sx={{ marginTop: "1rem" }}>
@@ -197,12 +198,12 @@ export default function Techs() {
 
       <Dialog
         open={activeForm}
+        fullScreen={isMobile}
         onClose={() => setActiveForm(false)}
         onSubmit={handleSubmit((data) => onSubmit(data))}
         PaperProps={{ component: "form" }}
       >
-        <DialogTitle>Tech</DialogTitle>
-        <DialogContent>
+        <DialogContent sx={{ padding: ".6rem" }}>
           <Controller
             control={control}
             name="name"
@@ -360,15 +361,25 @@ export default function Techs() {
           )}
         </DialogContent>
 
-        <DialogActions style={{ gap: ".6rem" }}>
+        <DialogActions
+          style={{
+            gap: ".6rem",
+            position: "fixed",
+            right: "0",
+            bottom: "0",
+            backgroundColor: "#fff",
+            padding: "1rem",
+          }}
+        >
           <Button variant="outlined" onClick={() => setActiveForm(false)}>
             CANCELAR
           </Button>
 
-          <Button onClick={() => onDelete()} variant="contained">
-            {deleteLoading ? "DELETANDO..." : "DELETAR"}
-          </Button>
-
+          {form.watch("id") && (
+            <Button onClick={() => onDelete()} variant="contained">
+              {deleteLoading ? "DELETANDO..." : "DELETAR"}
+            </Button>
+          )}
           <Button variant="contained" type="submit">
             {saveLoading
               ? "CARREGANDO..."

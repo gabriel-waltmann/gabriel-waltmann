@@ -1,13 +1,12 @@
-import { CSSProperties } from "react";
+import {
+  TTypographyCaptionProps,
+  useTypographyCaption,
+} from "./useTypographyCaption";
 
-type TProps = Readonly<{
-  children?: React.ReactNode;
-  value?: string;
-  styles?: CSSProperties;
-}>;
+export default function TypographyCaption(props: TTypographyCaptionProps) {
+  const { typographyCaptionStyle } = useTypographyCaption(props);
 
-export default function TypographyCaption(props: TProps) {
-  const style: CSSProperties = { ...props.styles, fontSize: "16px" };
-
-  return <span style={style}>{props.value ?? props.children}</span>;
+  return (
+    <span style={typographyCaptionStyle}>{props.value ?? props.children}</span>
+  );
 }

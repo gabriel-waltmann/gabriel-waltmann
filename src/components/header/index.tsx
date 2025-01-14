@@ -1,79 +1,30 @@
 import TypographyTitle from "@/components/typography/title";
-import {
-  EnvelopeSimple,
-  GithubLogo,
-  InstagramLogo,
-  LinkedinLogo,
-} from "@phosphor-icons/react";
-import { CSSProperties } from "react";
+import { THeaderProps, useHeader } from "./useHeader";
+import { LinkIcon } from "../links/link-icon";
+import AvatarDefault from "../avatars/default";
 
-const headerStyle: CSSProperties = {
-  width: "100%",
-  display: "flex",
-  gap: "1rem",
-};
+export default function Header(props: THeaderProps) {
+  const { headerStyle, ulStyles, links } = useHeader(props);
 
-const figureStyle: CSSProperties = {
-  height: "120px",
-  width: "120px",
-  borderRadius: "50%",
-  overflow: "hidden",
-};
-
-const ulStyles: CSSProperties = {
-  display: "flex",
-  flexDirection: "row",
-  alignItems: "center",
-  gap: "1rem",
-};
-
-const mailLink = "mailto:gabrielwaltmann@example.com";
-const instagramLink = "https://www.instagram.com/waltmanngabriel";
-const githubLink = "https://github.com/gabriel-waltmann";
-const linkedinLink = "https://www.linkedin.com/in/gabrielwaltmann/";
-
-type TProps = Readonly<{}>;
-export default function IndexHeader(props: TProps) {
   return (
     <header style={headerStyle}>
-      <figure style={figureStyle}>
-        <img
-          src="/profile.jpg"
-          height="100%"
-          width="100%"
-          alt="Gabriel Waltmann's profile"
-        />
-      </figure>
+      <section style={{ gridRowEnd: "span 2" }}>
+        <AvatarDefault src="/profile.jpg" />
+      </section>
 
-      <article>
+      <section>
         <TypographyTitle>Gabriel Waltmann</TypographyTitle>
+      </section>
 
+      <section>
         <ul style={ulStyles}>
-          <li>
-            <a href={mailLink} target="_blank">
-              <EnvelopeSimple color="#121212" size={24} />
-            </a>
-          </li>
-
-          <li>
-            <a href={instagramLink} target="_blank">
-              <InstagramLogo color="#121212" size={24} />
-            </a>
-          </li>
-
-          <li>
-            <a href={linkedinLink} target="_blank">
-              <LinkedinLogo color="#121212" size={24} />
-            </a>
-          </li>
-
-          <li>
-            <a href={githubLink} target="_blank">
-              <GithubLogo color="#121212" size={24} />
-            </a>
-          </li>
+          {links.map((link, index) => (
+            <li key={index + "header-link-icon"}>
+              <LinkIcon icon={link.icon} href={link.href} />
+            </li>
+          ))}
         </ul>
-      </article>
+      </section>
     </header>
   );
 }

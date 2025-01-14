@@ -1,15 +1,12 @@
-import { CSSProperties } from "react";
+import {
+  TTypographyParagraphProps,
+  useTypographyParagraph,
+} from "./useTypographyParagraph";
 
-type TProps = Readonly<{
-  children?: React.ReactNode;
-  value?: string;
-  styles?: CSSProperties;
-}>;
+export default function TypographyParagraph(props: TTypographyParagraphProps) {
+  const { typographyParagraphStyle } = useTypographyParagraph(props);
 
-export default function TypographyParagraph(props: TProps) {
-  if (props.value) {
-    return <p>{props.value}</p>;
-  }
-
-  return <p>{props.children}</p>;
+  return (
+    <p style={typographyParagraphStyle}>{props.children ?? props.value}</p>
+  );
 }

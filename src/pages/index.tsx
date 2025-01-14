@@ -1,20 +1,8 @@
 import TypographyParagraph from "@/components/typography/paragraph";
-import { calcAge } from "@/utils/math/calc-age";
-import { getTotalWorkTime } from "@/utils/math/get-work-time";
-import { CSSProperties } from "react";
+import { usePageIndex } from "./usePageIndex";
 
-const articleStyles: CSSProperties = {
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  gap: "1rem",
-  marginTop: "1rem",
-};
-
-type TProps = Readonly<{}>;
-export default function IndexPage(props: TProps) {
-  const age = calcAge(new Date("2004-10-04"));
-  const totalWorkTime = getTotalWorkTime(2022);
+export default function IndexPage() {
+  const { articleStyles, age, totalWorkTime } = usePageIndex();
 
   return (
     <article style={articleStyles}>

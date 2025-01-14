@@ -1,5 +1,6 @@
+import TypographyParagraph from "@/components/typography/paragraph";
+import TypographySubtitle from "@/components/typography/subtitle";
 import { ProjectEntity } from "@/entities/project/ProjectEntity";
-import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
 
 type TProps = Readonly<{
   project: ProjectEntity;
@@ -7,17 +8,22 @@ type TProps = Readonly<{
 }>;
 export default function DashboardProjectCard(props: TProps) {
   return (
-    <Card sx={{ height: "180px", width: "100%", cursor: "pointer" }}>
-      <CardContent>
-        <CardActionArea onClick={() => props.onClick(props.project)}>
-          <Typography gutterBottom variant="h5" component="div">
-            {props.project.title}
-          </Typography>
-          <Typography variant="body2" sx={{ color: "text.secondary" }}>
-            {props.project.description}
-          </Typography>
-        </CardActionArea>
-      </CardContent>
-    </Card>
+    <button
+      style={{
+        backgroundColor: "#fff",
+        padding: "1rem",
+        borderRadius: ".8rem",
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        textAlign: "left",
+      }}
+      onClick={() => props.onClick(props.project)}
+    >
+      <TypographySubtitle value={props.project.title} />
+
+      <TypographyParagraph value={props.project.description} />
+    </button>
   );
 }

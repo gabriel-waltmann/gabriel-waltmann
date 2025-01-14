@@ -1,4 +1,4 @@
-import PrimaryButton from "@/components/buttons/primary-button";
+import PrimaryButton from "@/components/button/primary";
 import DashboardProjectCard from "@/components/dashboard/dashboard-project";
 import TypographyTitle from "@/components/typography/title";
 import { ProjectEntity } from "@/entities/project/ProjectEntity";
@@ -27,6 +27,7 @@ import { CSSProperties, useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import * as techsMiddleware from "@/middlewheres/techs";
 import * as projectsMiddleware from "@/middlewheres/projects";
+import { useScreen } from "@/hooks/useScreen";
 
 const headerStyle: CSSProperties = {
   display: "flex",
@@ -52,6 +53,8 @@ function a11yProps(index: TabsEnum) {
 }
 
 export default function Projects() {
+  const { isMobile } = useScreen();
+
   const [activeDialog, setActiveDialog] = useState<boolean>(false);
 
   const form = useForm<TFormFields>({
@@ -299,23 +302,25 @@ export default function Projects() {
   return (
     <>
       <div style={headerStyle}>
-        <TypographyTitle value="PROJECTS" />
+        <TypographyTitle value="Projects" />
 
-        <PrimaryButton value="+ PROJECT" onClick={onCreateProject} />
+        <PrimaryButton value="+ Project" onClick={onCreateProject} />
       </div>
 
       <ul
         style={{
           gap: "1rem",
           display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
+          gridTemplateColumns: isMobile ? "repeat(1, 1fr)" : "repeat(3, 1fr)",
           alignItems: "center",
-          maxWidth: "80%",
           margin: "1rem auto",
         }}
       >
         {projects.map((project) => (
-          <li key={project.id + "project"}>
+          <li
+            key={project.id + "project"}
+            style={{ height: "100%", width: "100%" }}
+          >
             <DashboardProjectCard
               project={project}
               onClick={() => onEditProject(project)}
@@ -325,30 +330,19 @@ export default function Projects() {
       </ul>
 
       <Dialog
+        fullScreen={isMobile}
         open={activeDialog}
         onClose={() => setActiveDialog(false)}
         onSubmit={handleSubmit((data) => onSubmit(data))}
         PaperProps={{ component: "form" }}
       >
-        <IconButton
-          aria-label="close"
-          onClick={() => setActiveDialog(false)}
-          sx={(theme) => ({
-            position: "absolute",
-            right: 8,
-            top: 8,
-            color: theme.palette.grey[500],
-            cursor: "pointer",
-          })}
-        >
-          <X />
-        </IconButton>
         <DialogContent
           sx={{
-            width: "600px",
-            height: "600px",
+            width: isMobile ? "100%" : "600px",
+            height: isMobile ? "100%" : "600px",
             display: "flex",
             flexDirection: "column",
+            position: "relative",
           }}
         >
           <Tabs
@@ -357,13 +351,20 @@ export default function Projects() {
             aria-label="Project tabs"
           >
             <Tab label="General" {...a11yProps(TabsEnum.General)} />
-            <Tab label="Files" {...a11yProps(TabsEnum.Files)} />
-            <Tab label="Techs" {...a11yProps(TabsEnum.Techs)} />
+            <Tab
+              label="Files"
+              disabled={!form.watch("id")}
+              {...a11yProps(TabsEnum.Files)}
+            />
+            <Tab
+              label="Techs"
+              disabled={!form.watch("id")}
+              {...a11yProps(TabsEnum.Techs)}
+            />
           </Tabs>
 
-          <Box
-            sx={{
-              marginTop: "1rem",
+          <div
+            style={{
               height: "100%",
               display: "flex",
               flexDirection: "column",
@@ -371,94 +372,73 @@ export default function Projects() {
             }}
           >
             {tab === TabsEnum.General && (
-              <>
-                <div style={{ flex: 1 }}>
-                  <Controller
-                    control={control}
-                    name="title"
-                    render={({
-                      field: { onChange, onBlur, value, name, ref },
-                      fieldState: { invalid, isTouched, isDirty, error },
-                      formState,
-                    }) => (
-                      <TextField
-                        autoFocus
-                        required
-                        margin="dense"
-                        id="title"
-                        label="Title"
-                        type="text"
-                        fullWidth
-                        variant="outlined"
-                        {...register("title", {
-                          validate: (value) =>
-                            value.length >= 3 || "Campo obrigatório",
-                          onChange: () => form.trigger("title"),
-                        })}
-                        value={value}
-                        onChange={onChange}
-                        error={!!error}
-                        helperText={error ? error.message : null}
-                      />
-                    )}
-                  />
-                  <Controller
-                    control={control}
-                    name="description"
-                    render={({
-                      field: { onChange, onBlur, value, name, ref },
-                      fieldState: { invalid, isTouched, isDirty, error },
-                      formState,
-                    }) => (
-                      <TextField
-                        sx={{ width: "100%" }}
-                        minRows={6}
-                        multiline
-                        size="medium"
-                        autoFocus
-                        required
-                        margin="dense"
-                        id="description"
-                        label="Description"
-                        type="text"
-                        fullWidth
-                        variant="outlined"
-                        {...register("description", {
-                          validate: (value) => {
-                            if (value.length < 20)
-                              return "Campo requer mínimo de 20 caracteres";
-                            return true;
-                          },
-                          onChange: () => form.trigger("description"),
-                        })}
-                        value={value}
-                        onChange={onChange}
-                        error={!!errors.description}
-                        helperText={errors.description?.message}
-                      />
-                    )}
-                  />
-                </div>
-
-                <DialogActions style={{ gap: ".6rem" }}>
-                  {form.watch("id") && (
-                    <Button
-                      onClick={() => onDeleteProject()}
-                      variant="contained"
-                    >
-                      {deleteLoading ? "DELETANDO..." : "DELETAR"}
-                    </Button>
+              <div style={{ flex: 1 }}>
+                <Controller
+                  control={control}
+                  name="title"
+                  render={({
+                    field: { onChange, onBlur, value, name, ref },
+                    fieldState: { invalid, isTouched, isDirty, error },
+                    formState,
+                  }) => (
+                    <TextField
+                      autoFocus
+                      required
+                      margin="dense"
+                      id="title"
+                      label="Title"
+                      type="text"
+                      fullWidth
+                      variant="outlined"
+                      {...register("title", {
+                        validate: (value) =>
+                          value.length >= 3 || "Campo obrigatório",
+                        onChange: () => form.trigger("title"),
+                      })}
+                      value={value}
+                      onChange={onChange}
+                      error={!!error}
+                      helperText={error ? error.message : null}
+                    />
                   )}
-
-                  <Button variant="contained" type="submit">
-                    {saveLoading
-                      ? "CARREGANDO..."
-                      : form.watch("id")?.length
-                      ? "ALTERAR"
-                      : "CADASTRAR"}
-                  </Button>
-                </DialogActions>
-              </>
+                />
+                <Controller
+                  control={control}
+                  name="description"
+                  render={({
+                    field: { onChange, onBlur, value, name, ref },
+                    fieldState: { invalid, isTouched, isDirty, error },
+                    formState,
+                  }) => (
+                    <TextField
+                      sx={{ width: "100%" }}
+                      minRows={6}
+                      multiline
+                      size="medium"
+                      autoFocus
+                      required
+                      margin="dense"
+                      id="description"
+                      label="Description"
+                      type="text"
+                      fullWidth
+                      variant="outlined"
+                      {...register("description", {
+                        validate: (value) => {
+                          if (value.length < 20)
+                            return "Campo requer mínimo de 20 caracteres";
+                          return true;
+                        },
+                        onChange: () => form.trigger("description"),
+                      })}
+                      value={value}
+                      onChange={onChange}
+                      error={!!errors.description}
+                      helperText={errors.description?.message}
+                    />
+                  )}
+                />
+              </div>
             )}
 
             {tab === TabsEnum.Files && (
@@ -470,32 +450,8 @@ export default function Projects() {
                     marginTop: "1rem",
                     marginBottom: "1rem",
                     width: "100%",
-                    paddingRight: "1rem",
-                    paddingLeft: "1rem",
                   }}
                 >
-                  {projectFiles.map((projectFile) => (
-                    <ImageListItem key={projectFile.id + "projectFile"}>
-                      <img
-                        src={projectFile.file.key}
-                        alt={projectFile.file.name}
-                        loading="lazy"
-                      />
-                      <ImageListItemBar
-                        title={projectFile.file.name}
-                        actionIcon={
-                          <IconButton
-                            onClick={() => handleDeleteProjectFile(projectFile)}
-                            sx={{ color: "rgba(255, 255, 255, 0.54)" }}
-                            aria-label={`info about ${projectFile.file.name}`}
-                          >
-                            <Trash size={24} />
-                          </IconButton>
-                        }
-                      />
-                    </ImageListItem>
-                  ))}
-
                   <ImageListItem>
                     <Button
                       variant="contained"
@@ -558,6 +514,29 @@ export default function Projects() {
                       />
                     </Button>
                   </ImageListItem>
+
+                  {projectFiles.map((projectFile) => (
+                    <ImageListItem key={projectFile.id + "projectFile"}>
+                      <img
+                        src={projectFile.file.key}
+                        alt={projectFile.file.name}
+                        loading="lazy"
+                      />
+                      <ImageListItemBar
+                        title={projectFile.file.name}
+                        actionIcon={
+                          <IconButton
+                            onClick={() => handleDeleteProjectFile(projectFile)}
+                            sx={{ color: "rgba(255, 255, 255, 0.54)" }}
+                            aria-label={`info about ${projectFile.file.name}`}
+                            className="test-delete-button"
+                          >
+                            <Trash size={24} />
+                          </IconButton>
+                        }
+                      />
+                    </ImageListItem>
+                  ))}
                 </ImageList>
               </div>
             )}
@@ -613,7 +592,36 @@ export default function Projects() {
                 </section>
               </>
             )}
-          </Box>
+
+            <DialogActions
+              style={{
+                gap: ".6rem",
+                position: isMobile ? "fixed" : "inherit",
+                right: "0",
+                bottom: "0",
+                backgroundColor: "#fff",
+                padding: "1rem",
+              }}
+            >
+              {form.watch("id") && (
+                <Button onClick={() => onDeleteProject()} variant="contained">
+                  {deleteLoading ? "DELETANDO..." : "DELETAR"}
+                </Button>
+              )}
+
+              <Button variant="outlined" onClick={() => setActiveDialog(false)}>
+                CANCELAR
+              </Button>
+
+              <Button variant="contained" type="submit">
+                {saveLoading
+                  ? "CARREGANDO..."
+                  : form.watch("id")?.length
+                  ? "ALTERAR"
+                  : "CADASTRAR"}
+              </Button>
+            </DialogActions>
+          </div>
         </DialogContent>
         <DevTool control={control} />
       </Dialog>

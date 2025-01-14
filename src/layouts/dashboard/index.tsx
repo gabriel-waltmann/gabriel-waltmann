@@ -5,7 +5,7 @@ const style: CSSProperties = {
   display: "flex",
   flexDirection: "row",
   flexWrap: "nowrap",
-  height: "100vh",
+  minHeight: "100vh",
   width: "100vw",
 };
 

@@ -13,7 +13,7 @@ const ulStyles: CSSProperties = {
 export default function DashboardPage() {
   return (
     <>
-      <TypographyTitle value="HOME" />
+      <TypographyTitle value="Dashboard" />
 
       <nav style={ulStyles}>
         <DashboardCard name="Projects" href="/dashboard/projects" />

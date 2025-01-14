@@ -1,17 +1,10 @@
-import { CSSProperties } from "react";
+import {
+  TTypographyTitleProps,
+  useTypographyTitle,
+} from "./useTypographyTitle";
 
-type TProps = Readonly<{
-  children?: React.ReactNode;
-  value?: string;
-  styles?: CSSProperties;
-}>;
+export default function TypographyTitle(props: TTypographyTitleProps) {
+  const { typographyTitleStyle } = useTypographyTitle(props);
 
-const typographyTitleStyle: CSSProperties = {
-  fontSize: "2rem",
-};
-
-export default function TypographyTitle(props: TProps) {
-  const style: CSSProperties = { ...typographyTitleStyle, ...props.styles };
-
-  return <h1 style={style}>{props.children ?? props.value}</h1>;
+  return <h1 style={typographyTitleStyle}>{props.children ?? props.value}</h1>;
 }

@@ -1,11 +1,12 @@
-import { CSSProperties } from "react";
+import {
+  TTypographySubtitleProps,
+  useTypographySubtitle,
+} from "./useTypographySubtitle";
 
-type TProps = Readonly<{
-  children?: React.ReactNode;
-  value?: string;
-  styles?: CSSProperties;
-}>;
+export default function TypographySubtitle(props: TTypographySubtitleProps) {
+  const { typographySubtitleStyle } = useTypographySubtitle(props);
 
-export default function TypographySubtitle(props: TProps) {
-  return <h2 style={props.styles}>{props.value ?? props.children}</h2>;
+  return (
+    <h2 style={typographySubtitleStyle}>{props.value ?? props.children}</h2>
+  );
 }

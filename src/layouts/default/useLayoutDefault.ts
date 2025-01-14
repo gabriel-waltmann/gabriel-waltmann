@@ -1,19 +1,13 @@
-import IndexHeader from "@/components/header";
-import PrimaryTabs, { TPrimaryTab } from "@/components/tabs/primary-tabs";
+import { TPrimaryTab } from "@/components/tabs/primary-tabs";
 import { useRouter } from "next/router";
 import { CSSProperties, useEffect, useState } from "react";
 
-const containerStyle: CSSProperties = {
-  display: "flex",
-  flexDirection: "column",
-  flexWrap: "nowrap",
-  height: "100vh",
-  padding: "2rem",
-  width: "100vw",
-};
+export type TLayoutDefaultProps = Readonly<{ children: React.ReactNode }>;
 
 const mainStyles: CSSProperties = {
   flex: 1,
+  marginTop: "1rem",
+  paddingBottom: "1rem",
 };
 
 enum Tabs {
@@ -22,9 +16,7 @@ enum Tabs {
   Techs = 2,
 }
 
-export default function IndexLayout(
-  props: Readonly<{ children: React.ReactNode }>
-) {
+export function useLayoutDefault(props: TLayoutDefaultProps) {
   const tabs: TPrimaryTab[] = [
     { label: "Home", value: Tabs.Home },
     { label: "Projects", value: Tabs.Projects },
@@ -74,13 +66,10 @@ export default function IndexLayout(
     handleTab();
   }, []);
 
-  return (
-    <div style={containerStyle}>
-      <IndexHeader />
-
-      <PrimaryTabs tab={tab} tabs={tabs} onChange={toggleTab} />
-
-      <main style={mainStyles}>{props.children}</main>
-    </div>
-  );
+  return {
+    tabs,
+    tab,
+    toggleTab,
+    mainStyles,
+  };
 }
