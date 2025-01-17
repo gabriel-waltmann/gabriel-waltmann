@@ -1,24 +1,26 @@
-import DashboardCard from "@/components/dashboard/card";
+import ButtonContained from "@/components/button/contained";
+import Link from "@/components/link/primary";
 import TypographyTitle from "@/components/typography/title";
-import { CSSProperties } from "react";
+import { TPageDashboardProps, usePageDashboard } from "@/hooks/pages/dashboard/usePageDashboard";
 
-const ulStyles: CSSProperties = {
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  gap: "1rem",
-  marginTop: "1rem",
-};
+export default function PageDashboard(props: TPageDashboardProps) {
+  const { 
+    links,
+    linkStyle, 
+    buttonStyle, 
+    ulStyles,
+  } = usePageDashboard(props);
 
-export default function DashboardPage() {
   return (
     <>
       <TypographyTitle value="Dashboard" />
 
       <nav style={ulStyles}>
-        <DashboardCard name="Projects" href="/dashboard/projects" />
-
-        <DashboardCard name="Techs" href="/dashboard/techs" />
+        {links.map((link, index) => (
+          <ButtonContained style={buttonStyle} key={index + "dashboard-link"}>
+            <Link style={linkStyle} href={link.href}>{link.name}</Link>
+          </ButtonContained>
+        ))}
       </nav>
     </>
   );

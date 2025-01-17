@@ -1,7 +1,7 @@
 import {
   TTypographySubtitleProps,
   useTypographySubtitle,
-} from "./useTypographySubtitle";
+} from "@/hooks/components/typography/subtitle/useTypographySubtitle";
 
 export default function TypographySubtitle(props: TTypographySubtitleProps) {
   const { typographySubtitleStyle } = useTypographySubtitle(props);

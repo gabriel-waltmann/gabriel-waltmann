@@ -1,9 +1,9 @@
 import { CSSProperties, useEffect, useState } from "react";
-import * as projectsMiddleware from "@/middlewheres/projects";
-import * as projectFilesMiddleware from "@/middlewheres/project-files";
+import * as projectsMiddleware from "@/middlewheres/project/project";
+import * as projectFilesMiddleware from "@/middlewheres/project/project-file";
 import { ProjectEntity } from "@/entities/project/ProjectEntity";
 import { ProjectFileEntity } from "@/entities/project/ProjectFileEntity";
-import { ICarouselSlide } from "@/components/slides/default/useSlideDefault";
+import { ICarouselSlide } from "@/hooks/components/slide/primary/useSlidePrimary";
 
 interface ProjectSlide {
   project: ProjectEntity;

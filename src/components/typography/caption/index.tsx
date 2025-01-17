@@ -1,9 +1,6 @@
-import {
-  TTypographyCaptionProps,
-  useTypographyCaption,
-} from "./useTypographyCaption";
+import { TTypographyCaptionProps, useTypographyCaption } from "@/hooks/components/typography/caption/useTypographyCaption";
 
-export default function TypographyCaption(props: TTypographyCaptionProps) {
+export default function TypographyCaption(props: TTypographyCaptionProps): JSX.Element {
   const { typographyCaptionStyle } = useTypographyCaption(props);
 
   return (

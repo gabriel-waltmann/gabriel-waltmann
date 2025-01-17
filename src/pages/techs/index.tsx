@@ -1,14 +1,19 @@
 import { usePageTech } from "@/hooks/pages/usePageTech";
-import LinkTech from "@/components/links/link-tech";
+import LinkCard from "@/components/link/card";
 
-export default function TechsPage() {
+export default function PageTechs() {
   const { techs, ulStyle, liStyle } = usePageTech();
 
   return (
     <ul style={ulStyle}>
       {techs.map((tech) => (
         <li style={liStyle} key={tech.id}>
-          <LinkTech tech={tech} />
+          <LinkCard 
+            name={tech.name}
+            href={tech.link.key}
+            imageSrc={tech.file?.key}
+            imageAlt={tech.name}
+          />
         </li>
       ))}
     </ul>

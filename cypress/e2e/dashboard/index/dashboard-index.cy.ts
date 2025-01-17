@@ -10,13 +10,13 @@ context("dashboard index", () => {
     cy.get("header").should("be.visible");
 
     cy.log("has home link element");
-    cy.get("header ul li a[href='/dashboard']").should("be.visible");
+    cy.get("header nav a[href='/dashboard']").should("be.visible");
 
     cy.log("has projects link element");
-    cy.get("header ul li a[href='/dashboard/projects']").should("be.visible");
+    cy.get("header nav a[href='/dashboard/project']").should("be.visible");
 
     cy.log("has techs link element");
-    cy.get("header ul li a[href='/dashboard/techs']").should("be.visible");
+    cy.get("header nav a[href='/dashboard/tech']").should("be.visible");
   });
 
   it("should have page title", () => {
@@ -29,9 +29,9 @@ context("dashboard index", () => {
     cy.get("main nav").should("be.visible");
 
     cy.log("has projects link element");
-    cy.get("main nav a[href='/dashboard/projects']").should("be.visible");
+    cy.get("main nav button a[href='/dashboard/project']").should("be.visible");
 
     cy.log("has techs link element");
-    cy.get("main nav a[href='/dashboard/techs']").should("be.visible");
+    cy.get("main nav button a[href='/dashboard/tech']").should("be.visible");
   });
 });

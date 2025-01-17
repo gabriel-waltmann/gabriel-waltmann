@@ -1,16 +1,9 @@
-import { Button } from "@mui/material";
+import { TButtonPrimaryProps } from "@/hooks/components/button/primary/useButtonPrimary";
 
-type TProps = Readonly<{
-  value?: string;
-  children?: React.ReactNode;
-  onClick?: () => void;
-  type?: "submit" | "button" | "reset";
-}>;
-
-export default function PrimaryButton(props: TProps): JSX.Element {
+export default function ButtonPrimary(props: TButtonPrimaryProps): JSX.Element {
   return (
-    <Button variant="contained" type={props.type} onClick={props.onClick}>
+    <button type={props.type ?? "button"} onClick={props.onClick} style={props.style}>
       {props.value ?? props.children}
-    </Button>
+    </button>
   );
 }

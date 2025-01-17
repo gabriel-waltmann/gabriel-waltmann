@@ -1,5 +1,5 @@
-import { TechEntity } from "../TechEntity";
-import { ProjectEntity } from "./ProjectEntity";
+import { TechEntity } from "@/entities/TechEntity";
+import { ProjectEntity } from "@/entities/project/ProjectEntity";
 
 export interface ProjectTechEntity {
   id: string;

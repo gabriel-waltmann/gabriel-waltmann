@@ -1,7 +1,7 @@
 import {
   TTypographyTitleProps,
   useTypographyTitle,
-} from "./useTypographyTitle";
+} from "@/hooks/components/typography/title/useTypographyTitle";
 
 export default function TypographyTitle(props: TTypographyTitleProps) {
   const { typographyTitleStyle } = useTypographyTitle(props);

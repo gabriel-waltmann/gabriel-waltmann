@@ -1,26 +1,12 @@
-import DashboardHeader from "@/components/dashboard/header";
-import { CSSProperties } from "react";
+import HeaderDashboard from "@/components/header/dashboard";
+import { TLayoutDashboardProps, useLayoutDashboard } from "@/hooks/layouts/dashboard/useLayoutDashboard";
 
-const style: CSSProperties = {
-  display: "flex",
-  flexDirection: "row",
-  flexWrap: "nowrap",
-  minHeight: "100vh",
-  width: "100vw",
-};
+export default function DashboardLayout(props: TLayoutDashboardProps) {
+  const { divStyle, mainStyles } = useLayoutDashboard(props);
 
-const mainStyles: CSSProperties = {
-  flex: 1,
-  backgroundColor: "#f1f1f1",
-  padding: "1rem",
-};
-
-export default function DashboardLayout(
-  props: Readonly<{ children: React.ReactNode }>
-) {
   return (
-    <div style={style}>
-      <DashboardHeader />
+    <div style={divStyle}>
+      <HeaderDashboard />
 
       <main style={mainStyles}> {props.children} </main>
     </div>

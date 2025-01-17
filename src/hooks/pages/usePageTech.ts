@@ -1,6 +1,6 @@
 import { TechEntity } from "@/entities/TechEntity";
 import { CSSProperties, useEffect, useState } from "react";
-import * as techsMiddleware from "@/middlewheres/techs";
+import * as techsMiddleware from "@/middlewheres/tech/tech";
 import { useScreen } from "@/hooks/useScreen";
 
 const liStyle: CSSProperties = {

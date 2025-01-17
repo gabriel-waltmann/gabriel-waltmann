@@ -1,7 +1,7 @@
 import TypographyParagraph from "@/components/typography/paragraph";
-import { usePageIndex } from "../hooks/pages/usePageIndex";
+import { usePageIndex } from "@/hooks/pages/usePageIndex";
 
-export default function IndexPage() {
+export default function PageIndex() {
   const { articleStyles, age, totalWorkTime } = usePageIndex();
 
   return (

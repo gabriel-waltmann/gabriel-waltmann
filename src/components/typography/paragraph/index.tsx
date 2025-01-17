@@ -1,7 +1,7 @@
 import {
   TTypographyParagraphProps,
   useTypographyParagraph,
-} from "./useTypographyParagraph";
+} from "@/hooks/components/typography/paragraph/useTypographyParagraph";
 
 export default function TypographyParagraph(props: TTypographyParagraphProps) {
   const { typographyParagraphStyle } = useTypographyParagraph(props);

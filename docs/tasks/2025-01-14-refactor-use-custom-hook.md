@@ -1,7 +1,7 @@
 ### Reafactor to use custom hooks
 
-- [ ] Refactor components
+- [x] Refactor components
 
-- [ ] Refactor pages
+- [x] Refactor pages
 
-- [ ] Create middlewares
+- [x] Create middlewares

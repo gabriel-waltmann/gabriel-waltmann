@@ -1,14 +1,14 @@
 import { usePageProject } from "@/hooks/pages/usePageProject";
-import SlideDefault from "@/components/slides/default";
+import SlidePrimary from "@/components/slide/primary";
 
-export default function ProjectsPage() {
+export default function PageProjects() {
   const { projects, ulStyle } = usePageProject();
 
   return (
     <ul style={ulStyle}>
       {projects.map((projectSlide, projectSlideIndex) => (
         <li key={projectSlideIndex + "project-slide"}>
-          <SlideDefault
+          <SlidePrimary
             autoPlay
             slides={projectSlide.slides}
             name={projectSlide.project.title}

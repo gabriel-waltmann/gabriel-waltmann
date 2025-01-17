@@ -1,5 +1,5 @@
-import { FileEntity } from "../FileEntity";
-import { ProjectEntity } from "./ProjectEntity";
+import { FileEntity } from "@/entities/FileEntity";
+import { ProjectEntity } from "@/entities/project/ProjectEntity";
 
 export interface ProjectFileEntity {
   id: string;

@@ -7,20 +7,20 @@ const techMock = {
 
 context("dashboard techs", () => {
   beforeEach(() => {
-    cy.visit("/dashboard/techs");
+    cy.visit("/dashboard/tech");
 
     cy.wait(1000);
   });
 
-  it("should have tech cards", () => {
+  it("should have tech rows", () => {
     cy.log("has page title");
     cy.get("h1").should("be.visible").and("have.text", "Techs");
 
-    cy.log("has ul tag");
-    cy.get("main ul").should("be.visible");
+    cy.log("has table tag");
+    cy.get("main table").should("be.visible");
 
-    cy.log("has multiple tech cards");
-    cy.get("main ul li").should("have.length.greaterThan", 3);
+    cy.log("has multiple tech rows");
+    cy.get("main table tbody tr").should("have.length.greaterThan", 3);
   });
 
   it("should open tech dialog, fill form and create tech", () => {
@@ -52,20 +52,19 @@ context("dashboard techs", () => {
       .wait(1000);
 
     cy.log("has image preview");
-    cy.get("li img").should("be.visible").and("have.attr", "src");
+    cy.get("img").should("be.visible").and("have.attr", "src");
 
     cy.log("submit form");
     cy.contains("button", "CADASTRAR").should("be.visible").click().wait(100);
 
-    cy.log("has tech card");
-    cy.contains("main ul li", techMock.name).should("be.visible");
+    cy.log("has tech row");
+    cy.contains("main table tbody tr", techMock.name).should("be.visible");
   });
 
   it("should open tech dialog and edit tech name", () => {
     cy.log("open tech form");
-    cy.contains("main ul li", techMock.name)
+    cy.contains("main table tbody tr", techMock.name)
       .should("be.visible")
-      .find("button")
       .click()
       .wait(100);
 
@@ -80,25 +79,22 @@ context("dashboard techs", () => {
     cy.log("save tech");
     cy.contains("button", "ALTERAR").should("be.visible").click().wait(1000);
 
-    cy.log("has tech card with edited name");
-    cy.contains("main ul li", techMock.nameEdited)
-      .should("be.visible")
-      .find("button")
-      .wait(1000);
+    cy.log("has tech row with edited name");
+    cy.contains("main table tbody tr", techMock.nameEdited)
+      .should("be.visible");
   });
 
   it("should open tech dialog and delete", () => {
     cy.log("open tech form");
-    cy.contains("main ul li", techMock.nameEdited)
+    cy.contains("main table tbody tr", techMock.nameEdited)
       .should("be.visible")
-      .find("button")
       .click()
       .wait(100);
 
     cy.log("delete tech");
     cy.contains("button", "DELETAR").should("be.visible").click().wait(1000);
 
-    cy.log("has no tech card");
-    cy.contains("main ul li", techMock.nameEdited).should("not.exist");
+    cy.log("has no tech row");
+    cy.contains("main table tbody tr", techMock.nameEdited).should("not.exist");
   });
 });
