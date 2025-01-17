@@ -29,7 +29,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Delete old docker images
-        run: git 
+        run: docker system prune -a -f
 
       - name: Pull docker image
         run: sudo docker pull gabrielwaltmann/waltmann_client:latest
