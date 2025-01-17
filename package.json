@@ -31,6 +31,7 @@
     "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
+    "@types/cypress": "^1.1.6",
     "cypress": "^13.17.0",
     "eslint-config-prettier": "^9.1.0",
     "prettier": "2.8.8",
