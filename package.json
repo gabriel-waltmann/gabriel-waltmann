@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prod": "next build && next start",
+    "build": "next build",
+    "start": "next start",
     "lint": "prettier --write --ignore-path .gitignore .",
     "cy:open": "cypress open",
     "cy:run": "cypress run --browser chrome"

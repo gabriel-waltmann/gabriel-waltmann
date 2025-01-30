@@ -1,4 +1,4 @@
-name: Deploy to production
+name: Build with next, push to docker hub and deploy at VPS
 
 on:
   push:
@@ -6,10 +6,12 @@ on:
       - main
 
 jobs:
-  build:
+  build-push-and-deploy:
+    name: Build with next, push to docker hub and deploy at VPS
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Create .env file
@@ -24,18 +26,15 @@ jobs:
       - name: Push docker image
         run: sudo docker push gabrielwaltmann/waltmann_client
 
-  deploy:
-    needs: build
-    runs-on: self-hosted
-    steps:
-      - name: Delete old docker images
-        run: docker system prune -a -f
-
-      - name: Pull docker image
-        run: sudo docker pull gabrielwaltmann/waltmann_client:latest
-
-      - name: Remove old container if exists
-        run: sudo docker rm -f waltmann_client
-
-      - name: Run docker container
-        run: docker run -d -p 3000:3000 -e PORT='${{ secrets.PORT }}' -e NEXT_PUBLIC_BACKEND_BASE_URL='${{ secrets.NEXT_PUBLIC_BACKEND_BASE_URL }}' --name waltmann_client gabrielwaltmann/waltmann_client:latest
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          passphrase: ${{ secrets.VPS_SSH_PASSWORD }}
+          script: |
+            cd ~/gabrielwaltmann
+            docker-compose pull waltmann-frontend
+            docker compose down waltmann-frontend
+            docker compose up -d --no-deps waltmann-frontend
