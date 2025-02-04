@@ -22,19 +22,25 @@ const formatProjectSlide = (
 });
 
 const getProjectSlides = async (): Promise<ProjectSlide[]> => {
-  const projects = await projectsMiddleware.retrieves();
-
-  const projectFiles: ProjectSlide[] = await Promise.all(
-    projects.map(async (project) => {
-      let files: ProjectFileEntity[] = await projectFilesMiddleware.retrieves(
-        project.id
-      );
-
-      return formatProjectSlide(project, files);
-    })
-  );
-
-  return projectFiles;
+  try {
+    const projects = await projectsMiddleware.retrieves();
+  
+    const projectFiles: ProjectSlide[] = await Promise.all(
+      projects.map(async (project) => {
+        let files: ProjectFileEntity[] = await projectFilesMiddleware.retrieves(
+          project.id
+        );
+  
+        return formatProjectSlide(project, files);
+      })
+    );
+  
+    return projectFiles;
+  } catch (error: any) {
+    console.error(error);
+    
+    return [];
+  }
 };
 
 const ulStyle: CSSProperties = {

@@ -39,21 +39,28 @@ export function useHeaderDashboard(props: THeaderDashboardProps) {
   };
 
   const getLinks = (): LinkIconEntity[] => {
+    const color = link === LinkIconEnum.dashboard ? "#121212" : "#8e8e8e";
+
     return [
       {
         icon: LinkIconEnum.dashboard,
         href: "/dashboard",
-        color: link === LinkIconEnum.dashboard ? "#121212" : "#8e8e8e",
+        color,
       },
       {
         icon: LinkIconEnum.projects,
         href: "/dashboard/project",
-        color: link === LinkIconEnum.projects ? "#121212" : "#8e8e8e",
+        color,
       },
       {
         icon: LinkIconEnum.techs,
         href: "/dashboard/tech",
-        color: link === LinkIconEnum.techs ? "#121212" : "#8e8e8e",
+        color,
+      },
+      {
+        icon: LinkIconEnum.workingTimer,
+        href: "/dashboard/working-timer",
+        color,
       },
     ]
   }

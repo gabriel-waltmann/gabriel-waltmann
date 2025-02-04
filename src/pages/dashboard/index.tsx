@@ -8,14 +8,14 @@ export default function PageDashboard(props: TPageDashboardProps) {
     links,
     linkStyle, 
     buttonStyle, 
-    ulStyles,
+    navStyles,
   } = usePageDashboard(props);
 
   return (
     <>
       <TypographyTitle value="Dashboard" />
 
-      <nav style={ulStyles}>
+      <nav style={navStyles}>
         {links.map((link, index) => (
           <ButtonContained style={buttonStyle} key={index + "dashboard-link"}>
             <Link style={linkStyle} href={link.href}>{link.name}</Link>

@@ -1,4 +1,4 @@
-import PrimaryContained from "@/components/button/contained";
+import ButtonContained from "@/components/button/contained";
 import TypographyTitle from "@/components/typography/title";
 import {
   Box,
@@ -38,7 +38,7 @@ export default function PageDashboardTech(props: TPageDashboardTechProps) {
       <div style={headerStyle}>
         <TypographyTitle value="Techs" />
 
-        <PrimaryContained value="+ Tech" onClick={formTechActions.showCreateTechForm} />
+        <ButtonContained value="+ Tech" onClick={formTechActions.showCreateTechForm} />
       </div>
 
       <TableTech style={tableStyle} techs={techs} onTechClick={formTechActions.showUpdateTechForm} />
@@ -52,9 +52,8 @@ export default function PageDashboardTech(props: TPageDashboardTechProps) {
                 control={control}
                 name="name"
                 render={({
-                  field: { onChange, onBlur, value, name, ref },
-                  fieldState: { invalid, isTouched, isDirty, error },
-                  formState,
+                  field: { onChange, value },
+                  fieldState: {  error },
                 }) => (
                   <TextField
                     autoFocus
@@ -81,9 +80,7 @@ export default function PageDashboardTech(props: TPageDashboardTechProps) {
                 control={control}
                 name="link"
                 render={({
-                  field: { onChange, onBlur, value, name, ref },
-                  fieldState: { invalid, isTouched, isDirty, error },
-                  formState,
+                  field: { onChange, value },
                 }) => (
                   <TextField
                     autoFocus
@@ -118,9 +115,7 @@ export default function PageDashboardTech(props: TPageDashboardTechProps) {
                 control={control}
                 name="linkName"
                 render={({
-                  field: { onChange, onBlur, value, name, ref },
-                  fieldState: { invalid, isTouched, isDirty, error },
-                  formState,
+                  field: { onChange, value },
                 }) => (
                   <TextField
                     autoFocus
@@ -202,15 +197,15 @@ export default function PageDashboardTech(props: TPageDashboardTechProps) {
 
               {form.watch("id") && (
                 <Button onClick={formTechActions.onTechDelete} variant="contained">
-                  {formTechStates.techDeleteLoading ? "DELETANDO..." : "DELETAR"}
+                  {formTechStates.techDeleteLoading ? "DELETING..." : "DELETE"}
                 </Button>
               )}
               <Button variant="contained" type="submit">
                 {formTechStates.techSubmitLoading
-                  ? "CARREGANDO..."
+                  ? "LOADING..."
                   : form.watch("id")?.length
-                  ? "ALTERAR"
-                  : "CADASTRAR"}
+                  ? "CHANGE"
+                  : "CREATE"}
               </Button>
             </DialogActions>
           </FormPrimary>

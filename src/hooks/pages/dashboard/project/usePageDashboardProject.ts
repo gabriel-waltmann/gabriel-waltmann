@@ -191,7 +191,7 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
     } catch (error: any) {
       console.error(error);
 
-      alert("Erro ao cadastrar tech");
+      alert("Unable to delete project");
 
       setFormProjectFormStates({
         ...formProjectFormStates,

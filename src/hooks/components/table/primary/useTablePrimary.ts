@@ -14,6 +14,7 @@ export function useTablePrimary(props: TTablePrimaryProps) {
     width: "100%",
     ...props.style,
   }
+  
   return {
     columns: props.columns,
     rows: props.rows,

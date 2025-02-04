@@ -1,3 +1,4 @@
+import { useScreen } from "@/hooks/useScreen";
 import { CSSProperties } from "react";
 
 export type TLayoutDashboardProps = Readonly<{
@@ -5,6 +6,8 @@ export type TLayoutDashboardProps = Readonly<{
 }>;
 
 export function useLayoutDashboard(props: TLayoutDashboardProps) {
+  const { isMobile } = useScreen();
+
   const divStyle: CSSProperties = {
     display: "flex",
     flexDirection: "row",
@@ -16,7 +19,7 @@ export function useLayoutDashboard(props: TLayoutDashboardProps) {
   const mainStyles: CSSProperties = {
     flex: 1,
     backgroundColor: "#f1f1f1",
-    padding: "1rem 2rem 1rem 1rem",
+    padding: isMobile ? ".4rem .8rem .4rem .4rem" : "1rem 2rem 1rem 1rem",
     overflowX: "auto",
   };
 

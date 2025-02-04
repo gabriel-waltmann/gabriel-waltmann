@@ -13,9 +13,17 @@ export function usePageTech() {
   const { width } = useScreen();
 
   const handleTechs = async () => {
-    const techs = await techsMiddleware.retrieves();
+    try {
+      const techs = await techsMiddleware.retrieves();
+  
+      setTechs(techs);
+    } catch (error: any) {
+      console.error(error);
 
-    setTechs(techs);
+      alert("Unable to load techs");
+
+      setTechs([]);
+    }
   };
 
   const getGridColumns = (): number => {

@@ -1,4 +1,4 @@
-import PrimaryContained from "@/components/button/contained";
+import ButtonContained from "@/components/button/contained";
 import TypographyTitle from "@/components/typography/title";
 import {
   Dialog,
@@ -28,7 +28,7 @@ export default function PageDashboardProject(props: TPageDashboardProjectProps) 
       <div style={headerStyle}>
         <TypographyTitle value="Projects" />
 
-        <PrimaryContained value="+ Project" onClick={formProjectFormActions.showCreateProjectForm} />
+        <ButtonContained value="+ Project" onClick={formProjectFormActions.showCreateProjectForm} />
       </div>
 
       <ul style={ulStyle}>

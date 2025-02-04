@@ -32,20 +32,20 @@ export default function TablePrimary(props: TTablePrimaryProps): JSX.Element {
               key={index+"table-row"}
             >
               {row.cells.map((cell, index) => (
-                    <TableCell 
-                      onClick={(event) => props.onRowClick?.(row.id)}
-                      component="th"
-                      align={index === 0 ? "left" : "right"} 
-                      key={index+"table-cell"}
-                      scope="row"
-                      sx={{ padding: cell.image ? "0" : ".2rem 1rem" }}
-                      padding="none"
-                    >
-                      {cell.image 
-                        ? <img src={cell.image} alt={cell.label} height="32px" /> 
-                        : <span>{cell.label}</span>
-                      }
-                    </TableCell>
+                <TableCell 
+                  onClick={(event) => props.onRowClick?.(row.id)}
+                  component="th"
+                  align={index === 0 ? "left" : "right"} 
+                  key={index+"table-cell"}
+                  scope="row"
+                  sx={{ padding: cell.image ? "0" : ".2rem 1rem" }}
+                  padding="none"
+                >
+                  {cell.image 
+                    ? <img src={cell.image} alt={cell.label} height="32px" /> 
+                    : <span>{cell.label}</span>
+                  }
+                </TableCell>
               ))}
             </TableRow>
           ))}

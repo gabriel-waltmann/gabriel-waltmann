@@ -10,6 +10,7 @@ import {
   Icon,
   InstagramLogo,
   LinkedinLogo,
+  Timer,
   Wrench,
 } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
@@ -34,6 +35,8 @@ const getIconComponent = (icon: LinkIconEnum) => {
       return Wrench;
     case LinkIconEnum.projects:
       return Building;
+    case LinkIconEnum.workingTimer:
+      return Timer;
   }
 };
 

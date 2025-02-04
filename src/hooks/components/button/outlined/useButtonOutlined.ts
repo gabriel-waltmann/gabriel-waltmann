@@ -10,13 +10,18 @@ export type TButtonOutlinedProps = Readonly<{
 
 export function useButtonOutlined(props: TButtonOutlinedProps) {
   const style: CSSProperties = {
-    width: "100%",
     ...props.style,
   }
 
   const type = props.type ?? "button";
 
-  const onClick = props.onClick;
+  const onClick = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+
+    if (props.onClick) {
+      props.onClick();
+    }
+  }
 
   return {
     type,

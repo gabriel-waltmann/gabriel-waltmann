@@ -8,4 +8,23 @@ export type TButtonContainedProps = Readonly<{
   style?: CSSProperties;
 }>;
 
-export function useButtonContained(props: TButtonContainedProps) {}
+export function useButtonContained(props: TButtonContainedProps) {
+  const style: CSSProperties = {
+    ...props.style,
+  }
+
+  const onClick = (e: { preventDefault: () => void }) => {
+    if (props.type !== "submit") {
+      e.preventDefault();
+    }
+
+    if (props.onClick) {
+      props.onClick();
+    }
+  }
+
+  return {
+    onClick,
+    style
+  }
+}

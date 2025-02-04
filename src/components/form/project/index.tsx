@@ -77,7 +77,7 @@ export default function FormProject(props: TFormProjectProps): JSX.Element {
         <DialogActions style={dialogActionsStyle}>
           {states.project.id && (
             <ButtonContained onClick={actions.onProjectDelete}>
-              {states.projectDeleteLoading ? "DELETANDO..." : "DELETAR"}
+              {states.projectDeleteLoading ? "DELETING..." : "DELETE"}
             </ButtonContained>
           )}
 
@@ -86,11 +86,11 @@ export default function FormProject(props: TFormProjectProps): JSX.Element {
           </Button>
 
           <Button variant="contained" type="submit">
-            {states.projectSubmitLoading && "CARREGANDO..." }
+            {states.projectSubmitLoading && "LOADING..." }
 
-            {!!(!states.projectSubmitLoading && states.project.id) && "ALTERAR"}
+            {!!(!states.projectSubmitLoading && states.project.id) && "CHANGE"}
             
-            {!!(!states.projectSubmitLoading && !states.project.id) && "CADASTRAR"}
+            {!!(!states.projectSubmitLoading && !states.project.id) && "CREATE"}
           </Button>
         </DialogActions>
       </div>
