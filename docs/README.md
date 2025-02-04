@@ -1,8 +1,5 @@
 # Portfólio
 
-[![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](./LICENSE)
-<br><br>
-
 ## 💻 Sobre o projeto
 
 Este é um portfólio pessoal de Gabriel Waltmannn. Nele, é possivel encontrar informações de contato, projetos já realizados entre outras informações.
@@ -33,16 +30,10 @@ Este é um portfólio pessoal de Gabriel Waltmannn. Nele, é possivel encontrar 
 
 ✔️ SASS/CSS <br>
 ✔️ Next.js<br>
-✔️ Nex-SEO<br>
-✔️ Vercel<br>
+✔️ AWS<br>
 ✔️ Material UI<br>
-✔️ Material UI Icons<br>
+✔️ phosphoricons<br>
 ✔️ Typescript<br>
-✔️ apollo<br>
-✔️ emailjs<br>
-✔️ framer-motion<br>
-✔️ graphql<br>
-✔️ typewriter-effect<br>
 
 <br><hr>
 
