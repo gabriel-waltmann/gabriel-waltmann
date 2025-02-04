@@ -55,7 +55,7 @@ context("dashboard techs", () => {
     cy.get("img").should("be.visible").and("have.attr", "src");
 
     cy.log("submit form");
-    cy.contains("button", "CADASTRAR").should("be.visible").click().wait(100);
+    cy.contains("button", "CREATE").should("be.visible").click().wait(100);
 
     cy.log("has tech row");
     cy.contains("main table tbody tr", techMock.name).should("be.visible");
@@ -77,7 +77,7 @@ context("dashboard techs", () => {
       .wait(100);
 
     cy.log("save tech");
-    cy.contains("button", "ALTERAR").should("be.visible").click().wait(1000);
+    cy.contains("button", "CHANGE").should("be.visible").click().wait(1000);
 
     cy.log("has tech row with edited name");
     cy.contains("main table tbody tr", techMock.nameEdited)
@@ -92,7 +92,7 @@ context("dashboard techs", () => {
       .wait(100);
 
     cy.log("delete tech");
-    cy.contains("button", "DELETAR").should("be.visible").click().wait(1000);
+    cy.contains("button", "DELETE").should("be.visible").click().wait(1000);
 
     cy.log("has no tech row");
     cy.contains("main table tbody tr", techMock.nameEdited).should("not.exist");

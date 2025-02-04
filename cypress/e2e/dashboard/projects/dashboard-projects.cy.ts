@@ -54,7 +54,7 @@ context("dashboard projects", () => {
       .should("have.class", "Mui-disabled");
 
     cy.log("submit form");
-    cy.contains("button", "CADASTRAR").should("be.visible").click().wait(1000);
+    cy.contains("button", "CREATE").should("be.visible").click().wait(1000);
 
     cy.log("has project card");
     cy.contains("main ul li button", projectMock.title).should("be.visible");
@@ -202,7 +202,7 @@ context("dashboard projects", () => {
       .wait(100);
 
     cy.log("save project");
-    cy.contains("button", "ALTERAR").should("be.visible").click().wait(1000);
+    cy.contains("button", "CHANGE").should("be.visible").click().wait(1000);
 
     cy.log("has project card with edited description");
     cy.contains("main ul li button", projectMock.title)
@@ -222,7 +222,7 @@ context("dashboard projects", () => {
       .should("have.class", "Mui-selected");
 
     cy.log("delete project");
-    cy.contains("button", "DELETAR").should("be.visible").click().wait(1000);
+    cy.contains("button", "DELETE").should("be.visible").click().wait(1000);
 
     cy.log("has no project card");
     cy.contains("main ul li button", projectMock.title).should("not.exist");
