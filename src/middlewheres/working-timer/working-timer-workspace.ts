@@ -1,4 +1,4 @@
-import { WorkspaceEntity } from "@/entities/WorkspaceEntity";
+import { WorkspaceEntity } from "@/entities/working-timer/WorkspaceEntity";
 
 export const retrieves = async (): Promise<WorkspaceEntity[]> => {
   const response = await fetch("/working-timer-api/workspaces");

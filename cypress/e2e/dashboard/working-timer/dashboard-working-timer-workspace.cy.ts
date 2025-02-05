@@ -5,7 +5,7 @@ const workspaceMock = {
   };
   
 
-context("dashboard working timer", () => {
+context("dashboard working timer workspace", () => {
   beforeEach(() => {
       cy.visit("/dashboard/working-timer");
   

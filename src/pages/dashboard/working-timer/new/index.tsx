@@ -1,6 +1,6 @@
 import TypographyTitle from "@/components/typography/title";
 import FormPrimary from "@/components/form/primary";
-import { DialogActions, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import ButtonOutlined from "@/components/button/outlined";
 import ButtonContained from "@/components/button/contained";
 import { Controller } from "react-hook-form";
@@ -27,7 +27,7 @@ export default function PageDashboardWorkingTimerNew(props: TPageDashboardWorkin
         
         // * styles
         headerStyle,
-        dialogActionsStyle,
+        navStyle,
         containerStyle,
      } = usePageDashboardWorkingTimerWorkspaceNew(props);
 
@@ -37,7 +37,7 @@ export default function PageDashboardWorkingTimerNew(props: TPageDashboardWorkin
                 <TypographyTitle>Working Timer New</TypographyTitle>
             </div>
 
-            <FormPrimary  style={containerStyle} control={control} onSubmit={handleSubmit(onSubmit)}>
+            <FormPrimary style={containerStyle} control={control} onSubmit={handleSubmit(onSubmit)}>
                 <div style={{ flex: 1 }}>
                     <Controller
                         control={control}
@@ -95,7 +95,7 @@ export default function PageDashboardWorkingTimerNew(props: TPageDashboardWorkin
                 </div>
 
 
-                <DialogActions style={dialogActionsStyle}>
+                <nav style={navStyle}>
                     <ButtonOutlined onClick={onBackToWorkpaces}>
                         {backLoading ? "LOADING..." : "BACK"}
                     </ButtonOutlined>
@@ -103,7 +103,7 @@ export default function PageDashboardWorkingTimerNew(props: TPageDashboardWorkin
                     <ButtonContained type="submit">
                         {submitLoading ? "LOADING..." : "CREATE"}
                     </ButtonContained>
-                </DialogActions>
+                </nav>
             </FormPrimary>
         </>
     )

@@ -5,6 +5,8 @@ import {
   TPageDashboardWorkingTimeWorkspaceProps, 
   usePageDashboardWorkingTimeWorkspace 
 } from "@/hooks/pages/dashboard/working-timer/workspace/usePageDashboardWorkingTimerWorkspace";
+import TableTimer from "@/components/table/timer";
+import LoadingPrimary from "@/components/loading/primary";
 
 export default function PageDashboardWorkingTimerWorkspace(props: TPageDashboardWorkingTimeWorkspaceProps): JSX.Element {
   const { 
@@ -12,14 +14,23 @@ export default function PageDashboardWorkingTimerWorkspace(props: TPageDashboard
     onBackToWorkpaces,
     onEditWorkspace,
     onDeleteWorkspace,
+    onTimerClick,
+    onGoToNewTimerPage,
 
     // * states
     workspaceLoading,
     workspace,
+    editLoading,
+    deleteLoading,
+    backLoading,
+    timersLoading,
+    timers,
+    newTimerPageLoading,
 
     // * styles
     headerStyle,
     navStyle,
+    tableStyle,
   } = usePageDashboardWorkingTimeWorkspace(props);
 
   //  * loading
@@ -50,18 +61,32 @@ export default function PageDashboardWorkingTimerWorkspace(props: TPageDashboard
         <TypographyTitle>Working Timer: {workspace.name}</TypographyTitle>
 
         <nav style={navStyle}>
-          <ButtonOutlined>+ TIMER</ButtonOutlined>
+          <ButtonOutlined onClick={onGoToNewTimerPage}>{
+            newTimerPageLoading ? <LoadingPrimary /> : "+ TIMER"
+          }</ButtonOutlined>
 
-          <ButtonContained onClick={onEditWorkspace}>EDIT</ButtonContained>
+          <ButtonContained onClick={onEditWorkspace}>{
+            editLoading ? <LoadingPrimary /> : "EDIT"
+          }</ButtonContained>
 
-          <ButtonContained onClick={onDeleteWorkspace}>DELETE</ButtonContained>
+          <ButtonContained onClick={onDeleteWorkspace}>
+            {deleteLoading ? <LoadingPrimary /> : "DELETE"}
+          </ButtonContained>
 
-          <ButtonContained onClick={onBackToWorkpaces}>BACK</ButtonContained>
+          <ButtonContained onClick={onBackToWorkpaces}>{
+            backLoading ? <LoadingPrimary /> : "BACK"
+          }</ButtonContained>
         </nav>
       </header>
 
       <section>
+        {timersLoading && <LoadingPrimary />}
 
+        {!timersLoading && <TableTimer 
+          style={tableStyle} 
+          timers={timers} 
+          onTimerClick={onTimerClick} 
+        />}
       </section>
     </>
   )

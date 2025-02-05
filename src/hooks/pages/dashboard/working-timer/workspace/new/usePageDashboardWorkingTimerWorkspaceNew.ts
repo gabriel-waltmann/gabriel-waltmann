@@ -3,15 +3,14 @@ import { CSSProperties, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import * as workingTimeWorkspacesMiddleware from "@/middlewheres/working-timer/working-timer-workspace";
+import { useScreen } from "@/hooks/useScreen";
 
 interface FormWorkingTimeWorkspaceEntity {
   name: string;
   priceByHour: number;
 }
 
-export type TPageDashboardWorkingTimerWorkspaceNew = Readonly<{
-
-}>
+export type TPageDashboardWorkingTimerWorkspaceNew = Readonly<{}>
 
 export function usePageDashboardWorkingTimerWorkspaceNew(props: TPageDashboardWorkingTimerWorkspaceNew) {
   const [backLoading, setBackLoading] = useState<boolean>(false);
@@ -19,6 +18,8 @@ export function usePageDashboardWorkingTimerWorkspaceNew(props: TPageDashboardWo
   const [submitLoading, setSubmitLoading] = useState<boolean>(false);
 
   const router = useRouter();
+
+  const { isMobile } = useScreen();
 
   const form = useForm<FormWorkingTimeWorkspaceEntity>({
     defaultValues: {
@@ -68,9 +69,16 @@ export function usePageDashboardWorkingTimerWorkspaceNew(props: TPageDashboardWo
     }
   }
 
-  const dialogActionsStyle: CSSProperties = {
+  const containerStyle: CSSProperties = {
+    maxWidth: "800px",
+    gap: ".6rem"
+  }
+  
+  const navStyle: CSSProperties = {
     gap: ".6rem",
-    padding: "1rem",
+    display: "flex",
+    flexDirection: isMobile ? "column" : "row",
+    justifyContent: "flex-end",
   }
 
   const headerStyle: CSSProperties = {
@@ -79,11 +87,6 @@ export function usePageDashboardWorkingTimerWorkspaceNew(props: TPageDashboardWo
     flexWrap: "nowrap",
     justifyContent: "space-between",
   };
-
-  const containerStyle: CSSProperties = {
-    maxWidth: "800px",
-    margin: "0 auto",
-  }
 
   return {
     // * actions
@@ -102,7 +105,7 @@ export function usePageDashboardWorkingTimerWorkspaceNew(props: TPageDashboardWo
 
     // * styles
     headerStyle,
-    dialogActionsStyle,
+    navStyle,
     containerStyle,
   }
 }

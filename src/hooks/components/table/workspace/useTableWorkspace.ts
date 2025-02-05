@@ -1,7 +1,7 @@
 import { TableCellEntity } from "@/entities/components/table/TableCellEntity";
 import { TableColumnEntity } from "@/entities/components/table/TableColumnEntity";
 import { TableRowEntity } from "@/entities/components/table/TableRowEntity";
-import { WorkspaceEntity } from "@/entities/WorkspaceEntity";
+import { WorkspaceEntity } from "@/entities/working-timer/WorkspaceEntity";
 import { CSSProperties, useEffect, useState } from "react";
 
 export type TTableWorkspaceProps = Readonly<{

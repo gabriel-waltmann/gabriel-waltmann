@@ -33,7 +33,7 @@ export default function TablePrimary(props: TTablePrimaryProps): JSX.Element {
             >
               {row.cells.map((cell, index) => (
                 <TableCell 
-                  onClick={(event) => props.onRowClick?.(row.id)}
+                  onClick={() => props.onRowClick?.(row.id)}
                   component="th"
                   align={index === 0 ? "left" : "right"} 
                   key={index+"table-cell"}
@@ -43,7 +43,7 @@ export default function TablePrimary(props: TTablePrimaryProps): JSX.Element {
                 >
                   {cell.image 
                     ? <img src={cell.image} alt={cell.label} height="32px" /> 
-                    : <span>{cell.label}</span>
+                    : <span style={{ textWrap: "nowrap" }}>{cell.label}</span>
                   }
                 </TableCell>
               ))}

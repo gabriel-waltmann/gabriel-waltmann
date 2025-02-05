@@ -1,4 +1,4 @@
-import { WorkspaceEntity } from "@/entities/WorkspaceEntity";
+import { WorkspaceEntity } from "@/entities/working-timer/WorkspaceEntity";
 import { CSSProperties, useEffect, useState } from "react";
 import * as workingTimeWorkspacesMiddleware from "@/middlewheres/working-timer/working-timer-workspace";
 import { useRouter } from "next/router";
