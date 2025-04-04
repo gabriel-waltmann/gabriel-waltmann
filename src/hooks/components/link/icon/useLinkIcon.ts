@@ -4,6 +4,7 @@ import { useScreen } from "@/hooks/useScreen";
 import {
   ArrowLeft,
   Building,
+  CreditCard,
   EnvelopeSimple,
   GithubLogo,
   House,
@@ -37,6 +38,8 @@ const getIconComponent = (icon: LinkIconEnum) => {
       return Building;
     case LinkIconEnum.workingTimer:
       return Timer;
+    case LinkIconEnum.bankToNotion:
+      return CreditCard;
   }
 };
 

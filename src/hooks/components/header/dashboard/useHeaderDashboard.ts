@@ -62,6 +62,11 @@ export function useHeaderDashboard(props: THeaderDashboardProps) {
         href: "/dashboard/working-timer",
         color,
       },
+      {
+        icon: LinkIconEnum.bankToNotion,
+        href: "/dashboard/bank-to-notion",
+        color,
+      }
     ]
   }
 
