@@ -31,8 +31,6 @@ export const usePageDashboardBankToNotion = (props: TPageDashboardBankToNotionPr
 
       const log = await bankToNotionMiddleware.create({ pdf, bank: "inter" });
 
-      console.log({log});
-
       setLogs([...logs, log]);
     } catch (error: any) {
       console.error(error);
@@ -47,11 +45,9 @@ export const usePageDashboardBankToNotion = (props: TPageDashboardBankToNotionPr
   
       if (!pdf) return;
   
-      const log = await bankToNotionMiddleware.create({ pdf, bank: "inter" });
-  
-      console.log({log});
-  
-      setLogs([...logs, log]);
+      const log = await bankToNotionMiddleware.create({ pdf, bank: "nubank" });
+
+      setLogs([log, ...logs]);
     } catch (error: any) {
       console.error(error);
     }

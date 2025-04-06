@@ -28,26 +28,42 @@ export function useTableBankToNotion(props: TTableBankToNotionProps) {
     ]
   }
 
-  const getRows = (logs: BankToNotionLogEntity[]): TableRowEntity[] => {
-    return logs.map((log, index) => ({
+  const getRow = (log: BankToNotionLogEntity, index: number): TableRowEntity => {
+    const dateConf: Intl.DateTimeFormatOptions = { 
+      day: "2-digit", 
+      month: "2-digit", 
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    };
+
+    const createdAt = new Date(log.created_at);
+    const createdAtLabel = createdAt.toLocaleDateString("pt-BR", dateConf);
+
+    const executedAt = log.executed_at ? new Date(log.executed_at) : null;
+    const executedAtLabel = executedAt ? executedAt.toLocaleDateString("pt-BR", dateConf) : "";
+
+    return {
       id: log.id,
       order: index,
       cells: [
         {
+          columnName: "bank",
+          label: log.bank,
+        },
+        {
           columnName: "created_at",
-          label: log.created_at
+          label: createdAtLabel,
         },
         {
           columnName: "executed_at",
-          label: log.executed_at,
+          label: executedAtLabel,
         },
-        {
-          columnName: "banco",
-          label: log.bank,
-        }
       ],
-    }));
+    }
   }
+
+  const getRows = (logs: BankToNotionLogEntity[]): TableRowEntity[] => logs.map(getRow);
 
   const [columns, setColumns] = useState<TableColumnEntity[]>([]);
 

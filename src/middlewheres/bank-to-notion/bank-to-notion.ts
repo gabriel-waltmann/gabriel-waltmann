@@ -19,17 +19,9 @@ interface BankToNotionCreateDTO {
 export const create = async (props: BankToNotionCreateDTO): Promise<BankToNotionLogEntity> => {
   const formData = new FormData();
 
-  const blob = new Blob([props.pdf], {
-    type: props.pdf.type,
-  });
-
-  if (!blob) {
-    throw new Error("Unable to create project file");
-  }
-
   formData.append("bank", props.bank);
 
-  formData.append("pdf", blob);
+  formData.append("pdf", props.pdf, "document.pdf");
 
   const response = await fetch("/working-timer-api/bank-to-notion", {
     method: "POST",
@@ -40,5 +32,7 @@ export const create = async (props: BankToNotionCreateDTO): Promise<BankToNotion
     throw new Error("Unable to start import");
   }
 
-  return await response.json();
+  const { log } = await response.json();
+
+  return log;
 }
