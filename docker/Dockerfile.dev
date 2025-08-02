@@ -6,11 +6,11 @@ RUN npm install -g pnpm
 
 COPY package.json ./
 
-RUN pnpm install
-
 COPY . .
 
 ENV NODE_ENV=development
+
+RUN pnpm install --frozen-lockfile
 
 EXPOSE 3000
 

@@ -3,6 +3,7 @@ import "../styles/global.scss";
 import { useRouter } from "next/router";
 import DashboardLayout from "@/layouts/dashboard";
 import LayoutDefault from "@/layouts/primary";
+import AuthLayout from "@/layouts/auth";
 import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -18,6 +19,20 @@ export default function App({ Component, pageProps }: AppProps) {
         <DashboardLayout>
           <Component {...pageProps} />
         </DashboardLayout>
+      </>
+    );
+  }
+
+  if (router.pathname.startsWith("/auth")) {
+    return (
+      <>
+        <Head>
+          <title>Auth</title>
+        </Head>
+
+        <AuthLayout>
+          <Component {...pageProps} />
+        </AuthLayout>
       </>
     );
   }
