@@ -5,14 +5,12 @@ import { Button, TextField } from "@mui/material";
 import { useRouter } from "next/router";
 import { Controller } from "react-hook-form";
 import * as auth from "@/middlewheres/auth/auth";
-import { useCookies } from 'next-client-cookies';
+import { useEffect } from "react";
 
 export default function PageDashboardRegister(props: TPageDashboardRegisterProps) {
   const form = useAuthRegisterForm();
 
   const router = useRouter();
-
-  const cookies = useCookies();
 
   const onSubmit = async () => {
     const valid = await form.trigger();
@@ -28,7 +26,7 @@ export default function PageDashboardRegister(props: TPageDashboardRegisterProps
 
       console.log({ login })
 
-      cookies.set("token", login.token);
+      localStorage.setItem("sessionToken", login.token);
 
       router.push("/dashboard")
     } catch (error) {
@@ -39,6 +37,18 @@ export default function PageDashboardRegister(props: TPageDashboardRegisterProps
   const onCancelRegister = async () => {
     await router.push("/dashboard")
   }
+
+  const onStart = () => {
+    const token = localStorage.getItem("sessionToken");
+
+    if (token) {
+      router.push("/dashboard")
+    }
+  }
+
+  useEffect(() => {
+    onStart();
+  }, [])
 
   return (
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", flex: 1 }}>
