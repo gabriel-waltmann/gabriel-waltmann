@@ -36,7 +36,7 @@ export const login = async (params: TAuthLoginDTO): Promise<TAuthLoginResponse> 
   });
 
   if (response.status !== 200) {
-    throw new Error("POST /api/auth/register")
+    throw new Error("POST /api/auth/login")
   }
 
   return await response.json();
