@@ -1,12 +1,12 @@
 import { ChangeEvent, CSSProperties, useEffect, useState } from "react";
 import { useScreen } from "@/hooks/useScreen";
 import { ProjectEntity } from "@/entities/project/ProjectEntity";
-import * as techMiddleware from "@/middlewheres/tech/tech";
-import * as projectMiddleware from "@/middlewheres/project/project";
-import * as projectFileMiddleware from "@/middlewheres/project/project-file";
-import * as projectTechMiddleware from "@/middlewheres/project/project-tech";
 import { FormProjectStatesEntity } from "@/entities/components/form/project/FormProjectStatesEntity";
 import { FormProjectActionsEntity } from "@/entities/components/form/project/FormProjectActionsEntity";
+import { TechController } from "@/controller/tech/TechController";
+import { ProjectFileController } from "@/controller/project/ProjectFileController";
+import { ProjectController } from "@/controller/project/ProjectController";
+import { ProjectTechController } from "@/controller/project/ProjectTechController";
 
 export type TPageDashboardProjectProps = Readonly<{}>;
 
@@ -70,6 +70,14 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
     position: "relative",
   }
 
+  const techController = new TechController()
+
+  const projectController = new ProjectController()
+
+  const projectFileController = new ProjectFileController()
+
+  const projectTechController = new ProjectTechController()
+
   const resetProjectForm = (project?: ProjectEntity) => {
     setFormProjectFormStates({
       ...formProjectFormStates,
@@ -101,7 +109,7 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
     try {
       setProjectsLoading(true);
 
-      setProjects(await projectMiddleware.retrieves());
+      setProjects(await projectController.retrieves());
 
       setProjectsLoading(false);
     } catch (error: any) {
@@ -114,7 +122,7 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
   };
 
   const onProjectSubmitCreate = async (data: FormProjectStatesEntity["project"]): Promise<ProjectEntity> => {
-    return await projectMiddleware.create({
+    return await projectController.create({
       title: data.title,
       description: data.description,
     });
@@ -123,7 +131,7 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
   const onProjectSubmitUpdate = async (data: FormProjectStatesEntity["project"]): Promise<ProjectEntity> => {
     if (!data.id) throw new Error("Unable to find project");
     
-    return await projectMiddleware.update({
+    return await projectController.update({
       id: data.id,
       title: data.title,
       description: data.description,
@@ -176,7 +184,7 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
         projectDeleteLoading: true,
       });
 
-      await projectMiddleware.remove(formProjectFormStates.project.id);
+      await projectController.remove(formProjectFormStates.project.id);
 
       const newTechs = projects.filter((tech) => tech.id !== formProjectFormStates.project.id);
       
@@ -211,7 +219,7 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
         loadProjectFilesLoading: true,
       });
     
-      const projectFiles = await projectFileMiddleware.retrieves(formProjectFormStates.project.id);
+      const projectFiles = await projectFileController.retrieves(formProjectFormStates.project.id);
 
       setFormProjectFormStates({
         ...formProjectFormStates,
@@ -247,7 +255,7 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
         throw new Error("File not found");
       }
 
-      const projectFile = await projectFileMiddleware.create({
+      const projectFile = await projectFileController.create({
         projectId: formProjectFormStates.project.id,
         file,
       });
@@ -284,7 +292,7 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
         deleteProjectFileLoading: true,
       });
 
-      await projectFileMiddleware.remove({
+      await projectFileController.remove({
         id,
         projectId: formProjectFormStates.project.id,
       });
@@ -314,7 +322,7 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
         loadProjectTechsLoading: true,  
       });
 
-      const techs = await techMiddleware.retrieves();
+      const techs = await techController.retrieves();
   
       setFormProjectFormStates({
         ...formProjectFormStates,
@@ -345,7 +353,7 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
         loadProjectTechsLoading: true,
       });
     
-      const projectTechs = await projectTechMiddleware.retrieves(formProjectFormStates.project.id);
+      const projectTechs = await projectTechController.retrieves(formProjectFormStates.project.id);
       
       setFormProjectFormStates({
         ...formProjectFormStates,
@@ -376,7 +384,7 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
         createProjectTechLoading: true,
       });
   
-      const projectTech = await projectTechMiddleware.create({
+      const projectTech = await projectTechController.create({
         techId,
         projectId: formProjectFormStates.project.id,
       })
@@ -411,7 +419,7 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
         deleteProjectTechLoading: true,
       });
 
-      await projectTechMiddleware.remove({
+      await projectTechController.remove({
         id,
         projectId: formProjectFormStates.project.id,
       });

@@ -1,15 +1,15 @@
 import { TableCellEntity } from "@/entities/components/table/TableCellEntity";
 import { TableColumnEntity } from "@/entities/components/table/TableColumnEntity";
 import { TableRowEntity } from "@/entities/components/table/TableRowEntity";
-import { TimerEntity } from "@/entities/working-timer/TimerEntity";
 import { CSSProperties, useEffect, useState } from "react";
 
 import * as timerDuration from "@/utils/time/time-duration";
 import * as dateFormat from "@/utils/date/date-format";
+import { ProjectTimerEntity } from "@/entities/project/timer/ProjectTimerEntity";
 
 export type TTableTimerProps = Readonly<{
-  timers: TimerEntity[];
-  onTimerClick?: (workspace: TimerEntity) => void;
+  timers: ProjectTimerEntity[];
+  onTimerClick?: (projectTimer: ProjectTimerEntity) => void;
   style?: CSSProperties
 }>
 
@@ -37,24 +37,24 @@ export function useTableTimer(props: TTableTimerProps) {
     ]
   }
 
-  const getRows = (timers: TimerEntity[]): TableRowEntity[] => {
+  const getRows = (timers: ProjectTimerEntity[]): TableRowEntity[] => {
     return timers.map((timer, index) => {
       const cells: TableCellEntity[] = [
         {
           columnName: "start",
-          label: dateFormat.ISOToBR(timer.start_time),
+          label: dateFormat.ISOToBR(timer.startTime),
         },
         {
           columnName: "end",
-          label: timer.end_time ? dateFormat.ISOToBR(timer.end_time) : "",
+          label: timer.endTime ? dateFormat.ISOToBR(timer.endTime) : "",
         },
         {
           columnName: "duration",
-          label: timer.end_time ? timerDuration.getHours(timer.start_time, timer.end_time) : "",
+          label: timer.endTime ? timerDuration.getHours(timer.startTime, timer.endTime) : "",
         },
         {
           columnName: "status",
-          label: timer.end_time ? "Finished" : "Running...",
+          label: timer.endTime ? "Finished" : "Running...",
         }
       ];
 

@@ -1,10 +1,10 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, UseFormReturn } from "react-hook-form";
-import { TAuthLoginDTO } from "@/types/auth/TAuthLogin";
 import { AuthLoginSchema } from "@/schemas/auth/authLoginSchema";
+import { AuthLoginDTO } from "@/controller/auth/AuthController";
 
-export const useAuthLoginForm = (): UseFormReturn<TAuthLoginDTO> => {
-  return useForm<TAuthLoginDTO>({
+export const useAuthLoginForm = (): UseFormReturn<AuthLoginDTO> => {
+  return useForm<AuthLoginDTO>({
     resolver: yupResolver(AuthLoginSchema),
     defaultValues: {
       email: "",

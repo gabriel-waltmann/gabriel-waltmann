@@ -1,12 +1,12 @@
-import * as auth from "@/middlewheres/auth/auth";
 import { useEffect } from "react";
 import { useAuthRegisterForm } from "@/hooks/forms/auth/useAuthRegisterForm";
 import { Control } from "react-hook-form";
-import { TAuthRegisterDTO } from "@/types/auth/TAuthRegister";
 import { useRouter } from "next/router";
+import { AuthController, AuthRegisterDTO } from "@/controller/auth/AuthController";
+import { api, updateApiAuth } from "@/api/api";
 
 export type TPageAuthRegisterProps = Readonly<{
-    formControl: Control<TAuthRegisterDTO>,
+    formControl: Control<AuthRegisterDTO>,
     onSubmit: () => Promise<void>,
     onCancelRegister: () => Promise<void>,
 }>
@@ -15,6 +15,8 @@ export function usePageAuthRegister(): TPageAuthRegisterProps {
     const form = useAuthRegisterForm();
 
     const router = useRouter();
+
+    const authController = new AuthController();
   
     const onSubmit = async () => {
       const valid = await form.trigger();
@@ -24,14 +26,14 @@ export function usePageAuthRegister(): TPageAuthRegisterProps {
       const params = form.getValues();
   
       try {
-        await auth.register(params);
+        await authController.register(params);
   
-        const login = await auth.login(params);
-  
-        console.log({ login })
-  
+        const login = await authController.login(params);
+    
         localStorage.setItem("sessionToken", login.token);
   
+        updateApiAuth(login.token)
+        
         router.push("/dashboard")
       } catch (error) {
         console.error(error)

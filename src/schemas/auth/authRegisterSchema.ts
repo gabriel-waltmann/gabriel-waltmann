@@ -1,7 +1,7 @@
-import { TAuthRegisterDTO } from "@/types/auth/TAuthRegister";
+import { AuthRegisterDTO } from "@/controller/auth/AuthController";
 import * as yup from "yup";
 
-export const AuthRegisterSchema: yup.ObjectSchema<TAuthRegisterDTO> = yup.object({
+export const AuthRegisterSchema: yup.ObjectSchema<AuthRegisterDTO> = yup.object({
   name: yup.string().required("Obrigatório.").min(3, "Minḿo de 3 caracteres."),
 
   email: yup.string().email("E-mail inválido.").required("Obrigatório.").trim().lowercase(),
