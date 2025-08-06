@@ -1,7 +1,7 @@
 import { TechEntity } from "@/entities/TechEntity";
 import { CSSProperties, useEffect, useState } from "react";
-import * as techsMiddleware from "@/middlewheres/tech/tech";
 import { useScreen } from "@/hooks/useScreen";
+import { TechController } from "@/controller/tech/TechController";
 
 const liStyle: CSSProperties = {
   boxShadow: "0px 0px 10px 0px rgba(0, 0, 0, 0.2)",
@@ -11,10 +11,11 @@ const liStyle: CSSProperties = {
 export function usePageTech() {
   const [techs, setTechs] = useState<TechEntity[]>([]);
   const { width } = useScreen();
+  const techController = new TechController();
 
   const handleTechs = async () => {
     try {
-      const techs = await techsMiddleware.retrieves();
+      const techs = await techController.retrieves();
   
       setTechs(techs);
     } catch (error: any) {

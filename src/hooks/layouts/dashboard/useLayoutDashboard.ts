@@ -1,14 +1,23 @@
+import { api, updateApiAuth } from "@/api/api";
 import { useScreen } from "@/hooks/useScreen";
-import { CSSProperties } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 
 export type TLayoutDashboardProps = Readonly<{
   children: JSX.Element
 }>;
 
-export function useLayoutDashboard(props: TLayoutDashboardProps) {
+export type TLayoutDashboardResult = {
+  loading: boolean,
+  divStyles: CSSProperties,
+  mainStyles: CSSProperties,
+}
+
+export function useLayoutDashboard(props: TLayoutDashboardProps): TLayoutDashboardResult {
   const { isMobile } = useScreen();
 
-  const divStyle: CSSProperties = {
+  const [loading, setLoading] = useState<boolean>(true)
+
+  const divStyles: CSSProperties = {
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
@@ -23,8 +32,19 @@ export function useLayoutDashboard(props: TLayoutDashboardProps) {
     overflowX: "auto",
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem("sessionToken")
+
+    if (!token) return
+
+    updateApiAuth(token)
+
+    setLoading(false)
+  }, [])
+
   return {
-    divStyle,
+    loading,
+    divStyles,
     mainStyles
   };
 }

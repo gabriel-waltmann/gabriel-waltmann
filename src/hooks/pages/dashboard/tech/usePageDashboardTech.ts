@@ -2,9 +2,9 @@ import { TechEntity } from "@/entities/TechEntity";
 import { useScreen } from "@/hooks/useScreen";
 import { CSSProperties, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import * as techsMiddleware from "@/middlewheres/tech/tech";
 import { FormTechActionsEntity } from "@/entities/components/form/tech/FormTechActionsEntity";
 import { FormTechStatesEntity } from "@/entities/components/form/tech/FormTechStatesEntity";
+import { TechController } from "@/controller/tech/TechController";
 
 export type TPageDashboardTechProps = Readonly<{}>
 
@@ -55,11 +55,13 @@ export function usePageDashboardTech(props: TPageDashboardTechProps) {
 
   const [techsLoading, setTechsLoading] = useState<boolean>(false);
 
+  const techController = new TechController();
+
   const onTechLoad = async () => {
     try {
       setTechsLoading(true);
 
-      const techs = await techsMiddleware.retrieves();
+      const techs = await techController.retrieves();
       
       setTechs(techs);
 
@@ -84,7 +86,7 @@ export function usePageDashboardTech(props: TPageDashboardTechProps) {
       throw new Error("Tech not found");
     }
 
-    return await techsMiddleware.update({
+    return await techController.update({
       ...data,
       id: data.id,
       file: data.fileUrl,
@@ -96,7 +98,7 @@ export function usePageDashboardTech(props: TPageDashboardTechProps) {
       throw new Error("File is required");
     }
 
-    return await techsMiddleware.create({
+    return await techController.create({
       ...data,
       file: data.fileUrl,
     });
@@ -174,7 +176,7 @@ export function usePageDashboardTech(props: TPageDashboardTechProps) {
         techDeleteLoading: true,
       });
   
-      await techsMiddleware.remove(id);
+      await techController.remove(id);
   
       const newTechs = techs.filter((tech) => tech.id !== id);
 
