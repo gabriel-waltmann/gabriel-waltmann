@@ -9,4 +9,5 @@ export enum LinkIconEnum {
   projects = 7,
   workingTimer = 8,
   bankToNotion = 9,
+  exit = 10,
 }

@@ -11,6 +11,7 @@ import {
   Icon,
   InstagramLogo,
   LinkedinLogo,
+  SignOut,
   Timer,
   Wrench,
 } from "@phosphor-icons/react";
@@ -40,6 +41,8 @@ const getIconComponent = (icon: LinkIconEnum) => {
       return Timer;
     case LinkIconEnum.bankToNotion:
       return CreditCard;
+    case LinkIconEnum.exit:
+      return SignOut
   }
 };
 

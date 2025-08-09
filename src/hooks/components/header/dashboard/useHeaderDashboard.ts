@@ -1,3 +1,4 @@
+import { api } from "@/api/api";
 import { LinkIconEntity } from "@/entities/components/link/icon/LinkIconEntity";
 import { LinkIconEnum } from "@/entities/components/link/icon/LinkIconEnum";
 import { useRouter } from "next/router";
@@ -7,7 +8,14 @@ export type THeaderDashboardProps = Readonly<{
   style?: CSSProperties
 }>
 
-export function useHeaderDashboard(props: THeaderDashboardProps) {
+export type THeaderDashboardResult = {
+  headerStyle: CSSProperties,
+  navStyle: CSSProperties,
+  links: LinkIconEntity[],
+  onClickExit: () => void
+}
+
+export function useHeaderDashboard(props: THeaderDashboardProps): THeaderDashboardResult {
   const headerStyle: CSSProperties = {
     height: "100%",
     padding: "1rem",
@@ -70,6 +78,14 @@ export function useHeaderDashboard(props: THeaderDashboardProps) {
     ]
   }
 
+  const onClickExit = () => {
+    localStorage.removeItem("sessionToken")
+
+    api.defaults.headers.common.Authorization = undefined;
+
+    router.push("/auth/login")
+  }
+
   useEffect(() => {
     setLink(getCurrentLink());
   }, []);
@@ -86,5 +102,6 @@ export function useHeaderDashboard(props: THeaderDashboardProps) {
     headerStyle,
     navStyle,
     links,
+    onClickExit
   }
 }
