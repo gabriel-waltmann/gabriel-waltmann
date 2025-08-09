@@ -1,5 +1,5 @@
 import ButtonFile from "@/components/button/file";
-import TableBankToNotion from "@/components/table/bank-to-notion";
+import FinanceImportTable from "@/components/table/finance-import";
 import TypographyTitle from "@/components/typography/title";
 import { TPageDashboardFinanceImportProps, usePageDashboardFinanceImport } from "@/hooks/pages/dashboard/finance-import/usePageDashboardFinanceImport";
 
@@ -25,7 +25,7 @@ export default function PageDashboardBankToNotion(props: TPageDashboardFinanceIm
       <div>
         <TypographyTitle value="Logs" />
 
-        <TableBankToNotion logs={logs}  />
+        <FinanceImportTable logs={logs}  />
       </div>
     </>
   );

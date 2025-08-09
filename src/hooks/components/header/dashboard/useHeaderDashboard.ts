@@ -72,7 +72,7 @@ export function useHeaderDashboard(props: THeaderDashboardProps): THeaderDashboa
       },
       {
         icon: LinkIconEnum.bankToNotion,
-        href: "/dashboard/bank-to-notion",
+        href: "/dashboard/finance-import",
         color,
       }
     ]

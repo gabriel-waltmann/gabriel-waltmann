@@ -1,4 +1,4 @@
-import { TTableBankToNotionProps, useTableBankToNotion } from "@/hooks/components/table/bank-to-notion/useTableBankToNotion";
+import { TTableBankToNotionProps, useTableBankToNotion } from "@/hooks/components/table/finance-import/useTableFinanceImport";
 import TablePrimary from "@/components/table/primary";
 
 export default function TableBankToNotion(props: TTableBankToNotionProps): JSX.Element {

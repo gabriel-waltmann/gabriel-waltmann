@@ -19,7 +19,7 @@ tar xzf ./actions-runner-linux-x64-2.327.1.tar.gz
 ./config.sh --url https://github.com/gabriel-waltmann/gabriel-waltmann --token token-from-settings/actions/runners/new
 
 ## Run it
-nohup ./run.sh &> runner.log &
+nohup ./run.sh &> runner.log &  
 
 ## Github Source:
 https://docs.github.com/en/actions/how-tos/manage-runners/self-hosted-runners/add-runners
