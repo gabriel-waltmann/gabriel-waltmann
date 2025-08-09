@@ -66,11 +66,7 @@ export function usePageDashboardTech(props: TPageDashboardTechProps) {
       setTechs(techs);
 
       setTechsLoading(false);
-    } catch (error: any) {
-      console.error(error);
-
-      alert("Unable to load techs");
-
+    } catch {
       setTechs([]);
       
       setTechsLoading(false);
@@ -125,11 +121,7 @@ export function usePageDashboardTech(props: TPageDashboardTechProps) {
       });
 
       setTechDialog(false);
-    } catch (error: any) {
-      console.error(error);
-
-      alert(error.message || "Unable to save tech");
-
+    } catch {
       setFormTechStates({
         ...formTechStates,
         techSubmitLoading: false,
@@ -188,11 +180,7 @@ export function usePageDashboardTech(props: TPageDashboardTechProps) {
       });
 
       setTechDialog(false);
-    } catch (error: any) {
-      console.error(error);
-  
-      alert(error.message || "Unable to delete tech");
-  
+    } catch {      
       setFormTechStates({
         ...formTechStates,
         techDeleteLoading: false,

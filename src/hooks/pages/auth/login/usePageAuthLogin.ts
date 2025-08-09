@@ -33,8 +33,7 @@ export function usePageAuthLogin(): TPageAuthLoginProps {
         updateApiAuth(login.token)
   
         router.push("/dashboard")
-      } catch (error) {
-        console.error(error)
+      } catch {      
       }
     }
   

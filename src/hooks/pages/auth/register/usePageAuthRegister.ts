@@ -35,8 +35,7 @@ export function usePageAuthRegister(): TPageAuthRegisterProps {
         updateApiAuth(login.token)
         
         router.push("/dashboard")
-      } catch (error) {
-        console.error(error)
+      } catch {
       }
     }
   

@@ -112,11 +112,7 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
       setProjects(await projectController.retrieves());
 
       setProjectsLoading(false);
-    } catch (error: any) {
-      console.error(error);
-
-      alert("Unable to load projects");
-
+    } catch {
       setProjectsLoading(false);
     }
   };
@@ -161,11 +157,7 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
       setProjectDialog(false);
 
       resetProjectForm();
-    } catch (error: any) {
-      console.error(error);
-    
-      alert(error.message || "Unable to submit project");
-
+    } catch {      
       setFormProjectFormStates({
         ...formProjectFormStates,
         projectSubmitLoading: false,
@@ -196,11 +188,7 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
       });
 
       setProjectDialog(false);
-    } catch (error: any) {
-      console.error(error);
-
-      alert("Unable to delete project");
-
+    } catch {      
       setFormProjectFormStates({
         ...formProjectFormStates,
         projectDeleteLoading: false,
@@ -226,8 +214,7 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
         loadProjectFilesLoading: false,
         projectFiles: projectFiles,
       });
-    } catch (error: any) {
-      console.error(error);
+    } catch {      
       setFormProjectFormStates({
         ...formProjectFormStates,
         loadProjectFilesLoading: false,
@@ -267,17 +254,13 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
         createProjectFileLoading: false,
         projectFiles: files,
       })
-    } catch (error: any) {
-      console.error(error);
-
+    } catch {      
       e.target.value = "";
 
       setFormProjectFormStates({
         ...formProjectFormStates,
         createProjectFileLoading: false,
       })
-
-      alert(error.message || "Unable to create project file");
     }
   }
 
@@ -303,15 +286,11 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
         ...formProjectFormStates,
         projectFiles: files,
       })
-    } catch (error: any) {
-      console.error(error);
-
+    } catch {      
       setFormProjectFormStates({
         ...formProjectFormStates,
         deleteProjectFileLoading: false,
       })
-
-      alert(error.message || "Unable to delete project file");
     }
   };
 
@@ -329,11 +308,7 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
         loadProjectTechsLoading: false,
         techs,
       });
-    } catch (error: any) {
-      console.error(error);
-
-      alert(error.message || "Unable to loading techs");
-
+    } catch {      
       setFormProjectFormStates({
         ...formProjectFormStates,
         loadProjectTechsLoading: false,
@@ -360,11 +335,7 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
         loadProjectTechsLoading: false,
         projectTechs,
       });
-    } catch (error: any) {
-      console.error(error);
-
-      alert(error.message || "Unable to loading project techs");
-
+    } catch {      
       setFormProjectFormStates({
         ...formProjectFormStates,
         loadProjectTechsLoading: false,
@@ -396,11 +367,7 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
         createProjectTechLoading: false,
         projectTechs,
       })
-    } catch (error: any) {
-      console.error(error);
-
-      alert(error.message || "Unable to create project tech");
-
+    } catch {      
       setFormProjectFormStates({
         ...formProjectFormStates,
         createProjectTechLoading: false,
@@ -431,11 +398,7 @@ export function usePageDashboardProject(props: TPageDashboardProjectProps) {
         deleteProjectTechLoading: false,
         projectTechs: newProjectTechs,
       })
-    } catch (error: any) {
-      console.error(error);
-
-      alert(error.message || "Unable to delete project tech");
-
+    } catch {      
       setFormProjectFormStates({
         ...formProjectFormStates,
         deleteProjectTechLoading: false,

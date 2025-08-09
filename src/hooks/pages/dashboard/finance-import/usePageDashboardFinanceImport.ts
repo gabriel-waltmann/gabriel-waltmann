@@ -34,8 +34,7 @@ export const usePageDashboardFinanceImport = (props: TPageDashboardFinanceImport
       const log = await financeImportController.create({ pdf, bank: "inter" });
 
       setLogs([...logs, log]);
-    } catch (error: any) {
-      console.error(error);
+    } catch {
     }
   }
 
@@ -50,8 +49,7 @@ export const usePageDashboardFinanceImport = (props: TPageDashboardFinanceImport
       const log = await financeImportController.create({ pdf, bank: "nubank" });
 
       setLogs([log, ...logs]);
-    } catch (error: any) {
-      console.error(error);
+    } catch {      
     }
   }
 
@@ -60,8 +58,7 @@ export const usePageDashboardFinanceImport = (props: TPageDashboardFinanceImport
       const logs = await financeImportController.retrieves();
   
       setLogs(logs);
-    } catch (error: any) {
-      console.error(error);
+    } catch {      
     }
   }
 

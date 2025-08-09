@@ -49,9 +49,7 @@ export const usePageProject = () => {
       );
     
       return projectFiles;
-    } catch (error: any) {
-      console.error(error);
-      
+    } catch {      
       return [];
     }
   };
