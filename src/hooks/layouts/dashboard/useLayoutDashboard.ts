@@ -1,6 +1,8 @@
-import { api, updateApiAuth } from "@/api/api";
+import { updateApiAuth } from "@/api/api";
 import { useScreen } from "@/hooks/useScreen";
 import { CSSProperties, useEffect, useState } from "react";
+import { api } from "@/api/api";
+import { useRouter } from "next/router";
 
 export type TLayoutDashboardProps = Readonly<{
   children: JSX.Element
@@ -14,6 +16,8 @@ export type TLayoutDashboardResult = {
 
 export function useLayoutDashboard(props: TLayoutDashboardProps): TLayoutDashboardResult {
   const { isMobile } = useScreen();
+
+  const router = useRouter();
 
   const [loading, setLoading] = useState<boolean>(true)
 
@@ -35,11 +39,23 @@ export function useLayoutDashboard(props: TLayoutDashboardProps): TLayoutDashboa
   useEffect(() => {
     const token = localStorage.getItem("sessionToken")
 
-    if (!token) return
-
-    updateApiAuth(token)
+    if (token) {
+      updateApiAuth(token)
+    }
 
     setLoading(false)
+
+      api.interceptors.response.use(null, error => {
+    console.error(error.response ?? error)
+    
+    if (error.response?.status === 403) {
+      localStorage.removeItem("sessionToken")
+
+      router.push("/auth/login")
+    }
+
+    throw error
+  })
   }, [])
 
   return {

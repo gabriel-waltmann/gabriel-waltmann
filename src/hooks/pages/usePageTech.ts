@@ -18,11 +18,7 @@ export function usePageTech() {
       const techs = await techController.retrieves();
   
       setTechs(techs);
-    } catch (error: any) {
-      console.error(error);
-
-      alert("Unable to load techs");
-
+    } catch {      
       setTechs([]);
     }
   };
