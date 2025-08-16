@@ -15,7 +15,7 @@ import { TPageDashboardTechProps, usePageDashboardTech } from "@/hooks/pages/das
 import FormPrimary from "@/components/form/primary";
 import ButtonFile from "@/components/button/file";
 
-export default function PageDashboardTech(props: TPageDashboardTechProps) {
+export default function Page(props: TPageDashboardTechProps) {
   const { 
     headerStyle,
     tableStyle,

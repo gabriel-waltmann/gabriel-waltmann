@@ -3,7 +3,7 @@ import { usePageAuthRegister } from "@/hooks/pages/auth/register/usePageAuthRegi
 import { Button, TextField } from "@mui/material";
 import { Controller } from "react-hook-form";
 
-export default function PageDashboardRegister() {
+export default function Page() {
   const props = usePageAuthRegister();
 
   return (

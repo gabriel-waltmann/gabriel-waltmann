@@ -1,7 +1,7 @@
 import HeaderDashboard from "@/components/header/dashboard";
 import { TLayoutDashboardProps, useLayoutDashboard } from "@/hooks/layouts/dashboard/useLayoutDashboard";
 
-export default function DashboardLayout(props: TLayoutDashboardProps) {
+export default function Layout(props: TLayoutDashboardProps) {
   const data = useLayoutDashboard(props);
 
   if (data.loading) return <></>

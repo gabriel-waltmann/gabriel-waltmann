@@ -3,7 +3,7 @@ import { usePageAuthLogin } from "@/hooks/pages/auth/login/usePageAuthLogin";
 import { Button, TextField } from "@mui/material";
 import { Controller } from "react-hook-form";
 
-export default function PageAuthLogin() {
+export default function Page() {
   const props = usePageAuthLogin();
 
   return (

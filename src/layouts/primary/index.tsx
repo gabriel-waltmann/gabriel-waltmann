@@ -3,7 +3,7 @@ import HeaderPrimary from "@/components/header/primary";
 import PrimaryTabs from "@/components/tab/primary";
 import { TLayoutPrimaryProps, useLayoutPrimary } from "@/hooks/layouts/primary/useLayoutPrimary";
 
-export default function LayoutPrimary(props: TLayoutPrimaryProps) {
+export default function Layout(props: TLayoutPrimaryProps) {
   const { tabs, tab, toggleTab, mainStyles } = useLayoutPrimary(props);
 
   return (

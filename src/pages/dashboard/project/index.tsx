@@ -9,7 +9,7 @@ import FormProject from "@/components/form/project";
 import LoadingPrimary from "@/components/loading/primary";
 import ButtonOutlined from "@/components/button/outlined";
 
-export default function PageDashboardProject(props: TPageDashboardProjectProps) {
+export default function Page(props: TPageDashboardProjectProps) {
   const {
     headerStyle,
     ulStyle, 

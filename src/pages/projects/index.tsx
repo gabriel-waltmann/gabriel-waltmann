@@ -1,7 +1,7 @@
 import { usePageProject } from "@/hooks/pages/usePageProject";
 import SlidePrimary from "@/components/slide/primary";
 
-export default function PageProjects() {
+export default function Page() {
   const { projects, ulStyle } = usePageProject();
 
   return (

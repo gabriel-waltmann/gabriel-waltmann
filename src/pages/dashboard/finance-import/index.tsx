@@ -3,7 +3,7 @@ import FinanceImportTable from "@/components/table/finance-import";
 import TypographyTitle from "@/components/typography/title";
 import { TPageDashboardFinanceImportProps, usePageDashboardFinanceImport } from "@/hooks/pages/dashboard/finance-import/usePageDashboardFinanceImport";
 
-export default function PageDashboardBankToNotion(props: TPageDashboardFinanceImportProps) {
+export default function Page(props: TPageDashboardFinanceImportProps) {
   const { headerStyle, ulStyle, onUploadInterBank, onUploadNubank, logs } = usePageDashboardFinanceImport(props);
 
   return (

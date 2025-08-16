@@ -1,7 +1,7 @@
 import { usePageTech } from "@/hooks/pages/usePageTech";
 import LinkCard from "@/components/link/card";
 
-export default function PageTechs() {
+export default function Page() {
   const { techs, ulStyle, liStyle } = usePageTech();
 
   return (
